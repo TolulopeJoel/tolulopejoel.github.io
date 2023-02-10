@@ -1,0 +1,98 @@
+section {
+    margin: 100px 0 150px 0;
+}
+
+.prj-details {
+    font-weight: 300 !important;
+    line-height: 1.6 !important;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+.main-btn {
+    max-width: 50%;
+}
+
+.body-ordy {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+
+.hero-text {
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.5;
+    margin-bottom: 70px;
+}
+
+.main-btn:hover {
+    background-color: black !important;
+}
+
+.source-code-btn:hover {
+    color: white !important;
+    background-color: #212529 !important;
+}
+
+.source-code-btn:hover+.live-app-btn {
+    color: #212529 !important;
+    border: 2px solid #212529 !important;
+    background-color: white !important;
+}
+
+.live-app-btn:hover {
+    color: #212529 !important;
+    border: 2px solid #212529 !important;
+    background-color: white !important;
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .hero-text {
+        font-size: 120px;
+        margin-bottom: 40px;
+    }
+
+    .hero {
+        margin-top: 50px !important;
+    }
+
+    .main-btn {
+        max-width: 20%;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .hero-text {
+        font-size: 80px;
+    }
+
+    .main-btn {
+        max-width: 28%;
+    }
+}
+
+@media only screen and (min-width:992px) {
+
+    .hero-text {
+        font-size: 100px;
+    }
+
+    .main-btn {
+        max-width: 21%;
+    }
+}
+
+@media (min-width:1400px) {
+    .hero-text {
+        font-size: 120px;
+    }
+
+    .main-btn {
+        max-width: 15%;
+    }
+}

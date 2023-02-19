@@ -1,5 +1,17 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 section {
     margin: 100px 0 150px 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+.main-btn {
+    max-width: 50%;
 }
 
 .prj-details {
@@ -7,20 +19,9 @@ section {
     line-height: 1.6 !important;
 }
 
-a {
-    cursor: pointer;
-}
-
-
-.main-btn {
-    max-width: 50%;
-}
-
 .body-ordy {
-    font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
 }
-
 
 .hero-text {
     font-size: 50px;
@@ -33,7 +34,12 @@ a {
     background-color: black !important;
 }
 
-.source-code-btn:hover {
+
+.prj-btns a {
+    font-weight: bold;
+}
+
+/* .source-code-btn:hover {
     color: white !important;
     background-color: #212529 !important;
 }
@@ -48,7 +54,7 @@ a {
     color: #212529 !important;
     border: 2px solid #212529 !important;
     background-color: white !important;
-}
+} */
 
 
 @media only screen and (min-width: 1200px) {

@@ -14,13 +14,13 @@ a {
     max-width: 50%;
 }
 
+.project {
+    margin: 80px 0px !important;
+}
+
 .prj-details {
     font-weight: 300 !important;
     line-height: 1.6 !important;
-}
-
-.body-ordy {
-    font-weight: bold;
 }
 
 .hero-text {
@@ -32,11 +32,6 @@ a {
 
 .main-btn:hover {
     background-color: black !important;
-}
-
-
-.prj-btns a {
-    font-weight: bold;
 }
 
 /* .source-code-btn:hover {

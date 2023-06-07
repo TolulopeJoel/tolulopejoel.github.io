@@ -19,6 +19,15 @@ p {
     color: #FFFFFF8C;
 }
 
+section {
+    margin: 3em 0;
+}
+
+.name::before{
+    content: '→ ';
+    color: #ffc107;
+}
+
 .button {
     -moz-appearance: none !important;
     -webkit-appearance: none !important;

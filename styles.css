@@ -4,15 +4,29 @@ body {
     font: Arial, Helvetica, sans-serif;
 }
 
-h2 {
-    font-size: 1.75em !important;
+@font-face {
+    font-family: 'Marlin';
+    src: url('./assets/fonts/marlin.woff2') format('woff2'),
+        url('./assets/fonts/marlin.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Marlin";
     color: #FFFFFF !important;
     font-weight: bold !important;
     line-height: 1.5 !important;
     margin: 0 0 0.5em 0 !important;
+}
+
+h2 {
+    font-size: 1.75em !important;
 }
 
 p {
@@ -23,7 +37,7 @@ section {
     margin: 3em 0;
 }
 
-.name::before{
+.name::before {
     content: '→ ';
     color: #ffc107;
 }
@@ -50,7 +64,7 @@ section {
     letter-spacing: 0.25em !important;
     line-height: 4.75em !important;
     outline: 0 !important;
-    padding: 0 3.75em !important;
+    padding: 0 3.35em !important;
     position: relative !important;
     text-align: center !important;
     text-decoration: none !important;

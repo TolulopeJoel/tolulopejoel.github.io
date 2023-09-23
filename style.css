@@ -1,10 +1,25 @@
+--var-dark {
+
+}
+
 @font-face {
     font-family: 'Tolu Sans';
     src: url('assets/fonts/NeueMontreal-Regular.otf');
 }
 
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('assets/fonts/Sofia\ Pro\ Bold.ttf');
+}
+
 body {
     background-color: #E9EAEB;
+}
+
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
 }
 
 .intro {
@@ -35,4 +50,34 @@ body {
 
 .roles h1:hover {
     transform: scale(1.2) translateX(10px);
+}
+
+.overlay-text {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 30px 0;
+    left: 0;
+    border-radius: var(--bs-card-inner-border-radius);
+}
+
+.overlay-text .card-title {
+    border-radius: 0 5px 5px 0;
+    color: #FFF;
+}
+
+.projects .col:nth-child(1) .card-title{
+    background-color: rgb(37, 40, 51) !important;
+}
+
+.projects .col:nth-child(2) .card-title{
+    background-color: #F8A2BF !important;
+}
+
+.projects .col:nth-child(3) .card-title{
+    background-color: rgb(74, 100, 70) !important;
+}
+
+.projects .col:nth-child(4) .card-title{
+    background-color: #F7683E !important;
 }

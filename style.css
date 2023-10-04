@@ -12,6 +12,52 @@ body {
     background-color: #E9EAEB;
 }
 
+ul {
+    padding: auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.button {
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    padding: 21px 24px;
+    text-align: center;
+    margin-right: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    font-family: "Moderat", sans-serif;
+    background-color: #0a0e27;
+}
+
+.btn-2 {
+    color: #eee;
+    background-color: #0a0e27;
+}
+
+
+/* 
+HEADER
+*/
+
+nav li {
+    font-size: 15px;
+    padding: 10px 12px;
+    margin-right: 16px;
+    display: inline-block;
+}
+
 section {
     display: grid;
     place-items: center;

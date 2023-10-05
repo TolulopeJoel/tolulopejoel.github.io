@@ -5,6 +5,16 @@
 }
 
 @font-face {
+  font-family: "Subtitle";
+  src: url("assets/fonts/subs.otf");
+}
+
+@font-face {
+  font-family: "Topic";
+  src: url("assets/fonts/font-2.otf");
+}
+
+@font-face {
   font-family: "Sofia Pro";
   src: url("assets/fonts/Sofia\ Pro\ Bold.ttf");
 }
@@ -15,6 +25,11 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Tolu Sans", sans-serif;
+}
+
+.subtitle {
+  font-family: "Subtitle", sans-serif;
+  font-size: 18px !important;
 }
 
 ul {
@@ -48,35 +63,30 @@ nav li {
   display: inline-block;
 }
 
-/* section {
-    display: grid;
-    place-items: center;
-    align-content: center;
-} */
+.main-text {
+  font-family: "Subtitle", sans-serif;
+}
 
-/* .intro {
-    font-size: 1.5em !important;
-    font-weight: 450 !important;
-    font-style: normal !important;
-    font-size: clamp(1.55em, 2.3vw, 2.5em) !important;
-    line-height: 1.45 !important;
-    
-    letter-spacing: normal !important;
-} */
+.intro, .teams, .projects {
+  padding: 47px 20px !important;
+}
 
 .intro {
   font-family: "Tolu Sans", sans-serif;
   place-content: flex-start center;
   flex: 0 0 auto;
-  font-weight: bold !important;
   flex-flow: column;
   gap: 19px;
   height: min-content;
   max-width: 762px;
   overflow: hidden;
-  padding: 47px 20px;
   position: relative;
   width: 100%;
+}
+
+
+.card-title {
+  font-family: "Topic", sans-serif !important;
 }
 
 .card {

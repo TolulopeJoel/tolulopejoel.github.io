@@ -79,6 +79,10 @@ nav li {
   width: 100%;
 }
 
+.card {
+  height: 320px !important;
+}
+
 .roles {
   transform: scaleX(1.5);
   line-height: 1;

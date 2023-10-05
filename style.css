@@ -84,6 +84,20 @@ nav li {
   width: 100%;
 }
 
+.introduction, header {
+  background-color: #007A78;
+  color: #FFC745;
+}
+
+.introduction .button {
+  border-color: #FFC745;
+  color: #FFC745;
+}
+
+.teams {
+  background-color: #7EA1C4;
+  color: #1B365C;
+}
 
 .card-title {
   font-family: "Topic", sans-serif !important;

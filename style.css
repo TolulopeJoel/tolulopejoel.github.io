@@ -70,7 +70,7 @@ nav li {
   font-family: "Subtitle", sans-serif;
 }
 
-.intro, .teams, .projects {
+.intro, .teams, .projects, #contact {
   padding: 47px 20px !important;
 }
 
@@ -103,4 +103,8 @@ nav li {
 
 .prj-btn::after {
   content: " →";
+}
+
+.contact-icons a {
+  margin: 25px !important;
 }

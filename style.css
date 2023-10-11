@@ -1,7 +1,12 @@
 @font-face {
   font-family: "Tolu Sans";
-  src: url("assets/fonts/font-regular.woff2"),
-    url("assets/fonts/font-bold.woff2");
+  src: url("assets/fonts/font-regular.woff2");
+}
+
+@font-face {
+  font-family: "Tolu Sans";
+  src: url("assets/fonts/font-bold.woff2");
+  font-weight: bold;
 }
 
 @font-face {
@@ -82,11 +87,20 @@ nav li {
   width: 100%;
 }
 
-
 .card-title {
   font-family: "Topic", sans-serif !important;
 }
 
 .card {
-  height: 20px !important;
+  height: 220px !important;
+}
+
+.prj-btn {
+  padding: 17px 26px !important;
+  background-color: rgb(222, 222, 223);
+  border-color: #cbcbcb !important;
+}
+
+.prj-btn::after {
+  content: " →";
 }

@@ -71,8 +71,12 @@ nav li {
   font-family: "Subtitle", sans-serif;
 }
 
-.intro, .teams, .projects, #contact {
+.intro, .projects, #contact {
   padding: 47px 20px !important;
+}
+
+.teams {
+  padding: 47px 15px !important;
 }
 
 .intro {
@@ -99,10 +103,32 @@ nav li {
 
 .card-title {
   font-family: "Topic", sans-serif !important;
+  color: white !important;
 }
 
 .card {
   height: 220px !important;
+}
+
+.team-card .card {
+  background-size: contain;
+}
+
+.team-card .card h5 {
+  font-size: 22px !important;
+}
+
+.team-card:nth-child(2) .card {
+  background-image: url('./images/patterns/17806799_5879340.jpg');
+
+}
+
+.team-card:nth-child(3) .card {
+  background-image: url('./images/patterns/abstract-ornamental-flowers.jpeg');
+}
+
+.team-card:nth-child(1) .card {
+  background-image: url('./images/patterns/wheat.webp');
 }
 
 .prj-btn {

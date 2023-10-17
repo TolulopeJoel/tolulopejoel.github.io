@@ -131,6 +131,15 @@ nav li {
   background-image: url('./images/patterns/wheat.webp');
 }
 
+.projects h2 {
+  font-size: 28px !important;
+}
+
+.projects p {
+  font-size: 18px !important;
+  font-family: "Subtitle", sans-serif;
+}
+
 .prj-btn {
   padding: 17px 26px !important;
   background-color: rgb(222, 222, 223);

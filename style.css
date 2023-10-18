@@ -142,9 +142,13 @@ nav li {
 }
 
 .prj-btn {
-  padding: 17px 26px !important;
-  background-color: rgb(222, 222, 223);
-  border-color: #cbcbcb !important;
+  padding: 17px 26px;
+  border: 1px solid #243444;
+}
+
+.prj-btn:hover {
+  background-color: #243444;
+  color: #fff;
 }
 
 .prj-btn::after {

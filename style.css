@@ -1,0 +1,185 @@
+/* This css structure is such a mess. Use at your own risk :) */
+@font-face {
+  font-family: "Tolu Sans";
+  src: url("assets/fonts/font-regular.woff2");
+}
+
+@font-face {
+  font-family: "Tolu Sans";
+  src: url("assets/fonts/font-bold.woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Subtitle";
+  src: url("assets/fonts/subs.otf");
+}
+
+@font-face {
+  font-family: "Topic";
+  src: url("assets/fonts/font-2.otf");
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("assets/fonts/Sofia\ Pro\ Bold.ttf");
+}
+
+body {
+  background-color: #e9eaeb;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Tolu Sans", sans-serif;
+}
+
+.subtitle {
+  font-family: "Subtitle", sans-serif;
+  font-size: 18px !important;
+}
+
+ul {
+  padding: auto;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.button {
+  padding: 15px 0px !important;
+  font-size: 18px !important;
+}
+
+/* 
+HEADER
+*/
+
+nav li {
+  font-size: 15px;
+  padding: 10px 12px;
+  margin-right: 16px;
+  display: inline-block;
+}
+
+.main-text {
+  font-family: "Subtitle", sans-serif;
+}
+
+.intro, .projects, #contact {
+  padding: 47px 20px !important;
+}
+
+.teams {
+  padding: 47px 15px !important;
+}
+
+.intro {
+  font-family: "Tolu Sans", sans-serif;
+  place-content: flex-start center;
+  flex: 0 0 auto;
+  flex-flow: column;
+  gap: 19px;
+  height: min-content;
+  max-width: 762px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.intro .head-text h2{
+  font-weight: bold;
+  font-size: calc(1.325rem + .9vw + 2px) !important;
+}
+
+.intro .head-text .two {
+  opacity: .72;
+}
+
+.card-title {
+  font-family: "Topic", sans-serif !important;
+  color: white !important;
+}
+
+.card {
+  height: 220px !important;
+}
+
+.team-card .card {
+  background-size: contain;
+}
+
+.team-card .card h5 {
+  font-size: 22px !important;
+}
+
+.team-card:nth-child(2) .card {
+  background-image: url('./images/patterns/17806799_5879340.jpg');
+
+}
+
+.team-card:nth-child(3) .card {
+  background-image: url('./images/patterns/abstract-ornamental-flowers.jpeg');
+}
+
+.team-card:nth-child(1) .card {
+  background-image: url('./images/patterns/wheat.webp');
+}
+
+.projects h2 {
+  font-size: 28px !important;
+}
+
+.projects p {
+  font-size: 18px !important;
+  font-family: "Subtitle", sans-serif;
+}
+
+.project-card {
+  padding: 3rem 0rem;
+}
+
+.prj-btn {
+  padding: 17px 20px;
+  margin-right: 10px !important;
+  border: 1px solid #243444;
+}
+
+.prj-btn:hover {
+  background-color: #243444;
+  color: #fff;
+}
+
+.prj-btn::after {
+  content: " →";
+}
+
+.btn-2::after {
+  content: none !important;
+}
+
+.contact-icons a {
+  margin: 12px !important;
+}
+
+.contact-icons img {
+  width: 33px;
+  height: 33px;
+}
+
+@media only screen and (min-width: 768px) {
+  .contact-icons a {
+    margin: 25px !important;
+  }
+
+  .contact-icons img {
+    width: 50px;
+    height: 50px;
+  }
+}

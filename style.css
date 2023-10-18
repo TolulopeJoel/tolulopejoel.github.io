@@ -146,7 +146,8 @@ nav li {
 }
 
 .prj-btn {
-  padding: 17px 26px;
+  padding: 17px 20px;
+  margin-right: 10px !important;
   border: 1px solid #243444;
 }
 
@@ -157,6 +158,10 @@ nav li {
 
 .prj-btn::after {
   content: " →";
+}
+
+.btn-2::after {
+  content: none !important;
 }
 
 .contact-icons a {

@@ -147,7 +147,8 @@ nav li {
 
 .prj-btn {
   padding: 17px 20px;
-  margin-right: 10px !important;
+  margin-right: .25rem !important;
+  margin: .25rem 0px;
   border: 1px solid #243444;
 }
 
@@ -165,12 +166,12 @@ nav li {
 }
 
 .contact-icons a {
-  margin: 12px !important;
+  margin: 7px !important;
 }
 
 .contact-icons img {
-  width: 33px;
-  height: 33px;
+  width: 24px;
+  height: 24px;
 }
 
 @media only screen and (min-width: 768px) {

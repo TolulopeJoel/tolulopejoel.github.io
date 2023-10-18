@@ -141,6 +141,10 @@ nav li {
   font-family: "Subtitle", sans-serif;
 }
 
+.project-card {
+  padding: 3rem 0rem;
+}
+
 .prj-btn {
   padding: 17px 26px;
   border: 1px solid #243444;

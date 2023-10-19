@@ -80,7 +80,7 @@ nav li {
   padding: 47px 15px !important;
 }
 
-.intro {
+/* .intro {
   font-family: "Tolu Sans", sans-serif;
   place-content: flex-start center;
   flex: 0 0 auto;
@@ -91,7 +91,7 @@ nav li {
   overflow: hidden;
   position: relative;
   width: 100%;
-}
+} */
 
 .intro .head-text h2{
   font-weight: bold;
@@ -184,3 +184,83 @@ nav li {
     height: 50px;
   }
 }
+
+
+/*Bio styling*/
+
+ /* Reset some default styles */
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+.intro {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 40px 0;
+  width:100%;
+  text-align: center;
+}
+
+.head-text {
+  margin-bottom: 20px;
+}
+
+.head-text h2 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.head-text b {
+  color: #f9f9f9;
+}
+
+.description {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.fs-5 {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.btn.button {
+  background-color: #f9f9f9;
+  color: #007BFF;
+  border: none;
+  padding: 15px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .head-text h2 {
+      font-size: 28px;
+  }
+  .fs-5 {
+      font-size: 16px;
+  }
+}
+
+
+.one {
+  font-size: 50px;
+  font-weight: 600;
+  color: #f9f9f9; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top:10px;
+  margin-left:20px;
+}
+
+.two {
+  font-size: 24px;
+  font-weight: 300; 
+  color: #f9f9f9; 
+  margin-top: 10px;
+  margin-left:20px;
+}
+/*-----------------------------bio styling end------------------------------

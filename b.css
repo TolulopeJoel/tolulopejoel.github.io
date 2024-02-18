@@ -62,6 +62,19 @@ body {
     }
 }
 
+
+@media (max-width: 576px) {
+    .flex-sm-wrap {
+        flex-wrap: wrap!important;
+    }
+    .order-sm-1 {
+        order: 1!important;
+    }
+    .order-sm-2 {
+        order: 2!important;
+    }
+}
+
 body,
 p {
     font-family: Nunito, sans-serif;

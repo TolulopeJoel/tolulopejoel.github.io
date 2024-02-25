@@ -6,23 +6,25 @@
 }
 
 .thebtn:hover {
-  color: #ff651f;
-  border: 1px solid #ff651f;
+  color: #fff;
+  background-color: #d0764c;
 }
 
 .thebtn {
-  color: #fff;
-  background-color: #f9ad66;
-}
-
-.thesignup:hover {
-  color: purple;
-  border: 1px solid purple;
+  color: #d0764c;
+  border: 1px solid #d0764c;
+  transition: .2s ease-in-out, color .2s ease-in-out;
 }
 
 .thesignup {
+  color: #c560c5;
+  border: 1px solid #c560c5;
+}
+
+.thesignup:hover {
   color: #fff;
-  background-color: #c8a2c8;
+  background-color: #c560c5;
+  transition: .2s ease-in-out, color .2s ease-in-out;
 }
 
 
@@ -177,12 +179,11 @@ p {
 
 
 .title {
-  color: #ff651f;
-  background-image: linear-gradient(#fce4eb, #fce4eb), linear-gradient(#000, #000);
-  text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 0 2px 0 #fff, 2px 3px 0 #fff, -2px 3px 0 #fff, 0 3px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff, 0 -2px 0 #fff;
+  /* color: #ff651f; */
+  /* background-image: linear-gradient(#fce4eb, #fce4eb), linear-gradient(#000, #000); */
+  text-shadow: 1px 1px 0 gray, -1px 1px 0 gray, 0 1px 0 gray, 1px 3px 0 gray, -1px 3px 0 gray, 0 3px 0 gray, 1px -1px 0 gray, -1px -1px 0 gray, 0 -1px 0 gray;
 
 }
-
 
 h1,
 h2,

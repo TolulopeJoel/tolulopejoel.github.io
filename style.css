@@ -310,3 +310,23 @@ h3 {
     text-align: center
   }
 }
+
+.contact-icons a {
+  margin: 7px !important;
+}
+
+.contact-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .contact-icons a {
+    margin: 25px !important;
+  }
+
+  .contact-icons img {
+    width: 50px;
+    height: 50px;
+  }
+}

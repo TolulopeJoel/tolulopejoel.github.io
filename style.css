@@ -1,170 +1,315 @@
-/* This css structure is such a mess. Use at your own risk :) */
-@font-face {
-  font-family: "Tolu Sans";
-  src: url("assets/fonts/font-regular.woff2");
+.nunito-deak {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 
-@font-face {
-  font-family: "Tolu Sans";
-  src: url("assets/fonts/font-bold.woff2");
-  font-weight: bold;
+.thebtn:hover {
+  color: #fff;
+  background-color: #d0764c;
 }
 
-@font-face {
-  font-family: "Subtitle";
-  src: url("assets/fonts/subs.otf");
+.thebtn {
+  color: #d0764c;
+  border: 1px solid #d0764c;
+  transition: .2s ease-in-out, color .2s ease-in-out;
 }
 
-@font-face {
-  font-family: "Topic";
-  src: url("assets/fonts/font-2.otf");
+.thesignup {
+  color: #c560c5;
+  border: 1px solid #c560c5;
 }
 
-@font-face {
-  font-family: "Sofia Pro";
-  src: url("assets/fonts/Sofia\ Pro\ Bold.ttf");
+.thesignup:hover {
+  color: #fff;
+  background-color: #c560c5;
+  transition: .2s ease-in-out, color .2s ease-in-out;
 }
 
-body {
-  background-color: #e9eaeb;
+
+img {
+  max-width: 100%
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Tolu Sans", sans-serif;
+body,
+html {
+  margin: 0;
+  background-color: #f2f2f2;
 }
 
-.subtitle {
-  font-family: "Subtitle", sans-serif;
-  font-size: 18px !important;
+
+.itb {
+  height: 100vh;
 }
 
-ul {
-  padding: auto;
-}
-
-li {
-  list-style-type: none;
-}
-
-a {
-  color: #000;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.button {
-  padding: 15px 0px !important;
-  font-size: 18px !important;
-}
-
-/* 
-HEADER
-*/
-
-nav li {
-  font-size: 15px;
-  padding: 10px 12px;
-  margin-right: 16px;
-  display: inline-block;
-}
-
-.main-text {
-  font-family: "Subtitle", sans-serif;
-}
-
-.intro, .projects, #contact {
-  padding: 47px 20px !important;
-}
-
-.teams {
-  padding: 47px 15px !important;
-}
 
 .intro {
-  font-family: "Tolu Sans", sans-serif;
-  place-content: flex-start center;
-  flex: 0 0 auto;
-  flex-flow: column;
-  gap: 19px;
-  height: min-content;
-  max-width: 762px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+  background:
+    linear-gradient(-90deg, rgba(0, 0, 0, .05) 0.5px, transparent 0.5px),
+    linear-gradient(rgba(0, 0, 0, .05) 0.5px, transparent 0.5px),
+    linear-gradient(-90deg, rgba(0, 0, 0, .04) 0.5px, transparent 0.5px),
+    linear-gradient(rgba(0, 0, 0, .04) 0.5px, transparent 0.5px),
+    linear-gradient(transparent 3px, #f2f2f2 3px, #f2f2f2 78px, transparent 78px),
+    linear-gradient(-90deg, #FFC896 1px, transparent 1px),
+    linear-gradient(-90deg, transparent 3px, 3px, #f2f2f2 78px, transparent 78px),
+    linear-gradient(#f9ad66 1px, transparent 1px),
+    #f2f2f2;
+  background-size:
+    40px 40px,
+    40px 40px,
+    80px 80px,
+    80px 80px,
+    80px 80px,
+    80px 80px,
+    80px 80px,
+    80px 80px;
 }
 
-.intro .head-text h2{
-  font-weight: bold;
-  font-size: calc(1.325rem + .9vw + 2px) !important;
+
+body {
+  background:
+    linear-gradient(-90deg, rgba(0, 0, 0, .05) 0.5px, transparent 0.5px),
+    linear-gradient(rgba(0, 0, 0, .05) 0.5px, transparent 0.5px),
+    linear-gradient(-90deg, rgba(0, 0, 0, .04) 0.5px, transparent 0.5px),
+    linear-gradient(rgba(0, 0, 0, .04) 0.5px, transparent 0.5px),
+    #f2f2f2;
+  background-size:
+    40px 40px,
+    40px 40px,
+    80px 80px,
+    80px 80px,
+    80px 80px,
+    80px 80px,
+    80px 80px,
+    80px 80px;
 }
 
-.intro .head-text .two {
-  opacity: .72;
+
+.container {
+  max-width: 1150px;
+  padding: 0 100px;
+  margin: 0 auto
 }
 
-.card-title {
-  font-family: "Topic", sans-serif !important;
-  color: white !important;
+.sm-container {
+  max-width: 1200px;
+  padding: 0 77px;
+  margin: 0 auto
 }
 
-.card {
-  height: 220px !important;
+@media (max-width: 768px) {
+  .sm-container {
+    padding: 0 20px
+  }
 }
 
-.team-card .card {
-  background-size: contain;
-}
-
-.team-card .card h5 {
-  font-size: 22px !important;
-}
-
-.team-card:nth-child(2) .card {
-  background-image: url('./images/patterns/17806799_5879340.jpg');
+@media (max-width: 500px) {
+  .sm-container {
+    padding: 0 12px
+  }
 
 }
 
-.team-card:nth-child(3) .card {
-  background-image: url('./images/patterns/abstract-ornamental-flowers.jpeg');
+@media (max-width: 768px) {
+  .container {
+    padding: 0 60px
+  }
 }
 
-.team-card:nth-child(1) .card {
-  background-image: url('./images/patterns/wheat.webp');
+@media (max-width: 500px) {
+  .container {
+    padding: 0 35px
+  }
 }
 
-.projects h2 {
-  font-size: 28px !important;
+
+@media (max-width: 576px) {
+  .flex-sm-wrap {
+    flex-wrap: wrap !important;
+  }
+
+  .order-sm-1 {
+    order: 1 !important;
+  }
+
+  .order-sm-2 {
+    order: 2 !important;
+  }
 }
 
-.projects p {
-  font-size: 18px !important;
-  font-family: "Subtitle", sans-serif;
+body,
+p {
+  font-family: Nunito, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px
 }
 
-.project-card {
-  padding: 3rem 0rem;
+@media (max-width: 600px) {
+
+  body,
+  p {
+    font-size: 16px;
+    line-height: 28px
+  }
 }
 
-.prj-btn {
-  padding: 17px 20px;
-  margin-right: .25rem !important;
-  margin: .25rem 0px;
-  border: 1px solid #243444;
+p {
+  margin-bottom: 0
 }
 
-.prj-btn:hover {
-  background-color: #243444;
-  color: #fff;
+.underline {
+  text-decoration: none;
+  background-image: linear-gradient(#fce4eb, #fce4eb), linear-gradient(#000, #000);
+  background-position: 50%, 50% calc(100% - 2px);
+  background-repeat: no-repeat, repeat-x;
+  background-size: 80% 0, 100% 2px;
+  text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 0 2px 0 #fff, 2px 3px 0 #fff, -2px 3px 0 #fff, 0 3px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff, 0 -2px 0 #fff;
+  display: inline;
+  color: #000;
+  transition: background-size .2s ease-in-out, color .2s ease-in-out;
 }
 
-.prj-btn::after {
-  content: " →";
+.underline:hover,
+.underline[data-focus-visible-added] {
+  background-size: 100% 100%, 100% 2px;
+  color: #ff651f;
 }
 
-.btn-2::after {
-  content: none !important;
+
+.title {
+  /* color: #ff651f; */
+  /* background-image: linear-gradient(#fce4eb, #fce4eb), linear-gradient(#000, #000); */
+  text-shadow: 1px 1px 0 gray, -1px 1px 0 gray, 0 1px 0 gray, 1px 3px 0 gray, -1px 3px 0 gray, 0 3px 0 gray, 1px -1px 0 gray, -1px -1px 0 gray, 0 -1px 0 gray;
+
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0
+}
+
+h1 {
+  font-size: 300px;
+  font-weight: 900;
+  line-height: 0
+}
+
+@media (max-width: 1150px) {
+  h1 {
+    font-size: 200px
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 175px
+  }
+}
+
+@media (max-width: 550px) {
+  h1 {
+    font-size: 120px
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 80px
+  }
+}
+
+.h2,
+.intro-title,
+h2 {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 54px;
+  margin-bottom: 21px
+}
+
+
+
+
+@media (max-width: 1250px) {
+  .intro-title {
+    font-size: 50px
+  }
+}
+
+@media (max-width: 600px) {
+  .intro-title {
+    font-size: 38px
+  }
+}
+
+@media (max-width: 400px) {
+  .intro-title {
+    font-size: 36px
+  }
+}
+
+@media (max-width: 320px) and (max-height:568px) {
+  .intro-title {
+    font-size: 24px
+  }
+}
+
+.h3,
+h3 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 44px;
+  margin-bottom: 21px
+}
+
+@media (max-width: 768px) {
+
+  .h3,
+  h3 {
+    display: block;
+    font-size: 28px;
+    line-height: 37px
+  }
+}
+
+@media (max-width: 500px) {
+
+  .h3,
+  h3 {
+    font-size: 24px;
+    line-height: 32px
+  }
+}
+
+
+
+/* .button {
+  margin-top: 20px;
+  text-decoration: none;
+  display: inline-block;
+  color: #000;
+  background-image: linear-gradient(90deg, #5fbe7e 0, #5fbe7e 33%, #0dafb7 66%, #0dafb7);
+  background-size: 300%;
+  border-radius: 100px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, .1);
+} */
+
+
+@media (max-width: 500px) {
+  .button {
+    font-size: 20px;
+    padding: 20px 40px;
+    display: block;
+    text-align: center
+  }
+}
 
 .contact-icons a {
   margin: 7px !important;

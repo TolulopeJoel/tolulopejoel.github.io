@@ -14,150 +14,218 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <header class="py-4">
-        <nav class="navbar navbar-expand-md">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">about</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <section class="intro container">
-        <div class="intro d-flex">
-            <div class="head-text">
-                <h2 class="m-0 one">how’re you doing?</h2>
-                <h2 class="m-0 two"><b>i am Tolu, and</b></h2>
-                <h2 class="m-0 two"><b>i build cool things.</b></h2>
-            </div>
-            <div>
-                <h2 class="fs-5">
-                    I have a knack for transforming ideas into efficient and innovative solutions. Merging creativity
-                    with code, day in and day out.
-                </h2>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <button class="btn button btn-outline-dark w-100" disabled>get to know me</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="teams">
-        <div class="text-center">
-            <h3>teams i've worked with</h3>
-            <h6 class="subtitle">...and projects i've delivered on</h6>
-        </div>
-
-        <div class="team-c row mx-2 my-4">
-            <div class="team-card col-lg-4 g-3 col-sm-12">
-                <div class="card bg-transparent p-2">
-                    <div class="card-body">
-                        <h5 class="card-title">HelpMeOut</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="team-card col-lg-4 g-3 col-sm-12">
-                <div class="card bg-transparent p-2">
-                    <div class="card-body">
-                        <h5 class="card-title">Nairaland + Genztechies</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="team-card col-lg-4 g-3 col-sm-12">
-                <div class="card bg-transparent p-2">
-                    <div class="card-body">
-                        <h5 class="card-title">zuri + I4G</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="projects">
-        <div class="text-center mb-3">
-            <h2>projects i've devoted time to</h2>
-        </div>
-
+    <section class="intro">
         <div class="container">
-            <div class="project-card">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <img src="./images/projects/rode.jpg" alt="" class="w-100">
-                    </div>
-                    <div class="d-flex align-items-center col-lg-6 col-md-12 col-sm-12">
-                        <div>
-                            <h2 class="mt-4 mb-3"><b>chunkit</b></h2>
-                            <p>
-                                Chunkit enhances data security by letting users break down their data into smaller, more
-                                secure chunks, making it invaluable for a wide array of applications, whether to
-                                streamline file transfers or optimize storage management strategies.
-                            </p>
-                            <a href="https://github.com/TolulopeJoel/chunkit" class="btn prj-btn">view project</a>
-                            <button href="cool" class="btn prj-btn btn-2" disabled>study case (coming soon)</button>
-                        </div>
-                    </div>
+            <div
+                class="d-flex flex-lg-nowrap flex-md-wrap flex-sm-wrap itb align-items-center justify-content-center itb">
+                <div class="col-lg-6 col-md-12 order-lg-1 order-md-1 order-sm-2">
+                    <h1 class="intro-title text-lg-start text-center">Let’s create something tangible together</h1>
+                    <p class="text-lg-start text-center">
+                        <span>Hi! I am Tolu, a software engineer with a proven ability to</span>
+                        <span class="underline">simplify complex ideas into efficient and scalable solutions</span>.
+                        <!-- <a href="#wh" class="underline">machine Learning and artificial intelligence integration.</a> -->
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-12 order-lg-2 order-md-2 order-sm-1">
+                    <img src="./bc.webp" alt="" height="auto" width="auto" max-width="100%">
                 </div>
             </div>
+        </div>
 
-            <div class="project-card">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <img src="./images/projects/third.png" alt="" class="w-100">
-                    </div>
-                    <div class="d-flex align-items-center col-lg-6 col-md-12 col-sm-12">
+    </section>
+
+    <!-- <section class="my-5" id="wh">
+        <div class="container">
+            <h2 class="title">more about me</h2>
+            <p class="pe-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Maecenas accumsan lacus vel facilisis. Duis ut diam quam nulla
+                porttitor massa id neque aliquam.
+            </p>
+            <p>
+                Sapien faucibus et molestie ac feugiat sed. Fermentum leo vel
+                orci porta non pulvinar neque laoreet suspendisse. Integer vitae justo eget magna fermentum
+                iaculis eu non diam. Lorem sed risus ultricies tristique nulla aliquet enim. Vel quam elementum
+                pulvinar etiam non quam lacus suspendisse faucibus...
+            </p>
+        </div>
+    </section> -->
+
+    <section class="next-one" id="wh">
+        <div class="container">
+            <div class="dede">
+                <h2 class="title">projects</h2>
+                <p class="pe-3">
+                    These are some of my favourite projects. They leverage API Integration, Web Scraping, File Storage &
+                    Management, Payment, and AI integration. Feedback is always appreciated for projects like these—and
+                    feel free to contribute if possible :)
+                </p>
+
+                <div class="project my-5">
+                    <h4><b><a href="https://github.com/TolulopeJoel/woohumore">Woohumore</a></b></h4>
+                    <p>
+                        Woohumore focuses on combating negativity bias in the news by creating a unique video-based news
+                        aggregator. It scours the web for positive and negative news, presenting the positive impact or
+                        side of negative news stories. Woohumore aims to promote a more optimistic news experience for
+                        people.
+                    </p>
+                    <!-- <div class="thebtn">hello</div> -->
+                    <a href="projects/wh.html" class="btn my-3 thebtn rounded">know more</a>
+                    <a href="https://woohm.netlify.app" class="btn my-3 thesignup rounded" target="_blank">subscribe</a>
+                </div>
+
+                <div class="project my-5">
+                    <h4 class=""><b><a href="https://github.com/TolulopeJoel/chunkit">Chunkit</a></b></h4>
+                    <p>
+                        Chunkit offers a secure and efficient solution by splitting files into smaller, manageable
+                        chunks. This tool tackles challenges like slow transfers, limited storage, and unreliable
+                        connections. Chunkit intelligently splits files, optimizes transfers, and can seamlessly merge
+                        split files back.
+                    </p>
+                    <a href="projects/ci.html" class="btn my-3 thebtn rounded">know more</a>
+                    <a href="https://github.com/TolulopeJoel/chunkit" class="btn my-3 thesignup rounded">view</a>
+                </div>
+
+                <p class="pe-3">
+                    Other projects.
+                </p>
+
+                <div class="">
+                    <div class="my-5">
                         <div>
-                            <h2 class="mt-4 mb-3"><b>helpmeout</b></h2>
-                            <p>
-                                This application provides a video recording and processing API, enabling users to upload
-                                video data in 'blobs' or chunks. It seamlessly integrates with a Chrome extension for
-                                screen capture, compiling, compressing, extracting thumbnails, and transcribing uploaded
-                                videos using a speech-to-text API.
-                            </p>
-                            <a href="https://github.com/TolulopeJoel/pixelgrab" class="btn prj-btn">view project</a>
-                            <button href="cool" class="btn prj-btn btn-2" disabled>study case (coming soon)</button>
+                            <h4><b><a href="https://github.com/TolulopeJoel/pixelgrab">Pixelgrab</a></b></h4>
+                            <p>A backend solution for a screen-recording chrome extension.</p>
+                        </div>
+
+                        <div>
+                            <p>Key Features: </p>
+                            <ul>
+                                <li>
+                                    <p>Video Stream: Establishes a secure connection to receive the video stream blobs
+                                        captured by the Chrome extension.</p>
+                                </li>
+                                <li>
+                                    <p>Video Compression: Once a video is fully received, it is compressed to save
+                                        space.</p>
+                                </li>
+                                <li>
+                                    <p>Thumbnail Extraction: A thumbnail image is extracted from the video for preview
+                                        purposes.</p>
+                                </li>
+
+                            </ul>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="project-card">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <img src="./images/projects/second.jpg" alt="" class="w-100">
-                    </div>
-                    <div class="d-flex align-items-center col-lg-6 col-md-12 col-sm-12">
+                    <div class="my-5">
                         <div>
-                            <h2 class="mt-4 mb-3"><b>synkbrid</b></h2>
-                            <p>
-                                An application facilitating remote team productivity by offering robust capabilities
-                                for task management, deadline establishment, and seamless real-time collaboration.
-                            </p>
-                            <a href="https://github.com/TolulopeJoel/synkbrid" class="btn prj-btn">view project</a>
-                            <button href="cool" class="btn prj-btn btn-2" disabled>study case (coming soon)</button>
+                            <h4><b><a href="https://github.com/TolulopeJoel/hackathon-host">Hackathon Host</a></b></h4>
+                            <p>An application for hosting hackathons, with functionalities such as enrolling for
+                                hackathons and making submissions based on hackathon submission type.</p>
+                        </div>
+
+                        <div>
+                            <p>Key Features: </p>
+                            <ul>
+                                <li>
+                                    <p>Create & Manage Hackathons: Authorized users can create hackathons with details,
+                                        set submission type (image, file, or link), and verify user authorization.</p>
+                                </li>
+                                <li>
+                                    <p>User Registration & Submission: Users can register for hackathons and submit
+                                        their work based on the specified type, with API validation for the submission
+                                        format.</p>
+                                </li>
+                                <li>
+                                    <p>User Dashboard: Users can view their registered hackathons and submitted works.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="my-5">
+                        <div>
+                            <h4><b><a href="https://github.com/TolulopeJoel/synkbrid">Synkbrid</a></b></h4>
+                            <p>An application facilitating remote team productivity by offering robust capabilities for
+                                task management, deadline establishment, and seamless real-time collaboration.</p>
+                        </div>
+
+                        <div>
+                            <p>Key Features: </p>
+                            <ul>
+                                <li>
+                                    <p>Users can see changes made to tasks by others instantly, fostering a more
+                                        synchronized workflow.</p>
+                                </li>
+                                <li>
+                                    <p>Tracking of tasks, including creation date, assigned personnel, deadlines, and
+                                        progress updates</p>
+                                </li>
+                                <li>
+                                    <p>Calendar integration with tools for users to visualize timelines and track
+                                        deadlines effectively.</p>
+                                </li>
+                                <li>
+                                    <p>Allows users to filter tasks based on their current status (e.g., To-Do, In
+                                        Progress, Done) for better organization and focus.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- <div class="my-5">
+                        <div>
+                            <h4><b><a href="https://github.com/TolulopeJoel/instagram-API-clone">Instagram API
+                                        clone</a></b></h4>
+                            <p>APIs for a fully functional social media platform like Instagram. Built on RESTful
+                                principles with a scalable, flexible backend.</p>
+                        </div>
+
+                        <div>
+                            <p>Key Features: </p>
+                            <ul>
+                                <li>
+                                    <p>Flexible chunking: Users can define chunk sizes based on their needs, optimizing
+                                        for transfer speed, storage efficiency, or granular access.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+
+                    <div class="my-5">
+                        <div>
+                            <h4><b><a href="https://github.com/TolulopeJoel/slime-road">Slime Road</a></b></h4>
+                            <p>A storefront for creators to sell their digital products directly to their audience.
+                                Creators can offer a variety of digital products (ebooks, software, courses, etc).</p>
+                        </div>
+
+                        <div>
+                            <p>Key Features: </p>
+                            <ul>
+                                <li>
+                                    <p>Ability for creators to easily upload, manage, and organize their digital
+                                        products.</p>
+                                </li>
+                                <li>
+                                    <p>Support for fixed prices, pay-what-you-want, free, or subscription-based models.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Track and manage customer orders, including order history, download links, and
+                                        fulfillment status.</p>
+                                </li>
+                                <li>
+                                    <p>Track sales performance through detailed reports.</p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -166,31 +234,22 @@
         </div>
     </section>
 
-    <section id="contact">
-        <div class="text-center">
-            <h2 class="mb-5">how you can contact me</h2>
-            <div class="contact-icons">
-                <a href="https://github.com/TolulopeJoel" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/500/github.png" alt="github" />
-                    github
-                </a>
-                <a href="mailto:toluisjoel@gmail.com" target="_blank">
-                    <img src="https://img.icons8.com/doodle/500/new-post.png" alt="new-post" />
-                    email
-                </a>
-                <a href="https://linkedin.com/in/tolujoel" target="_blank">
-                    <img src="https://img.icons8.com/doodle/500/linkedin--v2.png" alt="linkedin--v2" />
-                    linkedin
-                </a>
-            </div>
+    <section id="contact" class="container">
+        <h2 class="title">text me :)</h2>
+        <div class="contact-icons mt-2 mb-5">
+            <a href="https://github.com/TolulopeJoel" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/500/github.png" alt="github" />
+                github
+            </a>
+            <a href="mailto:dotolulope2@gmail.com" target="_blank">
+                <img src="https://img.icons8.com/doodle/500/new-post.png" alt="new-post" />
+                email
+            </a>
+            <a href="https://linkedin.com/in/tolujoel" target="_blank">
+                <img src="https://img.icons8.com/doodle/500/linkedin--v2.png" alt="linkedin--v2" />
+                linkedin
+            </a>
         </div>
     </section>
-    <p class="text-end m-0 px-3">icons by <a href="https://icons8.com/icons" target="_blank"><u>Icons8</u></a></p>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
 
 </body>
-
-</html>

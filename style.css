@@ -312,21 +312,16 @@ h3 {
 }
 
 .contact-icons a {
-  margin: 7px !important;
+  /* margin: 7px !important; */
 }
 
 .contact-icons img {
-  width: 24px;
-  height: 24px;
+  width: 50px;
+  height: 50px;
 }
 
 @media only screen and (min-width: 768px) {
-  .contact-icons a {
+  /* .contact-icons a {
     margin: 25px !important;
-  }
-
-  .contact-icons img {
-    width: 50px;
-    height: 50px;
-  }
+  } */
 }

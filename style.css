@@ -330,7 +330,7 @@ h3 {
 .image-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .image-wrapper {

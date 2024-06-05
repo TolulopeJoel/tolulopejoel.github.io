@@ -46,10 +46,10 @@ html {
 
 .intro {
   background:
-    linear-gradient(-90deg, rgba(0, 0, 0, .05) 0.5px, transparent 0.5px),
-    linear-gradient(rgba(0, 0, 0, .05) 0.5px, transparent 0.5px),
-    linear-gradient(-90deg, rgba(0, 0, 0, .04) 0.5px, transparent 0.5px),
-    linear-gradient(rgba(0, 0, 0, .04) 0.5px, transparent 0.5px),
+    linear-gradient(-90deg, rgba(0, 0, 0, .015) 0.5px, transparent 0.5px),
+    linear-gradient(rgba(0, 0, 0, .015) 0.5px, transparent 0.5px),
+    linear-gradient(-90deg, rgba(0, 0, 0, .015) 0.5px, transparent 0.5px),
+    linear-gradient(rgba(0, 0, 0, .015) 0.5px, transparent 0.5px),
     linear-gradient(transparent 3px, #f2f2f2 3px, #f2f2f2 78px, transparent 78px),
     linear-gradient(-90deg, #FFC896 1px, transparent 1px),
     linear-gradient(-90deg, transparent 3px, 3px, #f2f2f2 78px, transparent 78px),
@@ -67,12 +67,13 @@ html {
 }
 
 
+
 body {
   background:
-    linear-gradient(-90deg, rgba(0, 0, 0, .05) 0.5px, transparent 0.5px),
-    linear-gradient(rgba(0, 0, 0, .05) 0.5px, transparent 0.5px),
-    linear-gradient(-90deg, rgba(0, 0, 0, .04) 0.5px, transparent 0.5px),
-    linear-gradient(rgba(0, 0, 0, .04) 0.5px, transparent 0.5px),
+    linear-gradient(-90deg, rgba(0, 0, 0, .015) 0.5px, transparent 0.5px),
+    linear-gradient(rgba(0, 0, 0, .015) 0.5px, transparent 0.5px),
+    linear-gradient(-90deg, rgba(0, 0, 0, .015) 0.5px, transparent 0.5px),
+    linear-gradient(rgba(0, 0, 0, .015) 0.5px, transparent 0.5px),
     #f2f2f2;
   background-size:
     40px 40px,
@@ -312,7 +313,7 @@ h3 {
 }
 
 .contact-icons a {
-  margin-right:  10px !important;
+  margin-right: 10px !important;
 }
 
 .contact-icons img {
@@ -320,8 +321,8 @@ h3 {
   height: 50px;
 }
 
-@media only screen and (min-width: 768px) {
-  /* .contact-icons a {
+/* @media only screen and (min-width: 768px) {
+  .contact-icons a {
     margin: 25px !important;
-  } */
-}
+  }
+} */

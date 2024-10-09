@@ -150,7 +150,9 @@ a[href*="motivation"],
 }
 
 a[href*="motivation"] {
+  color: gray;
   font-weight: 600;
+  text-decoration: underline;
 }
 
 a[href*="motivation"]::after {

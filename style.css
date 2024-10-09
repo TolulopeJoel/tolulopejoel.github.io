@@ -60,11 +60,16 @@ p {
 article {
   gap: 32px;
   display: flex;
-  padding: 16px 0px;
+  padding: 24px;
+  margin-bottom: 1rem;
+  border-radius: .75rem;
   flex-direction: column;
   align-items: flex-start;
-  border-bottom: 1px solid #EAEBF0;
+  border: 1px solid #EAEBF0;
+
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1);
 }
+
 
 
 article h4 {
@@ -84,6 +89,10 @@ article h4 {
   font-size: 14px;
 }
 
+.spacer {
+  display: block;
+}
+
 @media screen and (min-width: 480px) {
   .projectDescription {
     font-size: 15px;
@@ -98,6 +107,10 @@ article h4 {
     line-height: 1.5;
     font-size: 16px;
   }
+
+  .spacer {
+    display: inline;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -107,11 +120,13 @@ article h4 {
   }
 }
 
-.button, .navButton {
+.button,
+.navButton {
   display: inline-flex;
   gap: 8px;
   align-items: center;
   border-radius: 4px;
+  border-radius: calc(0.5rem - 2px);
   background: #050505;
   text-decoration: none;
   padding: 12.5px 16px;
@@ -234,84 +249,92 @@ article h4 {
 }
 
 #events {
-    position: relative;
-    padding: 50px 0;
-    overflow: hidden;
+  position: relative;
+  padding: 50px 0;
+  overflow: hidden;
 }
 
 .timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background: #333;
-    transform: translateX(-50%);
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #333;
+  transform: translateX(-50%);
 }
 
 .event-item {
-    position: relative;
-    margin-bottom: 50px;
+  position: relative;
+  margin-bottom: 50px;
 }
 
 .event-dot {
-    position: absolute;
-    left: 50%;
-    top: 20px;
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    border: 3px solid #333;
-    border-radius: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 3px solid #333;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
 
 .event-content {
-    position: relative;
-    width: 45%;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  width: 45%;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .event-content img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
 .event-item:nth-child(odd) .event-content {
-    left: 55%;
+  left: 55%;
 }
 
 .event-item:nth-child(even) .event-content {
-    left: 0;
+  left: 0;
 }
 
 @media (max-width: 768px) {
-    .timeline::before {
-        left: 0;
-        width: 4px; /* Make the line slightly thicker on mobile */
-    }
-    .event-item .event-content {
-        width: calc(100% - 20px); /* Adjust width to account for the line */
-        left: 20px !important; /* Move content slightly to the right of the line */
-    }
-    .event-dot {
-        display: none; /* Remove the dot on mobile */
-    }
-    .event-item {
-        padding-left: 0; /* Remove left padding */
-    }
+  .timeline::before {
+    left: 0;
+    width: 4px;
+    /* Make the line slightly thicker on mobile */
+  }
+
+  .event-item .event-content {
+    width: calc(100% - 20px);
+    /* Adjust width to account for the line */
+    left: 20px !important;
+    /* Move content slightly to the right of the line */
+  }
+
+  .event-dot {
+    display: none;
+    /* Remove the dot on mobile */
+  }
+
+  .event-item {
+    padding-left: 0;
+    /* Remove left padding */
+  }
 }

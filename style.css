@@ -79,7 +79,6 @@ article h4 {
 .projectTitle {
   font-size: 18px;
   font-weight: 700;
-  text-decoration: none;
 }
 
 .projectDescription {
@@ -130,13 +129,39 @@ article h4 {
   background: #050505;
   text-decoration: none;
   padding: 12.5px 16px;
-
   color: #ffffff;
   font-weight: 700;
   line-height: 19.2px;
   letter-spacing: 0.4000000059604645px;
+  margin-right: 10px;
 }
 
+.button:last-child {
+  margin-right: 0;
+}
+
+a[href*="motivation"],
+.projectTitle {
+  color: #7a49f8;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+a[href*="motivation"] {
+  font-weight: 600;
+}
+
+a[href*="motivation"]::after {
+  content: " →";
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+a[href*="motivation"]:hover::after {
+  transform: translateX(3px);
+}
 
 /* .navButton {
   background: #8D8DFF;
@@ -268,7 +293,7 @@ article h4 {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background: #333;
+  background: #7a49f8;
   transform: translateX(-50%);
 }
 
@@ -284,7 +309,7 @@ article h4 {
   width: 20px;
   height: 20px;
   background: #fff;
-  border: 3px solid #333;
+  border: 3px solid #7a49f8;
   border-radius: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -318,23 +343,18 @@ article h4 {
   .timeline::before {
     left: 0;
     width: 4px;
-    /* Make the line slightly thicker on mobile */
   }
 
   .event-item .event-content {
     width: calc(100% - 20px);
-    /* Adjust width to account for the line */
     left: 20px !important;
-    /* Move content slightly to the right of the line */
   }
 
   .event-dot {
     display: none;
-    /* Remove the dot on mobile */
   }
 
   .event-item {
     padding-left: 0;
-    /* Remove left padding */
   }
 }

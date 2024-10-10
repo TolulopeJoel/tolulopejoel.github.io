@@ -23,6 +23,10 @@ p {
   font-weight: 500;
 }
 
+section {
+  margin-top: 32px;
+}
+
 .container {
   max-width: 100%;
   padding: 0 15px;
@@ -51,11 +55,6 @@ p {
   }
 }
 
-
-
-.colorSec {
-  color: #667085;
-}
 
 article {
   gap: 32px;
@@ -119,8 +118,7 @@ article h4 {
   }
 }
 
-.button,
-.navButton {
+.button {
   display: inline-flex;
   gap: 8px;
   align-items: center;
@@ -164,15 +162,6 @@ a[href*="motivation"]::after {
 a[href*="motivation"]:hover::after {
   transform: translateX(3px);
 }
-
-/* .navButton {
-  background: #8D8DFF;
-  padding: 4px 12px;
-  box-sizing: border-box;
-  border: 1px solid #D0D5DD;
-  border-radius: 100px;
-} */
-
 
 
 /* Contact Icons */
@@ -359,4 +348,48 @@ a[href*="motivation"]:hover::after {
   .event-item {
     padding-left: 0;
   }
+}
+
+
+.profile-card {
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-location {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.profile-links a {
+  margin-right: 10px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.profile-links svg{
+  height: 1rem;
+  color: black;
+  width: 1rem;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 20px;
 }

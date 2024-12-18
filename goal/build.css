@@ -3,13 +3,11 @@
     --text-color: #ffffff;
     --text-color-muted: rgba(255, 255, 255, 0.7);
     --header-color: #ffffff;
-    --stats-color: #64ffda;
-    --section-label: #64ffda;
-    --primary-background-color: #0a0a0a;
-    --secondary-background-color: #1a1a1a;
-    
-    --spacing-unit: 8px;
-    --transition: all 0.3s ease;
+    --accent-color: #64ffda;
+    --section-label: #e67e22;
+    --primary-background: #0a0a0a;
+    --secondary-background: #111111;
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -22,14 +20,15 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--primary-background-color);
+    background-color: var(--primary-background);
 }
 
 /* Typography */
 h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(3.5rem, 10vw, 8rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
     margin-bottom: calc(var(--spacing-unit) * 3);
 }
 
@@ -45,7 +44,11 @@ h3 {
 
 /* Navigation */
 nav {
-    padding: calc(var(--spacing-unit) * 3);
+    padding: 32px clamp(24px, 5vw, 80px);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,10 +56,7 @@ nav {
     width: 100%;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    transform: translateY(0);
-    transition: var(--transition);
-    background-color: rgba(10, 10, 10, 0.8);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 nav.hidden {
@@ -80,37 +80,94 @@ nav.dark a:hover {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    color: var(--accent-color);
 }
 
 nav ul {
     display: flex;
-    gap: calc(var(--spacing-unit) * 4);
+    gap: clamp(24px, 4vw, 48px);
     list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    position: relative;
 }
 
 nav a {
+    font-size: 1rem;
     text-decoration: none;
     color: var(--text-color-muted);
     transition: var(--transition);
+    padding: 8px 0;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 nav a:hover {
-    color: var(--stats-color);
+    color: var(--text-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav.scrolled {
+    padding: 20px clamp(24px, 5vw, 80px);
+    background: rgba(10, 10, 10, 0.95);
 }
 
 @media (max-width: 768px) {
     nav {
-        padding: calc(var(--spacing-unit) * 2);
+        padding: 20px 24px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
     }
 
     nav ul {
-        gap: calc(var(--spacing-unit) * 2);
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 0.9rem;
     }
 }
 
+.mobile-menu-button {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+}
 
 .hero {
     min-height: 100vh;
@@ -129,32 +186,32 @@ nav a:hover {
     margin: 0 auto;
     width: 100%;
     padding: 4rem 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .hero-title {
-    font-size: clamp(4rem, 10vw, 8rem);
-    letter-spacing: -0.02em;
-    font-weight: 700;
+    font-size: clamp(4rem, 12vw, 9rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
     margin-bottom: 2rem;
-    color: var(--text-color);
+    color: var(--header-color);
 }
 
 .hero-title .line {
     display: block;
     overflow: hidden;
     animation: revealText 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-    font-size: clamp(4rem, 12vw, 8rem);
-    letter-spacing: -0.02em;
-    line-height: 0.9;
 }
 
 .hero-description {
     font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 600px;
     opacity: 0;
     animation: fadeIn 0.8s ease forwards;
     animation-delay: 1s;
-    margin-top: 2rem;
-    color: var(--text-color-muted);
 }
 
 .scroll-indicator {
@@ -167,7 +224,7 @@ nav a:hover {
     opacity: 0;
     animation: fadeIn 0.8s ease forwards;
     animation-delay: 1.5s;
-    color: var(--text-color-muted);
+    color: var(--header-color);
 }
 
 .scroll-line {
@@ -240,6 +297,10 @@ nav a:hover {
     padding: 120px 0;
 }
 
+.category {
+    color: var(--text-color-muted);
+}
+
 .intro-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -253,7 +314,7 @@ nav a:hover {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--stats-color);
+    color: var(--section-label);
     margin-bottom: 24px;
     display: block;
 }
@@ -262,7 +323,7 @@ nav a:hover {
     font-size: 48px;
     line-height: 1.2;
     margin-bottom: 32px;
-    color: var(--text-color);
+    color: var(--header-color);
 }
 
 .intro-heading .line {
@@ -310,7 +371,7 @@ nav a:hover {
 
 .stat-label {
     font-size: 16px;
-    color: var(--text-color-muted);
+    color: var(--text-color);
 }
 
 @keyframes fadeInUp {
@@ -325,6 +386,7 @@ nav a:hover {
     .intro-container {
         grid-template-columns: 1fr;
         gap: 60px;
+        padding: 0 16px;
     }
 
     .intro-heading {
@@ -406,23 +468,34 @@ nav a:hover {
 
 /* Projects Layout */
 .projects-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+
+.project-container {
     display: grid;
     grid-template-columns: 35% 65%;
     gap: 60px;
-    position: relative;
 }
 
-.project-sidebar {
-    position: sticky;
-    top: 120px;
-    height: fit-content;
-    padding-right: 20px;
+@media (max-width: 768px) {
+    .project-container {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+
+    .project-item {
+        height: 300px;
+    }
+
+    .project-image {
+        position: relative;
+        height: 100%;
+    }
 }
 
 .project-info {
-    background-color: var(--secondary-background-color);
-    padding: 2rem;
-    border-radius: 8px;
     opacity: 0;
     transform: translateY(40px);
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -446,15 +519,14 @@ nav a:hover {
     font-size: 120px;
     font-weight: 700;
     line-height: 1;
-    color: var(--stats-color);
-    opacity: 0.5;
+    color: rgba(255, 255, 255, 0.1);
     margin-bottom: 40px;
 }
 
 .project-details h3 {
     font-size: 32px;
     margin-bottom: 24px;
-    color: var(--text-color);
+    color: var(--header-color)
 }
 
 .project-meta {
@@ -483,12 +555,10 @@ nav a:hover {
     border-radius: 100px;
     font-size: 14px;
     transition: var(--transition);
-    color: var(--text-color-muted);
 }
 
 .project-tags span:hover {
-    background: var(--stats-color);
-    color: var(--primary-background-color);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .view-project {
@@ -518,26 +588,22 @@ nav a:hover {
 }
 
 .project-item {
-    height: 70vh;
     position: relative;
-    margin-bottom: 30vh;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 80vh;
+    margin-bottom: 120px;
+    overflow: hidden;
 }
 
 .project-item:last-child {
     margin-bottom: 0;
 }
 
-.project-item:hover {
-    transform: scale(0.98);
-}
-
 .project-image {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .project-image img {
@@ -545,38 +611,81 @@ nav a:hover {
     height: 100%;
     object-fit: cover;
     transform: scale(1);
-    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(0.5);
 }
 
-.image-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 0.6s ease;
+.project-container:nth-child(1) .project-image img,
+.project-container:nth-child(4) .project-image img {
+    filter: brightness(0.5) grayscale(0.9);
 }
 
-.project-preview {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: all 0.6s ease;
-}
-
-.project-preview video {
-    width: 100%;
+.project-content {
+    position: relative;
     height: 100%;
-    object-fit: cover;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
 }
 
-.project-item:hover .project-image img {
-    transform: scale(1.05);
+.project-content-inner {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.project-item:hover .image-overlay {
-    opacity: 1;
+.project-description:last-child {
+    margin-bottom: 0;
 }
 
+.project-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--header-color);
+    margin-bottom: 1.5rem;
+}
+
+.project-description {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.project-link {
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .project-item {
+        height: 60vh;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-item {
+        height: 50vh;
+    }
+
+    .project-content {
+        padding: 1rem;
+    }
+}
 
 /* Ensure text and images stay in sync */
 @media (max-width: 1024px) {
@@ -623,8 +732,9 @@ nav a:hover {
         /* Add more space between projects */
     }
 
-    .project-image {
-        display: none;
+    .work-container {
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .project-item {
@@ -689,6 +799,10 @@ nav a:hover {
 @media (max-width: 768px) {
     .rant {
         padding: 80px 0;
+    }
+
+    .rant-container {
+        padding: 0 16px;
     }
 
     .topic-title {
@@ -833,10 +947,53 @@ nav a:hover {
     }
 }
 
-.view-project {
-    color: var(--stats-color);
+.section {
+    padding: 160px 0;
+    margin: 0 auto;
+    max-width: 1400px;
 }
 
-.view-project:hover {
-    opacity: 0.8;
+.container {
+    padding: 0 clamp(24px, 5vw, 80px);
+}
+
+
+/* Hover Effects */
+.hover-effect {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-effect:hover {
+    transform: translateY(-2px);
+}
+
+/* Text Reveal Animation */
+.text-reveal {
+    overflow: hidden;
+    position: relative;
+}
+
+.text-reveal span {
+    display: block;
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-reveal.in-view span {
+    transform: translateY(0);
+}
+
+/* Image Hover Effect */
+.image-hover {
+    overflow: hidden;
+    position: relative;
+}
+
+.image-hover img {
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-hover:hover img {
+    transform: scale(1.05);
 }

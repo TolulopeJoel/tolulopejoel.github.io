@@ -158,6 +158,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    const pronouns = ['She', 'He', 'They'];
+    let currentIndex = 0;
+    let intervalId = null;
+
+    const changePronoun = () => {
+        const pronounElement = document.getElementById('changing-pronoun');
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % pronouns.length;
+            pronounElement.textContent = pronouns[currentIndex];
+        }, 300);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    intervalId = setInterval(changePronoun, 1500);
+                }, 500);
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    const testimonialSection = document.querySelector('.testimonials-section');
+    observer.observe(testimonialSection);
+
     // Initialize all interactive features
     const init = () => {
         initProjectInteraction();

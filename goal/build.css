@@ -68,16 +68,12 @@ nav.hidden {
 }
 
 .logo {
-    font-size: 1.25rem;
     font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--text-color);
+    font-size: 1.25rem;
     text-decoration: none;
-    transition: var(--transition);
-}
-
-.logo:hover {
+    letter-spacing: -0.02em;
     color: var(--accent-color);
+    transition: var(--transition);
 }
 
 nav ul {
@@ -529,7 +525,7 @@ nav.scrolled {
 
 .project-container:nth-child(1) .project-image img,
 .project-container:nth-child(4) .project-image img {
-    filter: brightness(0.5) grayscale(0.9);
+    filter: brightness(0.5) grayscale(0.7);
 }
 
 .project-content {

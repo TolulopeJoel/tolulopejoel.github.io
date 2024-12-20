@@ -8,29 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 
-    // Project Interaction Management
-    const initProjectInteraction = () => {
-        const projects = document.querySelectorAll('.project-item');
-        const projectInfos = document.querySelectorAll('.project-info');
-
-        const updateActiveProject = debounce(() => {
-            const halfWindowHeight = window.innerHeight / 2;
-            
-            projects.forEach((project, index) => {
-                const rect = project.getBoundingClientRect();
-                const isInView = rect.top <= halfWindowHeight && rect.bottom >= halfWindowHeight;
-
-                if (isInView) {
-                    projectInfos.forEach(info => info.classList.remove('active'));
-                    projectInfos[index].classList.add('active');
-                }
-            });
-        }, 50);
-
-        window.addEventListener('scroll', updateActiveProject);
-        updateActiveProject(); // Initial call
-    };
-
     // Navbar Scroll Behavior
     const initNavbarBehavior = () => {
         const nav = document.querySelector('nav');
@@ -72,54 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const debouncedUpdateWagonAnimation = debounce(updateWagonAnimation, 100);
         window.addEventListener('resize', debouncedUpdateWagonAnimation);
         window.addEventListener('load', updateWagonAnimation);
-    };
-
-    // Custom Cursor and Magnetic Effects
-    const initCustomCursor = () => {
-        const cursor = {
-            dot: document.querySelector('.cursor-dot'),
-            outline: document.querySelector('.cursor-outline'),
-            magnetics: document.querySelectorAll('.magnetic'),
-            
-            init() {
-                if (!this.dot || !this.outline) {
-                  return;
-                }
-                
-                document.body.classList.add('custom-cursor');
-                this.bindMouseMove();
-                this.bindMagneticEffects();
-            },
-
-            bindMouseMove() {
-                const updateCursorPosition = (e) => {
-                    this.dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-                    this.outline.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-                };
-
-                document.addEventListener('mousemove', debounce(updateCursorPosition, 10));
-            },
-
-            bindMagneticEffects() {
-                this.magnetics.forEach(magnetic => {
-                    magnetic.addEventListener('mousemove', (e) => {
-                        const bound = magnetic.getBoundingClientRect();
-                        const magneticStrength = 40;
-                        
-                        const x = (e.clientX - bound.left) / magnetic.offsetWidth - 0.5;
-                        const y = (e.clientY - bound.top) / magnetic.offsetHeight - 0.5;
-                        
-                        magnetic.style.transform = `translate(${x * magneticStrength}px, ${y * magneticStrength}px)`;
-                    });
-
-                    magnetic.addEventListener('mouseleave', () => {
-                        magnetic.style.transform = 'translate(0px, 0px)';
-                    });
-                });
-            }
-        };
-
-        cursor.init();
     };
 
     // Text Reveal on Scroll
@@ -186,10 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize all interactive features
     const init = () => {
-        initProjectInteraction();
         initNavbarBehavior();
         initWagonAnimation();
-        initCustomCursor();
         initTextReveal();
         initSmoothScroll();
     };

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fuzzy Overlay</title>
+    <style>
+
+        .container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fuzzy-overlay {
+            position: absolute;
+            inset: -200%;
+            background-image: url("./assets/images/noise.png");
+            opacity: 25%;
+            z-index: 0;
+            /* pointer-events: none; */
+
+            animation: shift 0.2s linear infinite both;
+        }
+
+        @keyframes shift {
+            0% {
+                transform: translateX(10%) translateY(10%);
+            }
+
+            100% {
+                transform: translateX(-10%) translateY(-10%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h2 class="title">📺</h2>
+        </div>
+        <div class="fuzzy-overlay"></div>
+    </div>
+
+    <section id="about" class="intro">
+        <div class="intro-container">
+            <!-- Left Column -->
+            <div class="intro-text">
+                <span class="section-label">First Of All; Introduction</span>
+                <h2 class="intro-heading">
+                    <span class="line">I craft software</span>
+                    <span class="line">solutions that</span>
+                    <span class="line">make impact</span>
+                </h2>
+                <p class="intro-description">
+                    I'm Tolu, a Fullstack Developer with a strong focus on Backend development and passionate
+                    about
+                    Artificial Intelligence and Machine Learning.
+                </p>
+                <p class="intro-description">
+                    I enjoy crafting elegant solutions to complex problems, focusing on building scalable and
+                    robust
+                    backend architectures and designing efficient software tools.
+                </p>
+                <a href="#contact" class="neon-button">
+                    <span>Get In Touch</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

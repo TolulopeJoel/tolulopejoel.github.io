@@ -5,8 +5,11 @@
     --header-color: #ffffff;
     --accent-color: #64ffda;
     --section-label: #e67e22;
-    --primary-background: #0a0a0a;
+    --primary-background: #181b1a;
+    /* --primary-background: #0a0a0a; */
     --secondary-background: #111111;
+    /* --secondary-background: red; */
+    --tet-background: #151515;
     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
     --border-color: rgba(255, 255, 255, 0.1);
@@ -24,6 +27,21 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--primary-background);
+    background-blend-mode: soft-light;
+    background-image: url('RRjST5DUtOsmTqBlTkym2qvGx0g.webp');
+    object-fit: cover;
+    object-position: center center;
+    image-rendering: auto;
+}
+
+@keyframes shift {
+    0% {
+        transform: translateX(10%) translateY(10%);
+    }
+
+    100% {
+        transform: translateX(-10%) translateY(-10%);
+    }
 }
 
 /* Typography */
@@ -44,12 +62,12 @@ h3 {
 
 p {
     line-height: 190%;
+    color: var(--text-secondary);
 }
 
 /* Navigation */
 nav {
     padding: 32px clamp(24px, 5vw, 80px);
-    background: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -118,7 +136,6 @@ nav a:hover::after {
 
 nav.scrolled {
     padding: 20px clamp(24px, 5vw, 80px);
-    background: rgba(10, 10, 10, 0.95);
 }
 
 @media (max-width: 768px) {
@@ -184,25 +201,6 @@ nav.scrolled {
     animation-delay: 1s;
 }
 
-.scroll-line {
-    width: 60px;
-    height: 1px;
-    background-color: var(--text-color);
-    position: relative;
-    overflow: hidden;
-}
-
-.scroll-line::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--text-color);
-    animation: scrollLine 2s ease-in-out infinite;
-}
-
 @keyframes revealText {
     0% {
         transform: translateY(100%);
@@ -225,15 +223,6 @@ nav.scrolled {
     }
 }
 
-@keyframes scrollLine {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -251,7 +240,7 @@ nav.scrolled {
 }
 
 .category {
-    color: var(--text-color-muted);
+    color: var(--text-color);
 }
 
 .intro-container {
@@ -296,9 +285,9 @@ nav.scrolled {
 
 .intro-description {
     font-size: 18px;
-    color: var(--text-color);
-    margin-bottom: 40px;
     max-width: 540px;
+    margin-bottom: 40px;
+    color: var(--text-secondary);
 }
 
 @keyframes fadeInUp {
@@ -658,7 +647,8 @@ nav.scrolled {
 
 /* Rant Section Styles */
 .rant {
-    padding-top: 120px;
+    padding: 120px 0;
+    background-color: var(--secondary-background);
 }
 
 .rant-container {
@@ -904,12 +894,13 @@ nav.scrolled {
 }
 
 .testimonials-header h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.84rem, 4vw, 3rem);
     color: var(--header-color);
 }
 
 #changing-pronoun {
     color: var(--text-color-muted);
+    word-spacing: 2px;
 }
 
 .testimonials-grid {
@@ -1015,11 +1006,9 @@ nav.scrolled {
 
 .work-button {
     display: flex;
-    margin: 40px 0;
+    margin-top: 40px;
     justify-content: center;
 }
-
-
 
 /* Responsive design */
 .flexer {
@@ -1145,6 +1134,7 @@ img {
 /* Footer */
 .footer {
     padding: 40px 0;
+    display: flex;
     border-top: 1px solid var(--border-color);
 }
 
@@ -1205,6 +1195,7 @@ img {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -1212,4 +1203,20 @@ img {
 
 .events-content:hover {
     animation-play-state: paused;
+}
+
+.fuzzy {
+    position: relative;
+    overflow: hidden;
+}
+
+.fuzzy-overlay {
+    position: absolute;
+    inset: -200%;
+    background-image: url("./assets/images/noise.png");
+    opacity: 9.5%;
+    z-index: 0;
+    pointer-events: none;
+
+    animation: shift 0.2s linear infinite both;
 }

@@ -28,7 +28,7 @@ body {
     color: var(--text-color);
     background-color: var(--primary-background);
     background-blend-mode: soft-light;
-    background-image: url('RRjST5DUtOsmTqBlTkym2qvGx0g.webp');
+    background-image: url('./images/RRjST5DUtOsmTqBlTkym2qvGx0g.webp');
     object-fit: cover;
     object-position: center center;
     image-rendering: auto;
@@ -1213,7 +1213,7 @@ img {
 .fuzzy-overlay {
     position: absolute;
     inset: -200%;
-    background-image: url("./assets/images/noise.png");
+    background-image: url("./images/noise.png");
     opacity: 9.5%;
     z-index: 0;
     pointer-events: none;

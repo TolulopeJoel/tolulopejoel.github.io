@@ -8,19 +8,41 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 
+    // Initialize Intersection Observer for scroll animations
+    const initScrollAnimations = () => {
+        const options = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.15 // trigger when 15% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Unobserve after animation to prevent re-triggering
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        // Observe all elements with reveal classes
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+            observer.observe(el);
+        });
+    };
+
     // Navbar Scroll Behavior
     const initNavbarBehavior = () => {
         const nav = document.querySelector('nav');
         let lastScroll = 0;
 
-        const handleNavScroll = debounce(() => {
+        const handleNavScroll = () => {
             const currentScroll = window.pageYOffset;
-            
             nav.classList.toggle('scrolled', currentScroll > 50);
             nav.classList.toggle('hidden', currentScroll > lastScroll && currentScroll > 100);
-            
             lastScroll = currentScroll;
-        }, 25);
+        };
 
         window.addEventListener('scroll', handleNavScroll);
     };
@@ -46,8 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        const debouncedUpdateWagonAnimation = debounce(updateWagonAnimation, 100);
-        window.addEventListener('resize', debouncedUpdateWagonAnimation);
+        window.addEventListener('resize', updateWagonAnimation);
         window.addEventListener('load', updateWagonAnimation);
     };
 
@@ -113,8 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const testimonialSection = document.querySelector('.testimonials-section');
     observer.observe(testimonialSection);
 
-    // Initialize all interactive features
+    // Initialize all features
     const init = () => {
+        initScrollAnimations();
         initNavbarBehavior();
         initWagonAnimation();
         initTextReveal();

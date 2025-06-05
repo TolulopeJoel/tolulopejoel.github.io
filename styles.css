@@ -854,7 +854,7 @@ nav.scrolled {
     background-color: var(--accent-color);
     border: none;
     padding: 14px 28px;
-    border-radius: 8px;
+    border-radius: 2.5px;
     cursor: pointer;
     text-decoration: none;
     position: relative;

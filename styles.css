@@ -1,19 +1,19 @@
 /* Base styles and variables */
 :root {
-    --text-color: #ffffff;
-    --text-color-muted: rgba(255, 255, 255, 0.7);
+    --text-color: #f5f5f5;
+    --text-color-muted: rgba(245, 245, 245, 0.7);
     --header-color: #ffffff;
-    --accent-color: #64ffda;
-    --section-label: #e67e22;
-    --primary-background: #181b1a;
+    --accent-color: #FFD700;
+    --section-label: #32CD32;
+    --primary-background: #1a1a1a;
     /* --primary-background: #0a0a0a; */
-    --secondary-background: #111111;
+    --secondary-background: #242424;
     /* --secondary-background: red; */
-    --tet-background: #151515;
+    --tet-background: #1f1f1f;
     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
-    --border-color: rgba(255, 255, 255, 0.1);
-    --text-secondary: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(212, 175, 55, 0.2);
+    --text-secondary: rgba(245, 245, 245, 0.7);
 }
 
 * {
@@ -1218,7 +1218,7 @@ img {
     align-items: center;
     gap: 1.5rem;
     background: #232323;
-    border-radius: 12px;
+    border-radius: 6.5px;
     padding: 1.5rem 2rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
     opacity: 0.5;
@@ -1261,8 +1261,8 @@ img {
 
 .main-project-timeline .timeline-step.active {
     background: #232926;
-    box-shadow: 0 12px 48px rgba(100, 255, 218, 0.16);
-    transform: scale(1.04);
+    box-shadow: 0 5px 20px rgba(100,255,218,0.08);
+    transform: translateY(-5px) scale(1.02);
     z-index: 2;
 }
 

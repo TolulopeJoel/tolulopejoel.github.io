@@ -375,275 +375,161 @@ nav.scrolled {
 
 /* Projects Layout */
 .projects-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 120px;
-}
-
-.project-container {
     display: grid;
-    grid-template-columns: 35% 65%;
-    gap: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
 }
 
-@media (max-width: 768px) {
-    .project-container {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .project-item {
-        height: 300px;
-    }
-}
-
-.project-info {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    display: none;
-    margin-bottom: 40vh;
-}
-
-.project-info.active,
-.project-info:first-child {
-    opacity: 1;
-    transform: translateY(0);
-    display: block;
-}
-
-.project-counter {
-    font-size: 120px;
-    font-weight: 700;
-    line-height: 1;
-    color: rgba(255, 255, 255, 0.1);
-    margin-bottom: 40px;
-}
-
-.project-details h3 {
-    font-size: 32px;
-    margin-bottom: 24px;
-    opacity: 0.8;
-    color: var(--accent-color)
-}
-
-.project-meta {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 24px;
-    font-size: 14px;
-}
-
-.project-brief {
-    font-size: 18px;
-    margin-bottom: 32px;
-}
-
-.project-tags {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.project-tags span {
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 100px;
-    font-size: 14px;
-    transition: var(--transition);
-}
-
-.project-tags span:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.view-project {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 16px;
-    transition: var(--transition);
-}
-
-.view-project .arrow {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-    transition: transform 0.3s ease;
-}
-
-.view-project:hover .arrow {
-    transform: translateX(8px);
-}
-
-/* Project Showcase */
-.project-showcase {
+.project-card {
     position: relative;
-}
-
-.project-item {
-    position: relative;
-    height: 80vh;
-    margin-bottom: 120px;
+    background: var(--primary-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
 }
 
-.project-item:last-child {
-    margin-bottom: 0;
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
 }
 
 .project-image {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 200px;
     overflow: hidden;
-    border-radius: 4px;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.5);
-    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-container:nth-child(1) .project-image img,
-.project-container:nth-child(4) .project-image img {
-    filter: brightness(0.5) grayscale(0.7);
+.project-card:hover .project-image img {
+    transform: scale(1.1);
 }
 
 .project-content {
-    position: relative;
-    height: 100%;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 2;
-}
-
-.project-content-inner {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.project-description:last-child {
-    margin-bottom: 0;
+    padding: 1.5rem;
 }
 
 .project-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
     color: var(--header-color);
-    margin-bottom: 1.5rem;
 }
 
-.project-description {
-    padding: 15px;
-    max-width: 600px;
-    margin-bottom: 2rem;
-    color: var(--text-color);
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    background-color: rgb(26, 255, 64, 0.3);
+.project-brief {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
-.project-link {
-    color: var(--text-color);
-    text-decoration: none;
+.project-tags {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
-    transition: var(--transition);
+    margin-bottom: 1rem;
 }
 
-.project-link:hover {
+.project-tag {
+    padding: 0.25rem 0.75rem;
+    background: rgba(100, 255, 218, 0.1);
+    border-radius: 100px;
+    font-size: 0.875rem;
     color: var(--accent-color);
 }
 
+.project-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-background);
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+
+.project-card.expanded .project-details {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.project-description {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-color);
+    color: var(--primary-background);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
 @media (max-width: 768px) {
-    .project-item {
-        height: 60vh;
+    .projects-wrapper {
+        grid-template-columns: 1fr;
     }
 
-    .project-content {
+    .project-details {
         padding: 1.5rem;
     }
 }
-
-@media (max-width: 480px) {
-    .project-item {
-        height: 50vh;
-    }
-
-    .project-content {
-        padding: 1rem;
-    }
-}
-
-/* Ensure text and images stay in sync */
-@media (max-width: 1024px) {
-    .projects-wrapper {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .project-sidebar {
-        position: relative;
-        top: 0;
-        padding-right: 0;
-    }
-
-    .project-info {
-        margin-bottom: 40px;
-    }
-
-    .project-item {
-        height: 50vh;
-        margin-bottom: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    .projects-wrapper {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .project-sidebar {
-        position: relative;
-        top: 0;
-        padding-right: 0;
-    }
-
-    /* Show ALL project info on mobile */
-    .project-info {
-        opacity: 1;
-        transform: translateY(0);
-        display: block !important;
-        /* Force display */
-        margin-bottom: 60px;
-        /* Add more space between projects */
-    }
-
-    .work-container {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .project-item {
-        height: auto;
-        margin-bottom: 40px;
-    }
-
-    .project-preview {
-        display: none;
-    }
-}
-
 
 /* Rant Section Styles */
 .rant {
@@ -1307,8 +1193,124 @@ img {
 }
 
 /* Ensure elements are properly spaced for animations */
-.reveal, .reveal-left, .reveal-right {
-    min-height: 1px; /* Prevents collapse of empty elements */
-    backface-visibility: hidden; /* Prevents flickering */
+.reveal,
+.reveal-left,
+.reveal-right {
+    min-height: 1px;
+    /* Prevents collapse of empty elements */
+    backface-visibility: hidden;
+    /* Prevents flickering */
     -webkit-backface-visibility: hidden;
+}
+
+ /* Timeline/Stepper Project Showcase */
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline-step {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: #232323;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    opacity: 0.5;
+    transition: opacity 0.3s, box-shadow 0.3s;
+}
+
+.timeline-step.active {
+    opacity: 1;
+    box-shadow: 0 4px 24px rgba(100, 255, 218, 0.10);
+}
+
+.timeline-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(100, 255, 218, 0.18);
+}
+
+.timeline-content h4 {
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-content p {
+    color: var(--text-color-muted);
+}
+
+
+.main-project-timeline {
+    max-width: 900px;
+    margin: 0 auto 4rem auto;
+}
+
+.main-project-timeline .timeline-step {
+    padding: 2.1rem 1.5rem;
+    margin: 1.7rem 0;
+    font-size: 1.08rem;
+}
+
+.main-project-timeline .timeline-step.active {
+    background: #232926;
+    box-shadow: 0 12px 48px rgba(100, 255, 218, 0.16);
+    transform: scale(1.04);
+    z-index: 2;
+}
+
+.main-project-timeline .timeline-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--accent-color);
+}
+
+.main-project-timeline .project-tags {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem !important;
+}
+
+.main-project-timeline .project-tag {
+    padding: 0.4rem 1.1rem;
+    font-size: 1rem;
+}
+
+.main-project-timeline .timeline-content p {
+    font-size: 1.01rem;
+    margin-bottom: 1.1rem;
+    color: var(--text-color-muted);
+}
+
+.main-project-timeline .project-link {
+    font-size: 1.1rem;
+    padding: 1rem 2.2rem;
+    border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+    .main-project-timeline {
+        max-width: 99vw;
+    }
+
+    .main-project-timeline .timeline-step {
+        padding: 1.1rem 0.5rem;
+        margin: 1.1rem 0;
+        font-size: 0.97rem;
+    }
+
+    .main-project-timeline .timeline-content h4 {
+        font-size: 1.08rem;
+    }
+
+    .main-project-timeline .project-tag {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.7rem;
+    }
 }

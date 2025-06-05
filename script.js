@@ -1,13 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Performance Optimization: Debounce function to limit rapid event firing
-    const debounce = (func, delay) => {
-        let timeoutId;
-        return (...args) => {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => func.apply(this, args), delay);
-        };
-    };
-
     // Initialize Intersection Observer for scroll animations
     const initScrollAnimations = () => {
         const options = {
@@ -97,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetElement = document.querySelector(this.getAttribute('href'));
-                
+
                 if (targetElement) {
                     targetElement.scrollIntoView({
                         behavior: 'smooth',
@@ -134,6 +125,67 @@ document.addEventListener('DOMContentLoaded', () => {
     const testimonialSection = document.querySelector('.testimonials-section');
     observer.observe(testimonialSection);
 
+    // Project Cards
+    function initProjectCards() {
+        const projectCards = document.querySelectorAll('.project-card');
+
+        projectCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                card.classList.toggle('active');
+                if (card.classList.contains('active')) {
+                    const cardRect = card.getBoundingClientRect();
+                    const isFullyVisible = (
+                        cardRect.top >= 0 &&
+                        cardRect.bottom <= window.innerHeight
+                    );
+
+                    if (!isFullyVisible) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            });
+        });
+    }
+
+    // Timeline/Stepper Demo Interactivity
+    function initTimelineStepperDemo() {
+        const steps = document.querySelectorAll('#timeline-demo .timeline-step');
+
+        steps.forEach((step, idx) => {
+            step.classList.toggle('active', idx === current);
+        });
+
+
+    }
+
+    // Main Project Timeline: On-Scroll Activation
+    function initMainProjectTimelineScroll() {
+        const timeline = document.querySelector('.main-project-timeline');
+        if (!timeline) return;
+        const steps = Array.from(timeline.querySelectorAll('.timeline-step'));
+
+        function activateStepOnScroll() {
+            let minDist = Infinity;
+            let activeIdx = 0;
+            steps.forEach((step, idx) => {
+                const rect = step.getBoundingClientRect();
+                // Distance from center of viewport
+                const dist = Math.abs((rect.top + rect.bottom) / 2 - window.innerHeight / 2);
+                if (dist < minDist) {
+                    minDist = dist;
+                    activeIdx = idx;
+                }
+            });
+            steps.forEach((step, idx) => {
+                step.classList.toggle('active', idx === activeIdx);
+            });
+        }
+
+        window.addEventListener('scroll', activateStepOnScroll, { passive: true });
+        window.addEventListener('resize', activateStepOnScroll);
+        activateStepOnScroll();
+    }
+
     // Initialize all features
     const init = () => {
         initScrollAnimations();
@@ -141,6 +193,9 @@ document.addEventListener('DOMContentLoaded', () => {
         initWagonAnimation();
         initTextReveal();
         initSmoothScroll();
+        initProjectCards();
+        initTimelineStepperDemo();
+        initMainProjectTimelineScroll();
     };
 
     init();

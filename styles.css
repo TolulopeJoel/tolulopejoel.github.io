@@ -76,6 +76,8 @@ nav {
     align-items: center;
     position: fixed;
     width: 100%;
+    left: 0;
+    right: 0;
     top: 0;
     z-index: 1000;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);

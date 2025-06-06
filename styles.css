@@ -1247,6 +1247,10 @@ img {
     color: var(--text-color-muted);
 }
 
+.timeline-content .neon-button {
+    box-shadow: none;
+}
+
 
 .main-project-timeline {
     max-width: 900px;

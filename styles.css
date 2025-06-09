@@ -249,9 +249,6 @@ nav.scrolled {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 80px;
 }
 
 .section-label {
@@ -286,10 +283,10 @@ nav.scrolled {
 }
 
 .intro-description {
-    font-size: 18px;
-    max-width: 540px;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     margin-bottom: 40px;
     color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 @keyframes fadeInUp {
@@ -308,7 +305,11 @@ nav.scrolled {
     }
 
     .intro-heading {
-        font-size: 36px;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .intro-description {
+        font-size: clamp(1rem, 2vw, 1.5rem);
     }
 }
 

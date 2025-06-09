@@ -1447,3 +1447,28 @@ img {
         margin: 1.5rem 0 3rem 0;
     }
 }
+
+.spotlight-link {
+    color: inherit;
+    align-items: center;
+    display: inline-flex;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.spotlight-link:hover {
+    color: rgba(255, 215, 0, 1);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.external-icon {
+    opacity: 0.35;
+    font-size: 0.7em;
+    transition: all 0.3s ease;
+    transform: translateY(-0.2em);
+}
+
+.spotlight-link:hover .external-icon {
+    opacity: 1;
+    transform: translateY(-0.2em) translateX(0.1em);
+}

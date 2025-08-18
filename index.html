@@ -4,520 +4,911 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tolulope Joel – Software Engineer | Python, Go, AI, Full-Stack</title>
-
-    <!-- Basic SEO -->
+    <title>Tolulope Joel – Software Engineer</title>
     <meta name="description"
         content="Tolulope Joel is a Software Engineer based in Lagos with years of experience building fintech, SaaS, and AI-driven products using Python, Go, and full-stack technologies.">
-    <meta name="keywords"
-        content="Tolu, Tolu Joel, Tolulope Joel, Software Engineer Lagos, Software Engineer Nigeria, Python Developer, Golang Developer, AI Engineer, Full Stack Developer, Django, FastAPI, React, RAG, Remote Backend Engineer Africa, AI Budget Manager">
-    <meta name="author" content="Tolulope Joel">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Tolulope Joel – Software Engineer | Python, Go, AI, Full-Stack">
-    <meta property="og:description"
-        content="Building fintech, SaaS, and AI-powered tools like Trink using Python, Go, and full-stack technologies. Available for global remote opportunities.">
-    <meta property="og:image" content="https://tolujoel.vercel.app/me.jpg">
-    <meta property="og:url" content="https://tolujoel.vercel.app">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_NG">
+    <style>
+        /* Modern Shibui - Contemporary meets timeless */
+        :root {
+            --ink-black: #0a0a0a;
+            --charcoal: #1a1a1a;
+            --warm-grey: #2a2a2a;
+            --stone: #8a8680;
+            --paper: #fefcf8;
+            --cream: #f8f5f0;
+            --sage: #9ca394;
+            --bronze: #a67c52;
+            --copper: #b5956c;
+            --muted-gold: #d4af37;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #7a7a7a;
+            --accent: #9ca394;
+            --accent-warm: #b5956c;
+        }
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tolulope Joel – Software Engineer | Python, Go, AI, Full-Stack">
-    <meta name="twitter:description"
-        content="Engineering high-impact fintech and AI solutions with Python, Go, and modern web stacks.">
-    <meta name="twitter:image" content="https://tolujoel.vercel.app/me.jpg">
+        /* Reset with modern base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Regional Targeting -->
-    <meta name="geo.region" content="NG-LA">
-    <meta name="geo.placename" content="Lagos">
-    <meta name="geo.position" content="6.5244;3.3792">
-    <meta name="ICBM" content="6.5244, 3.3792">
+        ::selection {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--text-primary);
+        }
 
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Tolulope Joel",
-        "jobTitle": "Software Engineer",
-        "url": "https://tolujoel.vercel.app",
-        "sameAs": [
-          "https://github.com/tolulopejoel",
-          "https://www.linkedin.com/in/tolu-joel"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Lagos",
-          "addressRegion": "Lagos",
-          "addressCountry": "NG"
-        },
-        "knowsAbout": [
-          "Python", "Go", "AI", "Django", "FastAPI", "React",
-          "PostgreSQL", "AWS", "Celery", "Redis", "RAG",
-          "Microservices", "Web Scraping", "Chrome Extensions",
-          "AI Agent", "Retrieval-Augmented Generation"
-        ],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Safeboxx"
-        },
-        "alumniOf": [
-          {
-            "@type": "EducationalOrganization",
-            "name": "University of the People"
-          },
-          {
-            "@type": "EducationalOrganization",
-            "name": "Zyonel Academy"
-          }
-        ]
-      }
-    </script>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--paper);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            overflow-x: hidden;
+        }
 
-    <!-- Styles & Fonts -->
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Pinyon+Script&display=swap"
-        rel="stylesheet">
+        /* Subtle texture with CSS patterns */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 25% 25%, rgba(156, 163, 148, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(181, 149, 108, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Modern typography with Shibui restraint */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contemporary navigation with Shibui simplicity */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 2rem 0;
+            background: linear-gradient(180deg, rgba(254, 252, 248, 0.95) 0%, rgba(254, 252, 248, 0) 100%);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero with modern spacing and Shibui restraint */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroEnter 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+        }
+
+        .hero-title {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 0;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            border-bottom-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        /* Modern sections with Shibui spacing */
+        .section {
+            padding: 6rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            max-width: 600px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* About section with modern grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            aspect-ratio: 4/5;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--cream);
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(156, 163, 148, 0.05) 50%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-text h3 {
+            color: var(--accent-warm);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Modern work showcase */
+        .work {
+            background: rgba(156, 163, 148, 0.02);
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project {
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(156, 163, 148, 0.08);
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project:hover::before {
+            left: 100%;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 20px 40px rgba(156, 163, 148, 0.08),
+                0 8px 16px rgba(156, 163, 148, 0.05);
+            border-color: rgba(156, 163, 148, 0.15);
+        }
+
+        .project-title {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(156, 163, 148, 0.08);
+            border-radius: 16px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .project-link:hover {
+            border-bottom-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        /* Testimonials with modern styling */
+        .testimonials {
+            background: linear-gradient(135deg, rgba(156, 163, 148, 0.03) 0%, rgba(181, 149, 108, 0.03) 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(156, 163, 148, 0.1);
+            border-radius: 12px;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(156, 163, 148, 0.06);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .author-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .author-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Modern contact section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(156, 163, 148, 0.08);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            group: true;
+        }
+
+        .contact-link:hover {
+            background: rgba(156, 163, 148, 0.06);
+            border-color: rgba(156, 163, 148, 0.15);
+            transform: translateX(4px);
+        }
+
+        .contact-label {
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .contact-value {
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover .contact-value {
+            color: var(--text-primary);
+        }
+
+        /* Footer with modern minimalism */
+        .footer {
+            padding: 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(156, 163, 148, 0.08);
+            background: rgba(156, 163, 148, 0.02);
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes heroEnter {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay {
+            transition-delay: 0.2s;
+        }
+
+        /* Scroll progress with modern styling */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(156, 163, 148, 0.08);
+            z-index: 9999;
+        }
+
+        .scroll-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-warm) 100%);
+            transform-origin: left;
+            transition: transform 0.1s ease;
+        }
+
+        /* Mobile responsiveness with modern breakpoints */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 0 1.5rem;
+                min-height: 90vh;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                max-width: 300px;
+                justify-self: center;
+            }
+
+            .project {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Advanced hover effects */
+        @media (hover: hover) {
+            .project::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(45deg, transparent, rgba(156, 163, 148, 0.02), transparent);
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                pointer-events: none;
+            }
+
+            .project:hover::after {
+                opacity: 1;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <!-- Hero Section -->
-        <header class="hero">
-            <nav>
-                <div class="logo">Tolu Joel</div>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="line reveal">I Solve</span>
-                        <span class="line reveal reveal-delay-1">Business Problems</span>
-                        <span class="line reveal reveal-delay-2">with Tech.</span>
-                    </h1>
-                    <p class="hero-description reveal reveal-delay-3">— Turning complex problems into elegant solutions.
-                    </p>
-                </div>
-            </div>
-        </header>
-
-        <!-- Intro Section -->
-        <section id="about" class="intro">
-            <div class="intro-container">
-                <div>
-                    <span class="section-label reveal">First Of All; Introduction</span>
-                    <h2 class="intro-heading">
-                        <span class="line reveal reveal-delay-1">I craft impactful</span>
-                        <span class="line reveal reveal-delay-2">software solutions</span>
-                    </h2>
-                    <p class="intro-description reveal reveal-delay-3">
-                        I am Tolu, a Full Stack Software Engineer.
-                    </p>
-                    <p class="intro-description reveal reveal-delay-3">
-                        My work has helped companies expand into new markets, and automate critical financial
-                        operations. I'm currently exploring AI-driven tools to create even more business value.
-                    </p>
-                    <a href="#contact" class="neon-button reveal reveal-delay-3">
-                        <span>Get In Touch</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Rant Section -->
-        <section class="rant fuzzy">
-            <div class="fuzzy-overlay"></div>
-            <div class="rant-container">
-                <div class="rant-topics">
-                    <article class="topic reveal-left">
-                        <h3 class="topic-title">I MAKE THINGS HAPPEN</h3>
-                        <p class="topic-description">
-                            If I say I'll get a task done by a certain date, consider it done. And I know how to plan,
-                            communicate, and execute to ensure everything comes together nicely,on time, every time.
-                            <br><br>
-                            Throw any challenge my way, I'll learn what it takes and deliver results. I've proven time
-                            and again that I can jump into new domains, learn fast, and start adding value quickly ⚡️
-                        </p>
-                    </article>
-
-                    <article class="topic right-aligned reveal-right">
-                        <h3 class="topic-title">AI THIS & THAT</h3>
-                        <p class="topic-description">
-                            The whole world is on the AI bandwagon. I've been building projects integrating AI and
-                            Machine Learning to contribute to this transformative era. I'm genuinely interested in how
-                            these technologies will shape our future.
-                        </p>
-                    </article>
-
-                    <!-- wagon -->
-                    <div class="wagon-wrapper reveal">
-                        <div class="wagon-container">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 265"
-                                preserveAspectRatio="xMidYMid meet" fill="none">
-
-                                <defs>
-                                    <pattern id="woodGrain" patternUnits="userSpaceOnUse" width="100" height="100">
-                                        <rect width="100" height="100" fill="#8B4513">
-                                        <path d="M10 0 Q 15 50 10 100" stroke="#5D4037" stroke-width="0.5"
-                                            opacity="0.3">
-                                        <path d="M30 0 Q 25 50 30 100" stroke="#5D4037" stroke-width="0.5"
-                                            opacity="0.4">
-                                        <path d="M50 0 Q 55 50 50 100" stroke="#5D4037" stroke-width="0.5"
-                                            opacity="0.3">
-                                        <path d="M70 0 Q 65 50 70 100" stroke="#5D4037" stroke-width="0.5"
-                                            opacity="0.4">
-                                        <path d="M90 0 Q 95 50 90 100" stroke="#5D4037" stroke-width="0.5"
-                                            opacity="0.3">
-                                        <circle cx="25" cy="30" r="5" fill="#3E2723" opacity="0.6">
-                                        <circle cx="75" cy="70" r="4" fill="#3E2723" opacity="0.5">
-                                    </pattern>
-                                    <pattern id="woodGrainDark" patternUnits="userSpaceOnUse" width="100" height="100">
-                                        <rect width="100" height="100" fill="#5D4037">
-                                        <path d="M10 0 Q 15 50 10 100" stroke="#3E2723" stroke-width="0.5"
-                                            opacity="0.3">
-                                        <path d="M30 0 Q 25 50 30 100" stroke="#3E2723" stroke-width="0.5"
-                                            opacity="0.4">
-                                        <path d="M50 0 Q 55 50 50 100" stroke="#3E2723" stroke-width="0.5"
-                                            opacity="0.3">
-                                        <path d="M70 0 Q 65 50 70 100" stroke="#3E2723" stroke-width="0.5"
-                                            opacity="0.4">
-                                    </pattern>
-                                </defs>
-
-                                <g class="wagon-body">
-                                    <rect x="50" y="180" width="400" height="20" fill="url(#woodGrainDark)">
-                                    <rect x="70" y="170" width="360" height="10" fill="url(#woodGrain)">
-
-                                    <rect x="50" y="80" width="400" height="100" fill="url(#woodGrain)" stroke="#5D4037"
-                                        stroke-width="4">
-
-                                    <rect x="50" y="80" width="10" height="100" fill="url(#woodGrainDark)">
-                                    <rect x="150" y="80" width="10" height="100" fill="url(#woodGrainDark)">
-                                    <rect x="250" y="80" width="10" height="100" fill="url(#woodGrainDark)">
-                                    <rect x="350" y="80" width="10" height="100" fill="url(#woodGrainDark)">
-                                    <rect x="450" y="80" width="10" height="100" fill="url(#woodGrainDark)">
-
-                                    <rect x="50" y="113" width="400" height="5" fill="url(#woodGrainDark)">
-                                    <rect x="50" y="146" width="400" height="5" fill="url(#woodGrainDark)">
-                                    <rect x="50" y="179" width="400" height="5" fill="url(#woodGrainDark)">
-
-                                    <path d="M100 80 l5 10 l-10 5 l5 -15" fill="#3E2723" opacity="0.3">
-                                    <path d="M300 160 l8 12 l-12 8 l4 -20" fill="#3E2723" opacity="0.2">
-                                    <path d="M400 120 l-6 8 l-8 -6 l14 -2" fill="#3E2723" opacity="0.25">
-
-                                    <circle cx="55" cy="85" r="2" fill="#2C1810">
-                                    <circle cx="55" cy="175" r="2" fill="#2C1810">
-                                    <circle cx="155" cy="85" r="2" fill="#2C1810">
-                                    <circle cx="155" cy="175" r="2" fill="#2C1810">
-                                    <circle cx="255" cy="85" r="2" fill="#2C1810">
-                                    <circle cx="255" cy="175" r="2" fill="#2C1810">
-                                    <circle cx="355" cy="85" r="2" fill="#2C1810">
-                                    <circle cx="355" cy="175" r="2" fill="#2C1810">
-                                    <circle cx="445" cy="85" r="2" fill="#2C1810">
-                                    <circle cx="445" cy="175" r="2" fill="#2C1810">
-
-                                    <path d="M200 100 C220 90, 240 110, 260 100 C280 90, 300 110, 320 100"
-                                        stroke="#3E2723" stroke-width="2" fill="none" opacity="0.7">
-                                </g>
-
-                                <g class="wheel" style="transform-origin: 100px 220px">
-                                    <circle cx="100" cy="220" r="40" stroke-width="5" stroke="#3E2723">
-                                    <circle cx="100" cy="220" r="35" fill="#5D4037">
-                                    <circle cx="100" cy="220" r="5" stroke="#3E2723">
-                                    <line x1="100" y1="220" x2="100" y2="185" stroke="#3E2723" stroke-width="3">
-                                    <line x1="100" y1="220" x2="100" y2="255" stroke="#3E2723" stroke-width="3">
-                                    <line x1="100" y1="220" x2="135" y2="220" stroke="#3E2723" stroke-width="3">
-                                    <line x1="100" y1="220" x2="65" y2="220" stroke="#3E2723" stroke-width="3">
-                                    <line x1="100" y1="220" x2="124" y2="244" stroke="#3E2723" stroke-width="3">
-                                    <line x1="100" y1="220" x2="76" y2="196" stroke="#3E2723" stroke-width="3">
-                                    <line x1="100" y1="220" x2="124" y2="196" stroke="#3E2723" stroke-width="3">
-                                    <line x1="100" y1="220" x2="76" y2="244" stroke="#3E2723" stroke-width="3">
-                                </g>
-
-                                <g class="wheel" style="transform-origin: 400px 220px">
-                                    <circle cx="400" cy="220" r="40" stroke-width="5" stroke="#3E2723">
-                                    <circle cx="400" cy="220" r="35" fill="#5D4037">
-                                    <circle cx="400" cy="220" r="5" stroke="#3E2723">
-                                    <line x1="400" y1="220" x2="400" y2="185" stroke="#3E2723" stroke-width="3">
-                                    <line x1="400" y1="220" x2="400" y2="255" stroke="#3E2723" stroke-width="3">
-                                    <line x1="400" y1="220" x2="435" y2="220" stroke="#3E2723" stroke-width="3">
-                                    <line x1="400" y1="220" x2="365" y2="220" stroke="#3E2723" stroke-width="3">
-                                    <line x1="400" y1="220" x2="424" y2="244" stroke="#3E2723" stroke-width="3">
-                                    <line x1="400" y1="220" x2="376" y2="196" stroke="#3E2723" stroke-width="3">
-                                    <line x1="400" y1="220" x2="424" y2="196" stroke="#3E2723" stroke-width="3">
-                                    <line x1="400" y1="220" x2="376" y2="244" stroke="#3E2723" stroke-width="3">
-                                </g>
-
-                                <rect x="80" y="215" width="40" height="10" fill="#3E2723">
-                                <rect x="380" y="215" width="40" height="10" fill="#3E2723">
-                            </svg>
-                        </div>
-                    </div>
-
-                    <article class="flexer">
-                        <div class="topic reveal-left">
-                            <h2 class="topic-title">BEEN HERE FOR A WHILE</h2>
-                            <p class="topic-description">
-                                Five years of coding has taught me one thing: there's always a better solution. Each
-                                project has pushed me to think differently, work smarter, push boundaries, and deliver
-                                more value. This mindset of continuous improvement drives everything I build.
-                            </p>
-                        </div>
-
-                        <div class="image-container reveal-right">
-                            <img src="./images/mee.webp" alt="Tolu Joel">
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Work Section -->
-        <section id="work" class="work">
-            <div class="work-container">
-                <div class="work-header">
-                    <span class="section-label">Featured Work</span>
-                    <h2 class="section-title">
-                        <div class="marquee">
-                            <span>Projects that I made —</span>
-                            <span>And made me —</span>
-                        </div>
-                    </h2>
-                </div>
-
-                <!-- Spotlight Narrative -->
-                <div class="spotlight-narrative">
-                    <div class="spotlight-content">
-                        <h4 class="reveal"><a href="https://spotlight-pink.vercel.app/waitlist#development-page"
-                                target="_blank" class="spotlight-link">Spotlight Creative Hub <span
-                                    class="external-icon">↗</span></a></h4>
-                        <div class="project-tags reveal reveal-delay-1" style="margin-bottom:2rem;">
-                            <span class="project-tag">Booking System</span>
-                            <span class="project-tag">Membership</span>
-                        </div>
-                        <p class="reveal reveal-delay-1">When a new café in Lagos set out to become more than just a
-                            coffee spot, aiming to be a co-working space, lounge, and creative hub, I joined the team as
-                            the backend developer to help bring that vision to life as a digital platform.</p>
-
-                        <p class="reveal reveal-delay-2">
-                            I built a <span style="color:limegreen; opacity:0.7">custom booking system</span> that
-                            allows
-                            members to
-                            <span style="color:limegreen; opacity:0.7">reserve café spots</span>,
-                            <span style="color:limegreen; opacity:0.7"> private lounges</span>,
-                            <span style="color:limegreen; opacity:0.7">studios</span>, and
-                            <span style="color:limegreen; opacity:0.7">event spaces</span> with
-                            <span style="color:limegreen; opacity:0.7">real-time availability</span>, and
-                            <span style="color:limegreen; opacity:0.7">time-slot precision</span>.
-                            It's designed to handle
-                            <span style="color:limegreen; opacity:0.7">daily demand</span> effortlessly while keeping
-                            things smooth for users and staff.
-                        </p>
-
-                        <p class="reveal reveal-delay-3">
-                            Beyond bookings, I developed the
-                            <span style="color:limegreen; opacity:0.7; opacity:0.7">membership</span>,
-                            <span style="color:limegreen; opacity:0.7">payment</span>, and
-                            <span style="color:limegreen; opacity:0.7">admin tools</span> that run the entire
-                            experience, from unlocking access to managing events, helping Spotlight grow into the
-                            cultural heartbeat of Lagos.
-                        </p>
-                    </div>
-                </div>
-
-                <span class="section-label kind reveal">More Work</span>
-
-                <!-- Project Timeline -->
-                <div class="timeline-container main-project-timeline">
-                    <div class="timeline-step active">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Trink</h4>
-                            <div class="project-tags" style="margin-bottom:0.7rem;">
-                                <span class="project-tag">AI</span>
-                                <span class="project-tag">Finance</span>
-                                <span class="project-tag">LLM</span>
-                                <span class="project-tag">RAG</span>
-                            </div>
-                            <p>An AI budget manager that helps users manage finances, track spending, set goals, and get
-                                personalised AI insights.</p>
-                            <a href="https://github.com/TolulopeJoel/Trink" target="_blank"
-                                class="neon-button reveal reveal-delay-3" style="margin-top:1rem;display:inline-block;">
-                                <span>View Project</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="timeline-step">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Scene Rec</h4>
-                            <div class="project-tags" style="margin-bottom:0.7rem;">
-                                <span class="project-tag">NLP</span>
-                                <span class="project-tag">Search</span>
-                                <span class="project-tag">Web Scraping</span>
-                            </div>
-                            <p> A Natural Language Processing (NLP) tool to find movie clips based on specific phrases
-                                or sentences. Simplifies the search for content creators and editors.</p>
-                            <a href="https://github.com/TolulopeJoel/scene-rec" target="_blank"
-                                class="neon-button reveal reveal-delay-3" style="margin-top:1rem;display:inline-block;">
-                                <span>View Project</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="timeline-step">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Woo Humore</h4>
-                            <div class="project-tags" style="margin-bottom:0.7rem;">
-                                <span class="project-tag">Video</span>
-                                <span class="project-tag">Summarisation</span>
-                                <span class="project-tag">AI</span>
-                            </div>
-                            <p>An AI-powered video generator that curates uplifting news and converts it into shareable
-                                videos.</p>
-                            <a href="https://github.com/TolulopeJoel/woohumore" target="_blank"
-                                class="neon-button reveal reveal-delay-3" style="margin-top:1rem;display:inline-block;">
-                                <span>View Project</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="timeline-step">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Chunk It</h4>
-                            <div class="project-tags" style="margin-bottom:0.7rem;">
-                                <span class="project-tag">Automation</span>
-                                <span class="project-tag">File Handling</span>
-                            </div>
-                            <p> A bot for splitting large files (images, videos, PDFs, and archives)
-                                into smaller, manageable chunks.</p>
-                            <a href="https://t.me/ChunkItBot" target="_blank" class="neon-button reveal reveal-delay-3"
-                                style="margin-top:1rem;display:inline-block;">
-                                <span>Try it now</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="work-button">
-                    <a href="https://github.com/TolulopeJoel?tab=repositories" target="_blank" class="neon-button">
-                        <span>View All Work</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="testimonials-section fuzzy">
-            <div class="testimonials-container">
-                <div class="fuzzy-overlay"></div>
-                <div class="testimonials-header">
-                    <span class="section-label reveal">Testimonials</span>
-                    <h2 class="reveal reveal-delay-1">That's What <span id="changing-pronoun">She</span> Said</h2>
-                </div>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial reveal reveal-delay-1">
-                        <p class="testimonial-content">
-                            "I've really enjoyed working with you. Hopefully, we get to collaborate on more projects in
-                            the future. We worked well together, so I will definitely refer you when someone next asks
-                            me for a backend guy."
-                        </p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Stanley Onwuka</span>
-                            <span class="author-title">CTO, The Noti Company</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial reveal reveal-delay-2">
-                        <p class="testimonial-content">
-                            "You did this?!" <i>(in disbelief of greatness)</i>
-                        </p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Ijen M.</span>
-                            <span class="author-title">Software Engineer</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial reveal reveal-delay-2">
-                        <p class="testimonial-content">
-                            "This blew my mind. You've done an excellent job, I wasn't expecting this at all. Thanks
-                            for all you do, I appreciate it."
-                        </p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Chukwuemeka Awere</span>
-                            <span class="author-title">Founder, Safeboxx</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial reveal reveal-delay-3">
-                        <p class="testimonial-content">
-                            <a href="#contact">HIRE ME</a>
-                        </p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Your name could be here,</span>
-                            <span class="author-title">Your Move</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="contact-container">
-                <div class="contact-header">
-                    <span class="section-label reveal">Contact</span>
-                    <h2 class="contact-title">
-                        <span class="line reveal reveal-delay-1">Let's Create</span>
-                        <span class="line reveal reveal-delay-2">Something Great</span>
-                    </h2>
-                </div>
-
-                <div class="contact-content">
-                    <div class="contact-text reveal reveal-delay-1">
-                        <p>
-                            I'm open to new opportunities and collaborations. Whether you need to build a robust backend
-                            system, optimise existing infrastructure, or explore AI solutions for your business, I'd
-                            love to discuss how I can help!
-                        </p>
-                    </div>
-
-                    <div class="contact-links">
-                        <a href="mailto:toluisjoel@gmail.com" class="contact-link reveal reveal-delay-1">
-                            <span class="link-label">Email</span>
-                            <span class="link-value">toluisjoel@gmail.com</span>
-                        </a>
-                        <a href="https://wa.me/+2349013407505" class="contact-link reveal reveal-delay-2">
-                            <span class="link-label">WhatsApp</span>
-                            <span class="link-value">+234 901 340 7505</span>
-                        </a>
-
-                        <p class="reveal reveal-delay-2">Others</p>
-
-                        <a href="https://github.com/TolulopeJoel" target="_blank"
-                            class="contact-link reveal reveal-delay-3">
-                            <span class="link-label">Github</span>
-                            <span class="link-value">@TolulopeJoel</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <div class="footer-content">
-                <p class="copyright">© 2025 Tolu Joel</p>
-            </div>
-        </footer>
+    <div class="scroll-progress">
+        <div class="scroll-bar" id="scrollBar"></div>
     </div>
-    <script defer src="./script.js"></script>
-</body>
 
-</html>
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav>
+            <div class="logo">Tolu Joel</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#testimonials">Kind Words</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Solving business problems with thoughtful technology</h1>
+            <p class="hero-subtitle">I'm Tolulope, a software engineer based in Lagos, crafting elegant solutions with
+                Python, Go, and AI technologies that create genuine value for businesses and their users.</p>
+            <a href="#about" class="hero-cta">
+                Learn more about my work →
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-header">
+            <span class="section-label reveal">About</span>
+            <h2 class="section-title reveal">Building with intention</h2>
+            <p class="section-description reveal">Five years of development has taught me that the most elegant
+                solutions come from deep understanding, not complex implementation.</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-image reveal">
+                <img src="./images/mee.webp" alt="Tolulope Joel">
+            </div>
+            <div class="about-text">
+                <h3 class="reveal">Crafting meaningful technology</h3>
+                <p class="reveal">My work spans fintech platforms, SaaS applications, and AI-driven tools, always with
+                    an emphasis on clean architecture and user-centered design. I believe in building software that
+                    feels inevitable—where every piece serves a clear purpose.</p>
+                <p class="reveal">Currently exploring the intersection of artificial intelligence and everyday business
+                    challenges, developing tools that augment human capability rather than replace it. My approach
+                    combines technical precision with empathetic problem-solving.</p>
+                <p class="reveal">When I'm not coding, I'm studying how great products solve real problems, always
+                    learning from the intersection of technology, business, and human behavior.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="section work">
+        <div class="section-header">
+            <span class="section-label reveal">Selected Work</span>
+            <h2 class="section-title reveal">Projects that create value</h2>
+            <p class="section-description reveal">Each project represents a unique challenge solved with thoughtful
+                engineering and user-focused design.</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project reveal">
+                <h3 class="project-title">Spotlight Creative Hub</h3>
+                <div class="project-tags">
+                    <span class="project-tag">Booking Platform</span>
+                    <span class="project-tag">Django</span>
+                    <span class="project-tag">Real-time</span>
+                </div>
+                <p class="project-description">
+                    A new café in Lagos set out to become more than just a coffee spot, aiming to be a co-working space, lounge, and creative hub, I joined the team as the backend developer to help bring that vision to life as a digital platform.
+                </p>
+                <p class="project-description">
+                    I built a custom booking system that allows members to reserve café spots, private lounges, studios, and event spaces with real-time availability, and time-slot precision. It's designed to handle daily demand effortlessly while keeping things smooth for users and staff.
+                </p>
+                <p class="project-description">
+                    Beyond bookings, I developed the membership, payment, and admin tools that run the entire experience.
+                </p>
+                <a href="https://spotlightcreativehub.com" target="_blank"
+                    class="project-link">
+                    Book your spot →
+                </a>
+            </div>
+
+            <div class="project reveal">
+                <h3 class="project-title">Trink AI</h3>
+                <div class="project-tags">
+                    <span class="project-tag">AI/ML</span>
+                    <span class="project-tag">Finance</span>
+                    <span class="project-tag">RAG</span>
+                </div>
+                <p class="project-description">
+                    An intelligent budget manager that provides personalized financial insights through natural language
+                    processing. Combines LLM capabilities with financial data analysis to help users understand spending
+                    patterns and make informed decisions.
+                </p>
+                <a href="https://github.com/TolulopeJoel/Trink" target="_blank" class="project-link">
+                    View repository →
+                </a>
+            </div>
+
+            <div class="project reveal">
+                <h3 class="project-title">Scene Rec</h3>
+                <div class="project-tags">
+                    <span class="project-tag">NLP</span>
+                    <span class="project-tag">Content Tools</span>
+                    <span class="project-tag">Search</span>
+                </div>
+                <p class="project-description">
+                    A specialized search engine for content creators to find movie clips based on specific dialogue or
+                    phrases. Uses advanced NLP techniques to understand context and deliver precise results for video
+                    editing workflows.
+                </p>
+                <a href="https://github.com/TolulopeJoel/scene-rec" target="_blank" class="project-link">
+                    View repository →
+                </a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://github.com/TolulopeJoel?tab=repositories" target="_blank" class="hero-cta reveal">
+                View all projects →
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="section-header">
+            <span class="section-label reveal">Testimonials</span>
+            <h2 class="section-title reveal">Kind words from collaborators</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial reveal">
+                <p class="testimonial-content">
+                    "I've really enjoyed working with you. Hopefully, we get to collaborate on more projects in the
+                    future. We worked well together, so I will definitely refer you when someone next asks me for a
+                    backend guy."
+                </p>
+                <div class="testimonial-author">
+                    <span class="author-name">Stanley Onwuka</span>
+                    <span class="author-title">CTO, The Noti Company</span>
+                </div>
+            </div>
+
+            <div class="testimonial reveal">
+                <p class="testimonial-content">
+                    "This blew my mind. You've done an excellent job, I wasn't expecting this at all. Thanks for all you
+                    do, I appreciate it."
+                </p>
+                <div class="testimonial-author">
+                    <span class="author-name">Chukwuemeka Awere</span>
+                    <span class="author-title">Founder, Safeboxx</span>
+                </div>
+            </div>
+
+            <div class="testimonial reveal">
+                <p class="testimonial-content">
+                    "You did this?! This is incredible work."
+                </p>
+                <div class="testimonial-author">
+                    <span class="author-name">Ijen M.</span>
+                    <span class="author-title">Software Engineer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="section-header">
+            <span class="section-label reveal">Contact</span>
+            <h2 class="section-title reveal">Let's work together</h2>
+        </div>
+
+        <div class="contact-grid">
+            <div class="reveal">
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    I'm open to new opportunities and collaborations. Whether you need to build robust backend systems,
+                    explore AI solutions, or optimize existing infrastructure, I'd enjoy discussing how we might work
+                    together.
+                </p>
+                <p>Currently available for select projects starting Q3 2025.</p>
+            </div>
+
+            <div class="contact-links">
+                <a href="mailto:toluisjoel@gmail.com" class="contact-link reveal">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">toluisjoel@gmail.com</span>
+                </a>
+                <a href="https://wa.me/+2349013407505" class="contact-link reveal">
+                    <span class="contact-label">WhatsApp</span>
+                    <span class="contact-value">+234 901 340 7505</span>
+                </a>
+                <a href="https://github.com/TolulopeJoel" target="_blank" class="contact-link reveal">
+                    <span class="contact-label">GitHub</span>
+                    <span class="contact-value">@TolulopeJoel</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Tolulope Joel — Designed with intention</p>
+    </footer>
+
+    <script>
+        // Sophisticated scroll animations with modern timing
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll progress with modern performance
+        let ticking = false;
+
+        function updateScrollProgress() {
+            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollCurrent = window.pageYOffset;
+            const scrollPercentage = Math.min((scrollCurrent / scrollTotal) * 100, 100);
+
+            const scrollBar = document.getElementById('scrollBar');
+            scrollBar.style.transform = `scaleX(${scrollPercentage / 100})`;
+
+            ticking = false;
+        }
+
+        function requestScrollUpdate() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollProgress);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+
+        // Enhanced smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navigation background on scroll
+        const navContainer = document.querySelector('.nav-container');
+        let lastScrollY = window.pageYOffset;
+
+        function updateNavigation() {
+            const currentScrollY = window.pageYOffset;
+
+            if (currentScrollY > 100) {
+                navContainer.style.background = 'rgba(254, 252, 248, 0.95)';
+                navContainer.style.backdropFilter = 'blur(20px)';
+            } else {
+                navContainer.style.background = 'linear-gradient(180deg, rgba(254, 252, 248, 0.95) 0%, rgba(254, 252, 248, 0) 100%)';
+            }
+
+            lastScrollY = currentScrollY;
+        }
+
+        window.addEventListener('scroll', updateNavigation, { passive: true });
+
+        // Initialize
+        updateScrollProgress();
+        updateNavigation();
+
+        // Add loading animation
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.style.opacity = '0';
+            document.body.style.transform = 'translateY(20px)';
+            document.body.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+                document.body.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>

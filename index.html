@@ -87,6 +87,14 @@
             letter-spacing: -0.01em;
         }
 
+        h4 {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
         p {
             color: var(--text-secondary);
             font-size: clamp(1rem, 2vw, 1.1rem);
@@ -240,6 +248,58 @@
             color: var(--text-secondary);
             font-size: 1.1rem;
             line-height: 1.7;
+        }
+
+        /* Skills section */
+        .skills {
+            background: rgba(156, 163, 148, 0.02);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(156, 163, 148, 0.08);
+            border-radius: 12px;
+            transition: all 0.4s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(156, 163, 148, 0.06);
+            border-color: rgba(156, 163, 148, 0.15);
+        }
+
+        .skill-category h4 {
+            color: var(--accent-warm);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-item {
+            padding: 0.5rem 1rem;
+            background: rgba(156, 163, 148, 0.08);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(156, 163, 148, 0.15);
+            color: var(--accent);
         }
 
         /* About section with modern grid */
@@ -562,6 +622,14 @@
             .project {
                 padding: 2rem;
             }
+
+            .project-metrics {
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -618,6 +686,7 @@
             <div class="logo">Tolu Joel</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#testimonials">Kind Words</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -664,6 +733,59 @@
         </div>
     </section>
 
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="section-header">
+            <span class="section-label reveal">Technical Skills</span>
+            <h2 class="section-title reveal">Tools I work with</h2>
+            <p class="section-description reveal">A focused toolkit honed through years of solving real-world problems
+                across different domains.</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-category reveal">
+                <h4>Languages & Frameworks</h4>
+                <div class="skill-list">
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Go</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">Django</span>
+                    <span class="skill-item">FastAPI</span>
+                    <span class="skill-item">Flask</span>
+                    <span class="skill-item">React</span>
+                    <span class="skill-item">HTML/CSS</span>
+                </div>
+            </div>
+
+            <div class="skill-category reveal">
+                <h4>Data & AI</h4>
+                <div class="skill-list">
+                    <span class="skill-item">PostgreSQL</span>
+                    <span class="skill-item">MongoDB</span>
+                    <span class="skill-item">Redis</span>
+                    <span class="skill-item">Machine Learning</span>
+                    <span class="skill-item">NLP</span>
+                    <span class="skill-item">RAG Systems</span>
+                    <span class="skill-item">LLM Integration</span>
+                </div>
+            </div>
+
+            <div class="skill-category reveal">
+                <h4>Infrastructure & Tools</h4>
+                <div class="skill-list">
+                    <span class="skill-item">AWS</span>
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">Linux</span>
+                    <span class="skill-item">API Design</span>
+                    <span class="skill-item">Real-time Systems</span>
+                    <span class="skill-item">Payment Integration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Work Section -->
     <section id="work" class="section work">
         <div class="section-header">
@@ -682,16 +804,19 @@
                     <span class="project-tag">Real-time</span>
                 </div>
                 <p class="project-description">
-                    A new café in Lagos set out to become more than just a coffee spot, aiming to be a co-working space, lounge, and creative hub, I joined the team as the backend developer to help bring that vision to life as a digital platform.
+                    A new café in Lagos set out to become more than just a coffee spot, aiming to be a co-working space,
+                    lounge, and creative hub, I joined the team as the backend developer to help bring that vision to
+                    life as a digital platform.
                 </p>
                 <p class="project-description">
-                    I built a custom booking system that allows members to reserve café spots, private lounges, studios, and event spaces with real-time availability, and time-slot precision. It's designed to handle daily demand effortlessly while keeping things smooth for users and staff.
+                    I built a custom booking system that allows members to reserve café spots, private lounges, studios,
+                    and event spaces with real-time availability, and time-slot precision. It's designed to handle daily
+                    demand effortlessly while keeping things smooth for users and staff.
                 </p>
                 <p class="project-description">
                     Beyond bookings, I developed the membership, payment, and admin tools that run the entire experience.
                 </p>
-                <a href="https://spotlightcreativehub.com" target="_blank"
-                    class="project-link">
+                <a href="https://spotlightcreativehub.com" target="_blank" class="project-link">
                     View live site →
                 </a>
             </div>
@@ -816,7 +941,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>© 2025 Tolulope Joel — Designed with intention</p>
+        <p>© 2025 Tolulope Joel — Here for you 🫶</p>
     </footer>
 
     <script>

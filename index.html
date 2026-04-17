@@ -4,367 +4,1335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tolulope Joel – Software Engineer</title>
+    <title>Tolulope Joel — Software Engineer</title>
     <meta name="description"
-        content="Tolulope Joel is a Software Engineer based in Lagos with years of experience building fintech, SaaS, and AI-driven products using Python, Go, and full-stack technologies.">
-    <link rel="stylesheet" href="styles.css">
+        content="Software engineer with 4+ years in fintech and SaaS. Based in Lagos. I build APIs, payment systems, and AI-powered products.">
+    <meta name="author" content="Tolulope Joel">
+    <meta property="og:title" content="Tolulope Joel — Software Engineer">
+    <meta property="og:description"
+        content="Software engineer with 4+ years in fintech and SaaS. Based in Lagos. I build APIs, payment systems, and AI-powered products.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tolujoel.vercel.app">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tolulope Joel — Software Engineer">
+    <meta name="twitter:description"
+        content="Software engineer with 4+ years in fintech and SaaS. Based in Lagos. I build APIs, payment systems, and AI-powered products.">
+    <link rel="canonical" href="https://tolujoel.vercel.app">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Syne:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #F7F6F2;
+            --bg-card: #FFFFFF;
+            --text: #111110;
+            --text-muted: #6B6B67;
+            --accent: #C8501E;
+            --border: rgba(17, 17, 16, 0.1);
+            --border-strong: rgba(17, 17, 16, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Syne', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 246, 242, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 clamp(1.5rem, 5vw, 4rem);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--text);
+            color: var(--bg) !important;
+            padding: 0.45rem 1.1rem;
+            border-radius: 100px;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent) !important;
+            color: #fff !important;
+        }
+
+        /* ─── LAYOUT ─── */
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 5vw, 4rem);
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        section+section {
+            border-top: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ─── HERO ─── */
+        #hero {
+            padding: 7rem 0 6rem;
+            border-top: none;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.9rem;
+            border-radius: 100px;
+            margin-bottom: 2.5rem;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-tag::before {
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2ECC71;
+        }
+
+        .hero-headline {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            max-width: 780px;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--text);
+            color: var(--bg);
+            padding: 0.75rem 1.6rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+        }
+
+        .btn-secondary {
+            color: var(--text);
+            padding: 0.75rem 1.6rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-strong);
+            transition: border-color 0.2s, background 0.2s;
+            background: transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-stats {
+            margin-top: 4rem;
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-num {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* ─── SKILLS BAND ─── */
+        #skills {
+            padding: 3rem 0;
+        }
+
+        .skills-grid {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .skill-pill:hover {
+            color: var(--text);
+            border-color: var(--border-strong);
+        }
+
+        /* ─── PROJECTS ─── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-2px);
+        }
+
+        .project-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .personal-card {
+            background: var(--bg);
+        }
+
+        .personal-card::after {
+            background: var(--text-muted);
+        }
+
+        .project-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-stack {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .stack-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+        }
+
+        .project-link {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .project-link svg {
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover .project-link svg {
+            transform: translate(2px, -2px);
+        }
+
+        /* ─── EXPERIENCE ─── */
+        .experience-list {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exp-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-meta {
+            padding-top: 0.2rem;
+        }
+
+        .exp-period {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-company {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .exp-role {
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .exp-highlights {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .exp-highlights li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            padding-left: 1rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .exp-highlights li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* ─── TESTIMONIALS ─── */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-family: 'Fraunces', serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+            font-weight: 300;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 3.5rem;
+            line-height: 0;
+            vertical-align: -1.2rem;
+            color: var(--accent);
+            font-family: 'Fraunces', serif;
+            margin-right: 0.15rem;
+            opacity: 0.4;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            flex-shrink: 0;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .author-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .author-role {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ─── CONTACT ─── */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 5rem;
+            margin-top: 2.5rem;
+            align-items: start;
+        }
+
+        .contact-left h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .contact-left p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contact-link:hover {
+            color: var(--text);
+        }
+
+        .contact-link-icon {
+            width: 34px;
+            height: 34px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text);
+            transition: border-color 0.2s;
+            outline: none;
+            width: 100%;
+            appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--text);
+            background: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.6;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(107, 107, 103, 0.5);
+        }
+
+        .btn-submit {
+            background: var(--text);
+            color: var(--bg);
+            border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 100px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            align-self: flex-start;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            background: var(--accent);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem clamp(1.5rem, 5vw, 4rem);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* ─── ANIMATIONS ─── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 700px) {
+            .exp-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="floating-elements">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-    </div>
 
-    <div class="scroll-progress">
-        <div class="scroll-bar" id="scrollBar"></div>
-    </div>
+    <!-- NAV -->
+    <nav>
+        <a href="#" class="nav-logo">Tolulope Joel</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#personal-projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+        </ul>
+    </nav>
 
-    <!-- Navigation -->
-    <div class="nav-container" id="navContainer">
-        <nav>
-            <div class="logo">Tolu Joel</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#testimonials">Kind Words</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-tag">Open to new opportunities</div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Solving business problems with thoughtful technology</h1>
-            <p class="hero-subtitle">I'm Tolulope, a software engineer based in Lagos, crafting elegant solutions with
-                Python, Go, and AI technologies that create genuine value for businesses and their users.</p>
-            <a href="#testimonials" class="hero-cta pulse">
-                Learn more about my work →
-            </a>
-        </div>
-    </section>
+            <h1 class="hero-headline fade-up">
+                I write code for work.<br>
+                I build things because<br>
+                <em>I can't help it.</em>
+            </h1>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <div class="section-header">
-            <span class="section-label reveal">Technical Skills</span>
-            <h2 class="section-title reveal">Tools I work with</h2>
-            <p class="section-description reveal">A focused toolkit for solving problems
-                across different domains.</p>
-        </div>
+            <p class="hero-sub fade-up">
+                Software engineer with 4+ years in fintech and SaaS. Based in Lagos <svg
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32"
+                    style="display:inline-block; vertical-align:middle; width:36px; height:18px; margin: 0 2px 2px;">
+                    <!-- body -->
+                    <rect x="2" y="8" width="56" height="18" rx="3" fill="#F5A623" />
+                    <!-- yellow stripe -->
+                    <rect x="2" y="13" width="56" height="4" fill="#F7C948" />
+                    <!-- windshield -->
+                    <rect x="4" y="9" width="18" height="9" rx="2" fill="#B8E0F7" opacity="0.85" />
+                    <!-- windows -->
+                    <rect x="25" y="9" width="9" height="7" rx="1.5" fill="#B8E0F7" opacity="0.85" />
+                    <rect x="37" y="9" width="9" height="7" rx="1.5" fill="#B8E0F7" opacity="0.85" />
+                    <rect x="49" y="9" width="8" height="7" rx="1.5" fill="#B8E0F7" opacity="0.85" />
+                    <!-- wheels -->
+                    <circle cx="14" cy="27" r="4.5" fill="#222" />
+                    <circle cx="14" cy="27" r="2" fill="#888" />
+                    <circle cx="46" cy="27" r="4.5" fill="#222" />
+                    <circle cx="46" cy="27" r="2" fill="#888" />
+                    <!-- grille / front detail -->
+                    <rect x="2" y="17" width="4" height="3" rx="1" fill="#D4820A" />
+                </svg>. I build APIs, payment systems, and AI-powered products — then go home and build more things for
+                fun. Backend-first, full-stack capable, slightly obsessed with getting things to work properly.
+            </p>
 
-        <div class="skills-grid">
-            <div class="skill-category reveal stagger-item">
-                <h4>Languages & Frameworks</h4>
-                <div class="skill-list">
-                    <span class="skill-item">Python</span>
-                    <span class="skill-item">Go</span>
-                    <span class="skill-item">JavaScript</span>
-                    <span class="skill-item">Django</span>
-                    <span class="skill-item">FastAPI</span>
-                    <span class="skill-item">Flask</span>
-                    <span class="skill-item">React</span>
-                    <!-- <span class="skill-item">Expo Go</span>
-                    <span class="skill-item">React Native</span> -->
-                    <span class="skill-item">HTML/CSS</span>
-                </div>
+            <div class="hero-actions fade-up">
+                <a href="#contact" class="btn-primary">
+                    Get in touch
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M2.5 7h9M7 2.5l4.5 4.5L7 11.5" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="https://github.com/tolulopejoel" target="_blank" class="btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/tolu-joel" target="_blank" class="btn-secondary">LinkedIn</a>
             </div>
 
-            <div class="skill-category reveal stagger-item">
-                <h4>Data & AI</h4>
-                <div class="skill-list">
-                    <span class="skill-item">RAG Systems</span>
-                    <span class="skill-item">PostgreSQL</span>
-                    <span class="skill-item">MongoDB</span>
-                    <span class="skill-item">Vector DBs</span>
-                    <span class="skill-item">Redis</span>
-                    <span class="skill-item">Agentic Systems</span>
-                    <span class="skill-item">LLM Integration</span>
+            <div class="hero-stats">
+                <div class="fade-up">
+                    <p class="stat-num">4+</p>
+                    <p class="stat-label">Years of experience</p>
                 </div>
-            </div>
-
-            <div class="skill-category reveal stagger-item">
-                <h4>Infrastructure & Tools</h4>
-                <div class="skill-list">
-                    <span class="skill-item">Docker</span>
-                    <span class="skill-item">Git</span>
-                    <span class="skill-item">API Design</span>
-                    <span class="skill-item">Webhooks</span>
-                    <span class="skill-item">Payments</span>
+                <div class="fade-up">
+                    <p class="stat-num">500+</p>
+                    <p class="stat-label">Monthly transactions processed</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section testimonials">
-        <div class="section-header">
-            <span class="section-label reveal">Testimonials</span>
-            <h2 class="section-title reveal">Kind words from collaborators</h2>
-        </div>
-
-        <div class="testimonials-grid">
-            <div class="testimonial reveal stagger-item">
-                <p class="testimonial-content">
-                    "I've really enjoyed working with you. Hopefully, we get to collaborate on more projects in the
-                    future. We worked well together, so I will definitely refer you when someone next asks me for a
-                    backend guy."
-                </p>
-                <div class="testimonial-author">
-                    <span class="author-name">Stanley Onwuka</span>
-                    <span class="author-title">CTO, The Noti Company</span>
+                <div class="fade-up">
+                    <p class="stat-num">76k+</p>
+                    <p class="stat-label">Emails validated, saving ₦400k+</p>
                 </div>
-            </div>
-
-            <div class="testimonial reveal stagger-item">
-                <p class="testimonial-content">
-                    "You did this?! This is incredible work."
-                </p>
-                <div class="testimonial-author">
-                    <span class="author-name">Ijen M.</span>
-                    <span class="author-title">Software Engineer</span>
-                </div>
-            </div>
-
-            <div class="testimonial reveal stagger-item">
-                <p class="testimonial-content">
-                    "This blew my mind. You've done an excellent job, I wasn't expecting this at all. Thanks for all you
-                    do, I appreciate it."
-                </p>
-                <div class="testimonial-author">
-                    <span class="author-name">Chukwuemeka Awere</span>
-                    <span class="author-title">Founder, Safeboxx</span>
-                </div>
-            </div>
-
-            <div class="testimonial reveal stagger-item">
-                <p class="testimonial-content">
-                    <a href="#contact">HIRE ME</a>
-                </p>
-                <div class="testimonial-author">
-                    <span class="author-name">Your name could be here,</span>
-                    <span class="author-title">Your Move</span>
+                <div class="fade-up">
+                    <p class="stat-num">5×</p>
+                    <p class="stat-label">API response time improvement</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Section -->
-    <section id="work" class="section work">
-        <div class="section-header">
-            <span class="section-label reveal">Selected Work</span>
-            <h2 class="section-title reveal">Projects that create value</h2>
-            <p class="section-description reveal">
-                Each project represents a unique challenge solved with thoughtful
-                engineering and user-focused design.
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;"
+                class="about-grid">
+                <div class="fade-up">
+                    <p class="section-label">A bit about me</p>
+                    <h2
+                        style="font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.4rem); font-weight:400; letter-spacing:-0.03em; line-height:1.2; margin-bottom:1.5rem;">
+                        Engineer by day.<br>Builder by night.
+                    </h2>
+                </div>
+                <div class="fade-up" style="display:flex; flex-direction:column; gap:1rem;">
+                    <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.8;">
+                        I'm Tolu — a software engineer based in Lagos who genuinely enjoys the craft. I've spent 4+
+                        years building things in fintech and SaaS: payment systems, APIs, automation pipelines, AI
+                        integrations. The kind of work where getting it wrong costs real money, so you learn to get it
+                        right.
+                    </p>
+                    <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.8;">
+                        Outside of work, I'm usually tinkering on something. That might be Àṣàrò — a meditative reading
+                        app my friends and I use to quietly judge each other's reading progress — or building AI agents
+                        just to see what breaks first when a new Claude update drops.
+                    </p>
+                    <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.8;">
+                        I tend to think in systems, ship things that work, and ask uncomfortable questions about why
+                        something is built the way it is. That last habit has saved a few production databases.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREELANCE WORK -->
+    <section id="projects">
+        <div class="container">
+            <p class="section-label">Client Work</p>
+            <h2
+                style="font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.5rem); font-weight:400; letter-spacing:-0.03em; max-width:560px; line-height:1.2;">
+                Real clients. Real problems. Shipped.
+            </h2>
+
+            <div class="projects-grid">
+
+                <a class="project-card fade-up" href="https://spotlightcreativehub.com" target="_blank">
+                    <p class="project-tag">Booking · Payments · Real-time</p>
+                    <h3 class="project-title">Spotlight Creative Hub</h3>
+                    <p class="project-desc">
+                        Turned a Lagos café into a co-working and creative hub. Built a real-time booking system for
+                        seats, lounges, studios, and events — plus membership management, payment integration, and admin
+                        tools. Staff focus on the experience; the system handles everything else.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-stack">
+                            <span class="stack-tag">Python</span>
+                            <span class="stack-tag">Real-time</span>
+                            <span class="stack-tag">Payments</span>
+                        </div>
+                        <span class="project-link">
+                            Live site
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <a class="project-card fade-up" href="https://tradeheighthub.com" target="_blank">
+                    <p class="project-tag">Trading · Automation · Full-stack</p>
+                    <h3 class="project-title">TradeHeight Sweden</h3>
+                    <p class="project-desc">
+                        Built the entire platform for a Swedish trading company — frontend, backend, and automated price
+                        data pipelines. Also consulted on product direction, so some of those features were my ideas
+                        first.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-stack">
+                            <span class="stack-tag">Full-stack</span>
+                            <span class="stack-tag">Automation</span>
+                            <span class="stack-tag">Data pipelines</span>
+                        </div>
+                        <span class="project-link">
+                            Live site
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <div class="project-card fade-up" style="cursor:default;">
+                    <p class="project-tag">SaaS · HR</p>
+                    <h3 class="project-title"><span
+                            style="background:var(--text); color:var(--text); border-radius:3px; padding:0 4px;">███████</span>
+                        — RBAC System</h3>
+                    <p class="project-desc">
+                        Designed a comprehensive Role-Based Access Control system with 120+ permissions across 4 user
+                        roles. A 2-line integration pattern let 14 product modules ship securely and fast.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-stack">
+                            <span class="stack-tag">Python</span>
+                            <span class="stack-tag">Django</span>
+                            <span class="stack-tag">PostgreSQL</span>
+                        </div>
+                        <span class="project-link" style="color:var(--text-muted); cursor:default;">Professional
+                            work</span>
+                    </div>
+                </div>
+
+                <div class="project-card fade-up" style="cursor:default;">
+                    <p class="project-tag">Fintech · Payments</p>
+                    <h3 class="project-title">Safeboxx — Automated Savings Billing</h3>
+                    <p class="project-desc">
+                        Built an automated savings plan billing engine processing 500+ transactions monthly. Developed a
+                        bank transfer system for low-connectivity regions, reducing agent-assisted transactions.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-stack">
+                            <span class="stack-tag">Python</span>
+                            <span class="stack-tag">Celery</span>
+                            <span class="stack-tag">Redis</span>
+                        </div>
+                        <span class="project-link" style="color:var(--text-muted); cursor:default;">Professional
+                            work</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PERSONAL PROJECTS -->
+    <section id="personal-projects">
+        <div class="container">
+            <p class="section-label">Personal Projects</p>
+            <h2
+                style="font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.5rem); font-weight:400; letter-spacing:-0.03em; max-width:560px; line-height:1.2;">
+                Built for curiosity.
+            </h2>
+
+            <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+
+                <a class="project-card personal-card fade-up" href="https://github.com/tolulopejoel/trink"
+                    target="_blank">
+                    <p class="project-tag">AI · Personal Finance</p>
+                    <h3 class="project-title">Trink — AI Budget Manager</h3>
+                    <p class="project-desc">
+                        An intelligent financial assistant powered by LLMs. Ask it natural-language questions like "How
+                        much did I spend eating out this month?" and get instant, contextual insights from your
+                        transaction data.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-stack">
+                            <span class="stack-tag">Python</span>
+                            <span class="stack-tag">LLM</span>
+                            <span class="stack-tag">RAG</span>
+                        </div>
+                        <span class="project-link">
+                            GitHub
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <div class="project-card personal-card fade-up">
+                    <p class="project-tag">NLP · Search · Web Scraping</p>
+                    <h3 class="project-title">Scene Rec — NLP Scene Search</h3>
+                    <p class="project-desc">
+                        Find any movie or TV scene using plain English. Built a semantic search engine on 7,600+
+                        movie subtitle files. Saves creators hours per week tracking down references so they
+                        can easily create content like
+                        <a href="https://www.instagram.com/p/C8UYQkXR8Zd/" target="_blank"
+                            style="color:var(--text); font-weight:600; text-decoration:underline; text-underline-offset:3px;">
+                            this
+                        </a>.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-stack">
+                            <span class="stack-tag">Python</span>
+                            <span class="stack-tag">sentence-transformers</span>
+                            <span class="stack-tag">NLP</span>
+                        </div>
+                        <a href="https://github.com/tolulopejoel/scene-rec" target="_blank" class="project-link">
+                            GitHub
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <p class="section-label">Experience</p>
+            <h2
+                style="font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.5rem); font-weight:400; letter-spacing:-0.03em; max-width:560px; line-height:1.2;">
+                Where I've been, what I've shipped.
+            </h2>
+
+            <div class="experience-list">
+                <div class="exp-item fade-up">
+                    <div class="exp-meta">
+                        <p class="exp-period">Sep 2025 – Present</p>
+                        <p class="exp-company"><span
+                                style="background:var(--text); color:var(--text); border-radius:3px; padding:0 4px;">███████</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="exp-role">Software Engineer</p>
+                        <ul class="exp-highlights">
+                            <li>Built RBAC system with 120+ permissions across 4 roles, enabling 14 modules to ship with
+                                a 2-line integration.</li>
+                            <li>Validated 76,954 emails across campaigns, saving ₦400k–₦600k vs. commercial solutions.
+                            </li>
+                            <li>Refactored LMS with secure-by-default architecture, fixing critical zero-auth
+                                vulnerabilities.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item fade-up">
+                    <div class="exp-meta">
+                        <p class="exp-period">Apr 2024 – Aug 2025</p>
+                        <p class="exp-company">Safeboxx</p>
+                    </div>
+                    <div>
+                        <p class="exp-role">Software Engineer, Full Stack</p>
+                        <ul class="exp-highlights">
+                            <li>Traced and fixed a wallet duplication bug in staging before it hit production.</li>
+                            <li>Built a bank transfer system for low-connectivity regions, reducing agent-assisted
+                                transactions.</li>
+                            <li>Automated savings billing with Celery + Redis, processing 500+ transactions monthly.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item fade-up">
+                    <div class="exp-meta">
+                        <p class="exp-period">Jan 2024 – May 2024</p>
+                        <p class="exp-company">JIA Outdoor Services</p>
+                    </div>
+                    <div>
+                        <p class="exp-role">Software Engineer (Contract)</p>
+                        <ul class="exp-highlights">
+                            <li>Architected a marketplace REST API for billboard advertisers.</li>
+                            <li>Reverse-engineered third-party event APIs, accelerating delivery by 3 weeks.</li>
+                            <li>Load tested with Locust, simulating thousands of requests to identify bottlenecks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <p class="fade-up" style="margin-top: 2.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                This isn't everything. <a
+                    href="mailto:toluisjoel@gmail.com?subject=Resume Request&body=Hi Tolu,%0D%0A%0D%0AI was going through your portfolio site and I was impressed with what I saw. We would love to have you on our team at [Company] — learn more about us at [link].%0D%0A%0D%0AKindly send your resume.%0D%0A%0D%0ABest regards,%0D%0A[Your name]"
+                    style="color: var(--text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px;">Request
+                    my full resume.</a>
             </p>
         </div>
-
-        <div class="projects-grid">
-            <div class="project reveal">
-                <h3 class="project-title">Spotlight Creative Hub</h3>
-                <div class="project-tags">
-                    <span class="project-tag">Booking Platform</span>
-                    <span class="project-tag">Real-time</span>
-                    <span class="project-tag">Payments</span>
-                </div>
-                <p class="project-description">
-                    I helped a Lagos café become more than coffee, turning it into a co-working and creative hub.
-                    I built a real-time booking system for seats, lounges, studios, and events, so members can reserve
-                    effortlessly.
-                </p>
-                <p class="project-description">
-                    I developed membership management, payment integration, and admin tools, keeping operations smooth
-                    and staff stress-free.
-                    I made sure the system handles heavy traffic without breaking a sweat.
-                </p>
-                <p class="project-description">
-                    The result? Staff can focus on the experience, members enjoy seamless booking and payments.
-                </p>
-                <a href="https://spotlightcreativehub.com" target="_blank" class="project-link">
-                    View live site →
-                </a>
-            </div>
-
-            <div class="project reveal">
-                <h3 class="project-title">Safescrow</h3>
-                <div class="project-tags">
-                    <span class="project-tag">Escrow Platform</span>
-                    <span class="project-tag">Payments</span>
-                </div>
-                <p class="project-description">
-                    I built Safescrow, a secure escrow platform to protect buyers and sellers. I handled deposits,
-                    payouts, and dispute management to make transactions smooth and reliable.
-                </p>
-                <p class="project-description">
-                    I integrated payment providers, KYC verification, and admin dashboards, ensuring transparency and
-                    trust. I focused on making each transaction safe and easy to track.
-                </p>
-                <p class="project-description">
-                    The result? Users and businesses can trade confidently, knowing the system keeps their money secure
-                    and the experience seamless.
-                </p>
-                <a href="https://safescrow.vercel.app" target="_blank" class="project-link">
-                    View demo site →
-                </a>
-            </div>
-
-            <div class="section-header" style="margin-top:4rem; margin-bottom:2rem;">
-                <span class="section-label reveal">More Work</span>
-            </div>
-
-            <div class="project reveal">
-                <h3 class="project-title">Trink (AI Budget Manager)</h3>
-                <div class="project-tags">
-                    <span class="project-tag">AI</span>
-                    <span class="project-tag">Finance</span>
-                    <span class="project-tag">RAG</span>
-                </div>
-                <p class="project-description">
-                    Many people struggle to track where their money goes and end up guessing their spending habits.
-                    Trink solves this by letting users ask simple questions like “How much did I spend on food this
-                    month?”
-                    and instantly get clear, personalised answers powered by AI.
-                </p>
-                <a href="https://github.com/TolulopeJoel/Trink" target="_blank" class="project-link">
-                    View repository →
-                </a>
-            </div>
-
-            <div class="project reveal">
-                <h3 class="project-title">Plug-and-Play AI Query Agent</h3>
-                <div class="project-tags">
-                    <span class="project-tag">LLM</span>
-                    <span class="project-tag">Databases</span>
-                    <span class="project-tag">AI</span>
-                </div>
-                <p class="project-description">
-                    Organisations often have valuable data but only technical staff can access it through complex
-                    queries.
-                    This project removes that barrier by turning natural language questions into database queries,
-                    so anyone in a team can get insights directly without writing code.
-                </p>
-                <a href="https://github.com/TolulopeJoel" target="_blank" class="project-link">
-                    View repository →
-                </a>
-            </div>
-
-            <div class="project reveal">
-                <h3 class="project-title">Scene Rec (NLP Scene Search Tool)</h3>
-                <div class="project-tags">
-                    <span class="project-tag">Web Scraping</span>
-                    <span class="project-tag">Search</span>
-                    <span class="project-tag">NLP</span>
-                </div>
-                <p class="project-description">
-                    Finding a specific movie or TV scene usually means scrubbing through hours of footage or subtitles.
-                    Scene Rec fixes this by letting users type a line of dialogue or description and instantly locate
-                    the exact scene they need, saving creators hours of manual searching.
-                </p>
-                <a href="https://github.com/TolulopeJoel/scene-rec" target="_blank" class="project-link">
-                    View repository →
-                </a>
-            </div>
-
-        </div>
-
-        <div style="text-align: center; margin-top: 4rem;">
-            <a href="https://github.com/TolulopeJoel?tab=repositories" target="_blank" class="hero-cta reveal pulse">
-                View all projects →
-            </a>
-        </div>
     </section>
+    <section id="testimonials">
+        <div class="container">
+            <p class="section-label">Testimonials</p>
+            <h2
+                style="font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.5rem); font-weight:400; letter-spacing:-0.03em; max-width:560px; line-height:1.2;">
+                What people say about working with me.
+            </h2>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section testimonials">
-        <div class="section-header">
-            <span class="section-label reveal">Testimonials</span>
-            <h2 class="section-title reveal">Kind words from collaborators</h2>
-        </div>
-
-        <div class="testimonials-grid">
-            <div class="testimonial reveal stagger-item">
-                <p class="testimonial-content">
-                    "I've really enjoyed working with you. Hopefully, we get to collaborate on more projects in the
-                    future. We worked well together, so I will definitely refer you when someone next asks me for a
-                    backend guy."
-                </p>
-                <div class="testimonial-author">
-                    <span class="author-name">Stanley Onwuka</span>
-                    <span class="author-title">CTO, The Noti Company</span>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-up">
+                    <p class="testimonial-quote">I've really enjoyed working with you. Hopefully, we get to collaborate
+                        on more projects in the future. We worked well together, so I will definitely refer you when
+                        someone next asks me for a backend guy.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SO</div>
+                        <div>
+                            <p class="author-name">Stanley Onwuka</p>
+                            <p class="author-role">CTO, The Noti Company</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="testimonial reveal stagger-item">
-                <p class="testimonial-content">
-                    "You did this?! This is incredible work."
-                </p>
-                <div class="testimonial-author">
-                    <span class="author-name">Ijen M.</span>
-                    <span class="author-title">Software Engineer</span>
+                <div class="testimonial-card fade-up">
+                    <p class="testimonial-quote">This blew my mind. You've done an excellent job. I don't know what I
+                        was expecting, but I wasn't expecting
+                        this at all. Thanks for all you do, I appreciate it.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CA</div>
+                        <div>
+                            <p class="author-name">Chukwuemeka Awere</p>
+                            <p class="author-role">Founder, Safeboxx</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="testimonial reveal stagger-item">
-                <p class="testimonial-content">
-                    "This blew my mind. You've done an excellent job, I wasn't expecting this at all. Thanks for all you
-                    do, I appreciate it."
-                </p>
-                <div class="testimonial-author">
-                    <span class="author-name">Chukwuemeka Awere</span>
-                    <span class="author-title">Founder, Safeboxx</span>
-                </div>
-            </div>
-
-            <div class="testimonial reveal stagger-item">
-                <p class="testimonial-content">
-                    <a href="#contact">HIRE ME</a>
-                </p>
-                <div class="testimonial-author">
-                    <span class="author-name">Your name could be here,</span>
-                    <span class="author-title">Your Move</span>
+                <div class="testimonial-card fade-up">
+                    <p class="testimonial-quote">You did this?! This is incredible work.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">IM</div>
+                        <div>
+                            <p class="author-name">Ijen M.</p>
+                            <p class="author-role">Software Engineer</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="section-header">
-            <span class="section-label reveal">Contact</span>
-            <h2 class="section-title reveal">Let's work together</h2>
+    <!-- CURRENTLY -->
+    <section id="currently">
+        <div class="container">
+            <p class="section-label">This year, outside the IDE</p>
+            <h2
+                style="font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.5rem); font-weight:400; letter-spacing:-0.03em; max-width:560px; line-height:1.2; margin-bottom:2.5rem;">
+                What I've been up to.
+            </h2>
+
+            <ul
+                style="list-style:disc; padding-left:1.25rem; display:flex; flex-direction:column; gap:0.75rem; margin-top:2.5rem;">
+                <li class="fade-up" style="font-size:1rem; color:var(--text-muted);">Trying to gain weight. It's going.
+                    Slowly.</li>
+                <li class="fade-up" style="font-size:1rem; color:var(--text-muted);">Revamping Àṣàrò for my friends.
+                    They didn't ask, but they'll thank me.</li>
+                <li class="fade-up" style="font-size:1rem; color:var(--text-muted);">Building AI agents and seeing how
+                    far I can push them before something breaks.</li>
+                <li class="fade-up" style="font-size:1rem; color:var(--text-muted);">Reading more, deliberately. Turns
+                    out there's a lot I didn't know.</li>
+                <li class="fade-up"
+                    style="font-size:1rem; color:var(--text-muted); text-decoration:line-through; opacity:0.5;">Going
+                    outside more.</li>
+            </ul>
         </div>
+    </section>
 
-        <div class="contact-grid">
-            <div class="reveal">
-                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-                    I'm open to new opportunities and collaborations. Whether you need to build robust backend systems,
-                    explore AI solutions, or optimise existing infrastructure, I'd enjoy discussing how we might work
-                    together.
-                </p>
-            </div>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <p class="section-label">Get in touch</p>
 
-            <div class="contact-links">
-                <a href="https://wa.me/+2349013407505" class="contact-link reveal stagger-item">
-                    <span class="contact-label">WhatsApp / Call</span>
-                    <span class="contact-value">+234 901 340 7505</span>
-                </a>
-                <a href="mailto:toluisjoel@gmail.com" class="contact-link reveal stagger-item">
-                    <span class="contact-label">Email</span>
-                    <span class="contact-value">toluisjoel@gmail.com</span>
-                </a>
+            <div class="contact-wrapper">
+                <div class="contact-left fade-up">
+                    <h3>Let's build something.<br> Or just talk.</h3>
+                    <p>Have a project in mind, or looking for an engineer to join your team? I'm open to full-time
+                        roles, freelance contracts, and interesting collaborations.</p>
+
+                    <div class="contact-links">
+                        <a href="https://wa.me/2349013407505" target="_blank" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                                </svg>
+                            </div>
+                            WhatsApp / Call
+                        </a>
+                        <a href="mailto:toluisjoel@gmail.com" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M2 4l6 5 6-5M2 4h12v9H2V4z" stroke="currentColor" stroke-width="1.2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            toluisjoel@gmail.com
+                        </a>
+                        <a href="https://github.com/tolulopejoel" target="_blank" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                            </div>
+                            github.com/tolulopejoel
+                        </a>
+                        <a href="https://linkedin.com/in/tolu-joel" target="_blank" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.175-.431.573-.878 1.242-.878.877 0 1.228.661 1.228 1.63v3.869h2.4V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                                </svg>
+                            </div>
+                            linkedin.com/in/tolu-joel
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form fade-up" id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input id="name" type="text" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Project type</label>
+                        <select id="type">
+                            <option value="">Select one…</option>
+                            <option>Full-time role</option>
+                            <option>API / Backend development</option>
+                            <option>Full-stack web app</option>
+                            <option>AI / LLM integration</option>
+                            <option>Code review / consulting</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Tell me about your project…" required></textarea>
+                    </div>
+                    <button type="button" onclick="sendMail()" class="btn-submit">
+                        Send message
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M2.5 7h9M7 2.5l4.5 4.5L7 11.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© 2025 Tolulope Joel — Here for you 🫶</p>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Tolulope Joel — Built by me, for obvious reasons.</p>
+        <div class="footer-links">
+            <a href="https://github.com/tolulopejoel" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/tolu-joel" target="_blank">LinkedIn</a>
+            <a href="mailto:toluisjoel@gmail.com">Email</a>
+        </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => entry.target.classList.add('visible'), delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach((el, i) => {
+            el.dataset.delay = (i % 4) * 80;
+            observer.observe(el);
+        });
+
+        function sendMail() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const type = document.getElementById('type').value;
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill in your name, email, and message.');
+                return;
+            }
+
+            const subject = encodeURIComponent(type ? `${type} — from ${name}` : `Message from ${name}`);
+            const body = encodeURIComponent(
+                `Hi Tolu,\n\nMy name is ${name} (${email}).\n\n${message}`
+            );
+
+            window.location.href = `mailto:toluisjoel@gmail.com?subject=${subject}&body=${body}`;
+        }
+    </script>
+
 </body>
 
 </html>

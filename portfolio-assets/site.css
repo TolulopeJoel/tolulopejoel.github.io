@@ -1,22 +1,22 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --paper: #FBFAF5;
-            --surface: #FFFFFF;
-            --ink: #111110;
-            --ink-soft: #55554C;
-            --ink-faint: #74746A;
-            --line: rgba(20, 20, 15, 0.11);
-            --line-strong: rgba(20, 20, 15, 0.22);
+            --paper: #F2EBDD;
+            --surface: #FBF7EF;
+            --ink: #17263F;
+            --ink-soft: #4A5468;
+            --ink-faint: #7C8291;
+            --line: rgba(23, 38, 63, 0.13);
+            --line-strong: rgba(23, 38, 63, 0.26);
             /* Jewel inks, built around the teal. Deep and saturated rather
                than fluorescent; all carry white type and all pass AA. */
-            --teal:   #0A736F;
-            --blue:   #23548C;
-            --berry:  #9C3468;
-            --violet: #584090;
+            --teal:   #5F7652;
+            --blue:   #17263F;
+            --berry:  #C9762C;
+            --violet: #B0603F;
 
             --accent: var(--teal);
-            --accent-dim: rgba(10, 115, 111, 0.10);
+            --accent-dim: rgba(95, 118, 82, 0.12);
             --block: var(--teal);
             --block-ink: #FFFFFF;
             --available: var(--teal);
@@ -26,11 +26,11 @@
         html { scroll-behavior: smooth; }
 
         /* Each section carries its own accent; everything inside inherits it. */
-        #production-ai    { --block: var(--teal);   --accent: var(--teal);   --accent-dim: rgba(10, 115, 111, 0.10); }
-        #personal-projects{ --block: var(--blue);   --accent: var(--blue);   --accent-dim: rgba(35, 84, 140, 0.10); }
-        #work             { --block: var(--violet); --accent: var(--violet); --accent-dim: rgba(88, 64, 144, 0.10); }
-        #case-studies     { --block: var(--berry);  --accent: var(--berry);  --accent-dim: rgba(156, 52, 104, 0.10); }
-        #direction        { --block: var(--blue);   --accent: var(--blue);   --accent-dim: rgba(35, 84, 140, 0.10); }
+        #production-ai    { --block: var(--teal);   --accent: var(--teal);   --accent-dim: rgba(95, 118, 82, 0.12); }
+        #personal-projects{ --block: var(--blue);   --accent: var(--blue);   --accent-dim: rgba(23, 38, 63, 0.10); }
+        #work             { --block: var(--violet); --accent: var(--violet); --accent-dim: rgba(176, 96, 63, 0.12); }
+        #case-studies     { --block: var(--berry);  --accent: var(--berry);  --accent-dim: rgba(201, 118, 44, 0.12); }
+        #direction        { --block: var(--blue);   --accent: var(--blue);   --accent-dim: rgba(23, 38, 63, 0.10); }
 
         body {
             font-family: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -55,7 +55,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(250, 250, 247, 0.86);
+            background: rgba(242, 235, 221, 0.92);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--line);
@@ -142,10 +142,10 @@
         }
 
         h2 {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(1.9rem, 4.2vw, 2.7rem);
-            font-weight: 400;
-            letter-spacing: -0.025em;
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
             line-height: 1.25;
             max-width: 620px;
         }
@@ -168,11 +168,11 @@
         }
 
         h1 {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(2.6rem, 6vw, 4.2rem);
-            font-weight: 400;
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            font-size: clamp(2.1rem, 4.8vw, 3.3rem);
+            font-weight: 700;
             line-height: 1.08;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
             max-width: 900px;
             text-wrap: balance;
             margin-bottom: 0.4rem;
@@ -283,7 +283,7 @@
             align-items: start;
         }
 
-        .about-grid p {
+        .about-grid p:not(.section-label) {
             font-size: 1.12rem;
             color: var(--ink-soft);
             line-height: 1.75;
@@ -309,11 +309,11 @@
         }
 
         .case-title {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(2.1rem, 4.8vw, 3.1rem);
-            font-weight: 400;
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700;
             line-height: 1.12;
-            letter-spacing: -0.015em;
+            letter-spacing: -0.01em;
         }
 
         .case-standfirst { font-size: 1.25rem; line-height: 1.62; color: var(--ink-soft); max-width: 62ch; }
@@ -366,11 +366,11 @@
         .clause-body { min-width: 0; max-width: 66ch; display: flex; flex-direction: column; gap: 1.5rem; }
 
         .clause h3 {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.55rem;
-            font-weight: 400;
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
             line-height: 1.3;
-            letter-spacing: -0.01em;
+            letter-spacing: 0;
         }
 
         .clause p { font-size: 1.12rem; line-height: 1.72; color: var(--ink-soft); }
@@ -387,8 +387,8 @@
         .pull {
             border-left: 2px solid var(--accent);
             padding: 0.2rem 0 0.2rem 1.25rem;
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.3rem;
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            font-size: 1.12rem;
             line-height: 1.45;
             color: var(--ink);
         }
@@ -712,11 +712,11 @@
         }
 
         .entry-title {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.85rem;
-            font-weight: 400;
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
             line-height: 1.22;
-            letter-spacing: -0.01em;
+            letter-spacing: 0;
         }
 
         .entry-desc { font-size: 1.12rem; line-height: 1.7; color: var(--ink-soft); max-width: 60ch; }
@@ -868,8 +868,8 @@
         .thread:first-child { border-top: 1px solid var(--line); }
 
         .thread-name {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.3rem;
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            font-size: 1.12rem;
             line-height: 1.2;
             color: var(--ink);
         }
@@ -891,8 +891,8 @@
 
         .direction-close {
             margin-top: 2.75rem;
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(1.3rem, 2.6vw, 1.65rem);
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            font-size: clamp(1.12rem, 2.2vw, 1.35rem);
             line-height: 1.45;
             max-width: 46ch;
             color: var(--ink);
@@ -1136,13 +1136,13 @@
    the type keeps its contrast. */
 .case-link.wash-sage {
     background-image:
-        linear-gradient(150deg, rgba(251, 250, 245, 0.38) 0%, rgba(251, 250, 245, 0.56) 72%),
+        linear-gradient(150deg, rgba(242, 235, 221, 0.38) 0%, rgba(242, 235, 221, 0.56) 72%),
         url("wash-sage.jpg");
 }
 
 .case-link.wash-pink {
     background-image:
-        linear-gradient(150deg, rgba(251, 250, 245, 0.42) 0%, rgba(251, 250, 245, 0.60) 72%),
+        linear-gradient(150deg, rgba(242, 235, 221, 0.42) 0%, rgba(242, 235, 221, 0.60) 72%),
         url("wash-pink.jpg");
 }
 
@@ -1150,13 +1150,13 @@
 
 .case-link.wash-sage:hover {
     background-image:
-        linear-gradient(150deg, rgba(251, 250, 245, 0.24) 0%, rgba(251, 250, 245, 0.44) 72%),
+        linear-gradient(150deg, rgba(242, 235, 221, 0.24) 0%, rgba(242, 235, 221, 0.44) 72%),
         url("wash-sage.jpg");
 }
 
 .case-link.wash-pink:hover {
     background-image:
-        linear-gradient(150deg, rgba(251, 250, 245, 0.28) 0%, rgba(251, 250, 245, 0.48) 72%),
+        linear-gradient(150deg, rgba(242, 235, 221, 0.28) 0%, rgba(242, 235, 221, 0.48) 72%),
         url("wash-pink.jpg");
 }
 
@@ -1170,8 +1170,8 @@
 }
 
 .case-link-title {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-size: 1.65rem;
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    font-size: 1.35rem;
     line-height: 1.22;
     color: var(--ink);
     text-decoration: none;
@@ -1231,8 +1231,8 @@
     color: var(--ink-faint);
 }
 .case-next a {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-size: 1.4rem;
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    font-size: 1.2rem;
     color: var(--ink);
     text-decoration: none;
     border-bottom: 1px solid var(--line-strong);

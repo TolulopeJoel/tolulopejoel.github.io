@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio-assets/site.css">
 </head>
 
@@ -32,8 +32,8 @@
     <nav>
         <a href="index.html" class="nav-logo">Tolulope Joel</a>
         <ul class="nav-links">
-            <li><a href="index.html#production-ai">AI work</a></li>
-            <li><a href="index.html#case-studies">Case studies</a></li>
+            <li><a href="index.html#approvehr">Work</a></li>
+            <li><a href="index.html#writing">Writing</a></li>
             <li><a href="index.html#experience">Experience</a></li>
             <li><a href="index.html#contact" class="nav-status"><span class="status-dot"></span>Open to work</a></li>
         </ul>
@@ -53,8 +53,8 @@
                         </div>
 
                         <div class="case-facts">
-                            <span><b>Role</b> &nbsp;architecture &amp; implementation, frontend and backend</span>
-                            <span><b>Stack</b> &nbsp;TypeScript · Prisma · React · multi-provider LLM</span>
+                            <span><b>Role</b> &nbsp;built the assistant's query engine, backend and frontend</span>
+                            <span><b>Stack</b> &nbsp;TypeScript · Prisma · React · Gemini · SSE</span>
                             <span><b>Status</b> &nbsp;in production at Schulltech</span>
                         </div>
 
@@ -73,12 +73,14 @@
                         <div class="clause">
                             <p class="clause-no">02</p>
                             <div class="clause-body">
-                                <h3>The tool surface is generated from permissions</h3>
+                                <h3>The catalogue is built from permissions</h3>
                                 <p>Rather than filtering results after the model asks, the catalogue declares every queryable entity
-                                    and field along with the permission it requires and the rows a caller may see. The tools handed to
-                                    the model are <strong>built per request from the asking user's own permissions</strong>, so a
-                                    question about salaries from someone without payroll access isn't refused. The capability was
-                                    never in the model's hands to begin with.</p>
+                                    and field along with the permission it requires and the rows a caller may see. The model gets one
+                                    read-only query tool, and the schema behind it is <strong>built per request from the asking user's
+                                    own permissions</strong>. A field the caller can't see arrives redacted: the model learns only
+                                    whether a value exists, never what it is.</p>
+                                <p>The server enforces the same catalogue when the query runs. A model that guessed the name of a
+                                    hidden field still gets nothing back.</p>
                                 </div>
                             <div class="case-diagram">
                                 <svg viewBox="0 0 900 400" role="img" aria-label="Request path: a question is answered only through tools the asking user's own permissions generated.">
@@ -93,7 +95,6 @@
                                         <path d="M494 92 V150" marker-end="url(#ar)"/>
                                         <path d="M494 232 V286" marker-end="url(#ar)"/>
                                         <path d="M406 314 H322" marker-end="url(#ar)"/>
-                                        <path d="M666 314 H736" marker-end="url(#ar)"/>
                                         <path d="M578 300 H660 V120 H600" marker-end="url(#ar)"/>
                                     </g>
 
@@ -109,7 +110,7 @@
                                         <text x="494" y="63" text-anchor="middle" fill="var(--accent)">catalogue</text>
 
                                         <rect x="366" y="150" width="256" height="82" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
-                                        <text x="494" y="174" text-anchor="middle" fill="var(--ink)">tool declarations</text>
+                                        <text x="494" y="174" text-anchor="middle" fill="var(--ink)">query schema</text>
                                         <text x="494" y="194" text-anchor="middle" fill="var(--ink-faint)" font-size="10">fields gated by permission</text>
                                         <text x="494" y="210" text-anchor="middle" fill="var(--ink-faint)" font-size="10">rows scoped to the caller</text>
 
@@ -119,11 +120,8 @@
 
                                         <rect x="176" y="286" width="146" height="56" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
                                         <text x="249" y="311" text-anchor="middle" fill="var(--ink)">read</text>
-                                        <text x="249" y="328" text-anchor="middle" fill="var(--ink-faint)" font-size="10">answer + provenance</text>
+                                        <text x="249" y="328" text-anchor="middle" fill="var(--ink-faint)" font-size="10">streamed answer</text>
 
-                                        <rect x="742" y="286" width="150" height="56" rx="3" fill="var(--paper)" stroke="var(--accent)"/>
-                                        <text x="817" y="311" text-anchor="middle" fill="var(--accent)">write</text>
-                                        <text x="817" y="328" text-anchor="middle" fill="var(--ink-faint)" font-size="10">gate · confirm · audit</text>
 
                                         <rect x="600" y="98" width="252" height="44" rx="3" fill="var(--paper)" stroke="var(--line-strong)" stroke-dasharray="3 3"/>
                                         <text x="726" y="118" text-anchor="middle" fill="var(--ink-faint)" font-size="10">every turn: tokens metered,</text>
@@ -139,29 +137,17 @@
                         <div class="clause">
                             <p class="clause-no">03</p>
                             <div class="clause-body">
-                                <h3>Reads and writes are different problems</h3>
-                                <p>A read that shouldn't have happened is a disclosure. A write that shouldn't have happened is a
-                                    decision nobody made. So they run on separate paths: an action carries a mandatory gate, never
-                                    optional, and writes an audit entry identical to the one the hand-driven route writes, because an
-                                    action taken through the assistant should be indistinguishable afterwards from one taken by hand.</p>
+                                <h3>Streamed, with a ceiling</h3>
+                                <p>Answers stream over server-sent events as they're written, so nobody stares at a spinner. A turn
+                                    can make at most four calls, and if the person closes the tab, the turn stops instead of spending
+                                    tokens on nobody.</p>
                             </div>
                         </div>
 
                         <div class="clause">
                             <p class="clause-no">04</p>
                             <div class="clause-body">
-                                <h3>The model does not get to word its own confirmation</h3>
-                                <p>Before a write, a person presses a button. The label on that button is <strong>read from the
-                                    database</strong>, never generated. Otherwise a model that had been talked into something could
-                                    also describe it persuasively, and the human check becomes theatre. Suggestions carry the same
-                                    rule in the type system: one cannot be rendered without declaring what it was grounded in.</p>
-                            </div>
-                        </div>
-
-                        <div class="clause">
-                            <p class="clause-no">05</p>
-                            <div class="clause-body">
-                                <h3>What it costs, and what it did</h3>
+                                <h3>What it costs, and what it saw</h3>
                                 <p>Token spend is metered per organisation across a daily and a monthly window, so a runaway
                                     conversation is visible before it's an invoice. Every turn writes a trace, and because those
                                     traces carry real pay figures and leave reasons, verbosity is a setting rather than a constant:

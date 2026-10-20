@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The phone that deleted my alarms</title>
+    <meta name="description" content="A case study on debugging an Android app that stopped running on a TECNO phone, because the manufacturer's freezer was silently removing its alarms.">
+    <meta name="author" content="Tolulope Joel">
+    <meta property="og:title" content="The phone that deleted my alarms">
+    <meta property="og:description" content="A case study on debugging an Android app that stopped running on a TECNO phone, because the manufacturer's freezer was silently removing its alarms.">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="portfolio-assets/favicon.svg">
+    <link rel="apple-touch-icon" href="portfolio-assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#0A736F">
+    <meta property="og:image" content="portfolio-assets/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-assets/site.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">Tolulope Joel</a>
+        <ul class="nav-links">
+            <li><a href="index.html#approvehr">Work</a></li>
+            <li><a href="index.html#writing">Writing</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#contact" class="nav-status"><span class="status-dot"></span>Open to work</a></li>
+        </ul>
+    </nav>
+
+    <section class="case-page" id="case-studies">
+        <div class="container">
+            <a class="backlink" href="index.html">← Back to everything else</a>
+
+            <article class="case">
+            <div class="case-head">
+                            <p class="case-kicker">Case study · Android debugging</p>
+                            <h1 class="case-title">The phone that deleted<br>my alarms</h1>
+                            <p class="case-standfirst">I built an Android app that runs a schedule on my own phone. It worked after
+                                every restart, then quietly stopped. No crash, no error. The phone was deleting its alarms, and the
+                                usual fixes didn't stop it.</p>
+                        </div>
+
+                        <div class="case-facts">
+                            <span><b>Role</b> &nbsp;solo: design, build, debugging</span>
+                            <span><b>Stack</b> &nbsp;Kotlin · Android device-owner APIs · AlarmManager · adb</span>
+                            <span><b>Device</b> &nbsp;TECNO KM6, HiOS on Android 15</span>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">01</p>
+                            <div class="clause-body">
+                                <h3>A schedule that only worked after a restart</h3>
+                                <p>The app is a device owner, the highest level of control Android gives an app. At set times it
+                                    locks and unlocks other apps. Each run sets an <code>AlarmManager</code> alarm for the next one,
+                                    so the schedule is a chain. After a restart the chain ran. Then it stopped,
+                                    and nothing in the app's own logs said why.</p>
+                                <p>The phone matters here. TECNO, Infinix and itel are what most people in Nigeria actually
+                                    carry. An app that dies on them dies for most of its users.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">02</p>
+                            <div class="clause-body">
+                                <h3>The answer was in someone else's log tag</h3>
+                                <p>Reading the whole of logcat around each run, not just my own lines, turned up one I hadn't
+                                    written: <code>Hiber/hiber: proxy alarm (uid=…, pkgName=…)</code>, about five seconds after
+                                    every run. Hiber is HiOS's background freezer. It freezes an app that isn't in front and
+                                    <strong>takes its alarms away</strong>.</p>
+                                <p>When the app is unfrozen, Hiber gives back its services, its jobs and its sensors. It doesn't
+                                    give back its alarms. So the next link in the chain never fires, and the schedule ends without
+                                    an error.</p>
+                                <p class="pull">Nothing failed. The alarm just wasn't there any more.</p>
+                            </div>
+                            <div class="case-diagram">
+                                <svg viewBox="0 0 900 330" role="img" aria-label="The alarm chain: each run sets the next alarm. Hiber freezes the app about five seconds after a run and removes the alarm, so the chain stops. With a home-screen widget placed, Hiber doesn't freeze the app and the chain continues.">
+                                    <defs>
+                                        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                                        </marker>
+                                    </defs>
+                                    <g font-family="JetBrains Mono, monospace" font-size="12">
+                                        <text x="16" y="28" fill="var(--ink-faint)" font-size="11">WITHOUT A WIDGET</text>
+                                        <rect x="16" y="44" width="150" height="48" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="91" y="66" text-anchor="middle" fill="var(--ink)">run</text>
+                                        <text x="91" y="82" text-anchor="middle" fill="var(--ink-faint)" font-size="10">sets next alarm</text>
+                                        <rect x="236" y="44" width="170" height="48" rx="3" fill="var(--accent-dim)" stroke="var(--accent)"/>
+                                        <text x="321" y="66" text-anchor="middle" fill="var(--accent)">Hiber freezes</text>
+                                        <text x="321" y="82" text-anchor="middle" fill="var(--ink-faint)" font-size="10">~5 s later</text>
+                                        <rect x="476" y="44" width="170" height="48" rx="3" fill="var(--paper)" stroke="var(--accent)"/>
+                                        <text x="561" y="66" text-anchor="middle" fill="var(--accent)">alarm removed</text>
+                                        <text x="561" y="82" text-anchor="middle" fill="var(--ink-faint)" font-size="10">"proxy alarm"</text>
+                                        <rect x="716" y="44" width="168" height="48" rx="3" fill="var(--paper)" stroke="var(--line-strong)" stroke-dasharray="3 3"/>
+                                        <text x="800" y="66" text-anchor="middle" fill="var(--ink-faint)">next run</text>
+                                        <text x="800" y="82" text-anchor="middle" fill="var(--ink-faint)" font-size="10">never happens</text>
+
+                                        <text x="16" y="176" fill="var(--ink-faint)" font-size="11">WITH A WIDGET PLACED</text>
+                                        <rect x="16" y="192" width="150" height="48" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="91" y="214" text-anchor="middle" fill="var(--ink)">run</text>
+                                        <text x="91" y="230" text-anchor="middle" fill="var(--ink-faint)" font-size="10">sets next alarm</text>
+                                        <rect x="236" y="192" width="170" height="48" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="321" y="214" text-anchor="middle" fill="var(--ink)">Hiber skips it</text>
+                                        <text x="321" y="230" text-anchor="middle" fill="var(--ink-faint)" font-size="10">"importantcase: widget"</text>
+                                        <rect x="476" y="192" width="170" height="48" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="561" y="214" text-anchor="middle" fill="var(--ink)">alarm pending</text>
+                                        <rect x="716" y="192" width="168" height="48" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="800" y="214" text-anchor="middle" fill="var(--ink)">next run</text>
+                                        <text x="800" y="230" text-anchor="middle" fill="var(--ink-faint)" font-size="10">on time</text>
+                                    </g>
+                                    <g fill="none" stroke="currentColor" stroke-width="1" color="var(--line-strong)">
+                                        <path d="M166 68 H232" marker-end="url(#ar)"/>
+                                        <path d="M406 68 H472" marker-end="url(#ar)"/>
+                                        <path d="M646 68 H712" marker-end="url(#ar)" stroke-dasharray="3 3"/>
+                                        <path d="M166 216 H232" marker-end="url(#ar)"/>
+                                        <path d="M406 216 H472" marker-end="url(#ar)"/>
+                                        <path d="M646 216 H712" marker-end="url(#ar)"/>
+                                        <path d="M800 240 V290 H91 V244" marker-end="url(#ar)"/>
+                                    </g>
+                                    <text x="445" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-faint)">the chain keeps going</text>
+                                </svg>
+                                <p class="diagram-cap">The schedule is a chain of alarms. Hiber cuts it a few seconds after each run,
+                                    unless the app has a widget on the home screen.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">03</p>
+                            <div class="clause-body">
+                                <h3>Four fixes that should have worked</h3>
+                                <p>Each of these is the standard advice for keeping an Android app alive. I tried each one and
+                                    watched for the <code>proxy alarm</code> line.</p>
+                                <p><strong>A foreground service.</strong> The app was frozen with the service running and
+                                    <code>isForeground=true</code>.<br>
+                                    <strong>The battery-optimisation exemption.</strong> Frozen anyway.<br>
+                                    <strong>Device-owner status.</strong> The strongest privilege an app can hold. Frozen anyway.<br>
+                                    <strong>The <code>EXEMPTED</code> standby bucket.</strong> Frozen anyway.</p>
+                                <p>Moving the work to WorkManager wasn't a way out either. Hiber proxies JobScheduler jobs the same
+                                    way (<code>p_job</code>).</p>
+                                <p class="pull">"Exempt from battery optimisation" doesn't mean exempt from the manufacturer's freezer.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">04</p>
+                            <div class="clause-body">
+                                <h3>The one thing Hiber respects</h3>
+                                <p>A placed home-screen widget. With one on the screen, Hiber logs
+                                    <code>can't transition from R to F, importantcase is : widget</code> and leaves the app alone.
+                                    The alarms stay pending and the chain keeps running.</p>
+                                <p>So the widget became part of the product, not decoration. It shows what the schedule is doing
+                                    right now, and it's what keeps the schedule alive. The app only asks for it on the phones that
+                                    need it.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">05</p>
+                            <div class="clause-body">
+                                <h3>Then it broke again with the screen off</h3>
+                                <p>The widget's protection only holds while the screen is on. With the screen off, Hiber freezes
+                                    the app again, drops its alarms, and holds broadcasts meant for it in a restricted queue
+                                    (visible in <code>dumpsys activity broadcasts</code>) that may never be delivered.</p>
+                                <p>There was no exemption to find this time, so I changed the design. The app now treats the first
+                                    sign of life after a freeze as a reason to check the schedule again. It asks
+                                    <code>PowerManager.isInteractive</code> instead of trusting a screen-on broadcast that may
+                                    never arrive. And it assumes an alarm might not fire, instead of assuming it will.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">06</p>
+                            <div class="clause-body">
+                                <h3>What I'd tell another Android developer</h3>
+                                <p>If your users are in Africa, test on a TECNO, an Infinix or an itel, not only on a Pixel. Read
+                                    the manufacturer's own log tags, not just yours. The answer was in logcat the whole time, under
+                                    a name I didn't know to look for. And design for the alarm that doesn't fire, because on
+                                    these phones, some of them won't.</p>
+                                <p>The smaller surprises on the same phone: the launcher draws widget images at about 87.5% of
+                                    their box, so tap areas drift out of line. It ignores custom fonts in widgets, so text has to be
+                                    drawn as a bitmap. And one device-policy call throws on this phone instead of returning, which
+                                    had been silently cutting a function short.</p>
+                            </div>
+                        </div>
+                        </article>
+
+            <div class="case-next">
+                <span class="label">Another one</span>
+                <a href="case-payroll.html">How an assistant reads payroll without leaking it ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Tolulope Joel · Built by me, for obvious reasons.</p>
+        <div class="footer-links">
+            <a href="index.html">Portfolio</a>
+            <a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a>
+            <a href="mailto:toluisjoel@gmail.com">Email</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

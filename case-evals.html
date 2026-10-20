@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How do you know the agent is right?</title>
+    <meta name="description" content="A case study on evaluating a text-to-SQL agent, where a confidently wrong answer looks exactly like a right one.">
+    <meta name="author" content="Tolulope Joel">
+    <meta property="og:title" content="How do you know the agent is right?">
+    <meta property="og:description" content="A case study on evaluating a text-to-SQL agent, where a confidently wrong answer looks exactly like a right one.">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="portfolio-assets/favicon.svg">
+    <link rel="apple-touch-icon" href="portfolio-assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#0A736F">
+    <meta property="og:image" content="portfolio-assets/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- On deploy: make og:image an ABSOLUTE url (https://yourdomain/portfolio-assets/og.jpg).
+         LinkedIn and some scrapers will not resolve a relative one. Add a canonical here too. -->
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-assets/site.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">Tolulope Joel</a>
+        <ul class="nav-links">
+            <li><a href="index.html#production-ai">AI work</a></li>
+            <li><a href="index.html#case-studies">Case studies</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#contact" class="nav-status"><span class="status-dot"></span>Open to work</a></li>
+        </ul>
+    </nav>
+
+    <section class="case-page" id="case-studies">
+        <div class="container">
+            <a class="backlink" href="index.html">← Back to everything else</a>
+
+            <article class="case">
+                            <div class="case-head">
+                                <p class="case-kicker">Case study · evaluation</p>
+                                <h1 class="case-title">How do you know<br>the agent is right?</h1>
+                                <p class="case-standfirst">Kowane answers questions about a bank's own books in plain English. An
+                                    agent that errors is an inconvenience. An agent that is confidently wrong about loan exposure is
+                                    something else, because nothing about the answer looks wrong.</p>
+                            </div>
+
+                            <div class="case-facts">
+                                <span><b>Role</b> &nbsp;architecture &amp; implementation</span>
+                                <span><b>Stack</b> &nbsp;Python · LangGraph · ChromaDB</span>
+                                <span><b>Suite</b> &nbsp;27 cases across 11 categories</span>
+                            </div>
+
+                            <p class="movement">Before the answer exists <span>· prevention</span></p>
+
+                            <div class="clause">
+                                <p class="clause-no">01</p>
+                                <div class="clause-body">
+                                    <h3>A wrong answer arrives looking exactly like a right one</h3>
+                                    <p>Ask what the exposure is on overdue loans and you get a number and a chart. If the agent joined the wrong table or quietly dropped a filter, you still get a number and a chart. There is no stack trace, no error, nothing to notice. <strong>The failure mode is plausibility</strong>, and a bank acting on it would never know.</p>
+                                </div>
+                            </div>
+
+                            <div class="clause">
+                                <p class="clause-no">02</p>
+                                <div class="clause-body">
+                                    <h3>Retrieval is fuzzy. Relationships are not.</h3>
+                                    <p>Which tables matter for <em>“how many customers are overdue”</em> is a judgment call, so that is retrieval's job: M-Schema documents in a vector store, searched semantically. Which tables can legally join is not a judgment call at all. It is a fact, it is cheap to compute, and it is complete.</p>
+                                    <p>So the foreign-key graph is never retrieved, it is <strong>stated</strong>, as <em>the only relationships that exist</em>, and the same graph is loaded through a single function so the prompt and the validator can never disagree about what the schema is.</p>
+                                    <p class="pull">Use retrieval where the answer is uncertain. Use the schema where it is knowable.</p>
+                                    <p>The known gap: a table that bridges two others is named in neither the question nor the retrieved set, so it arrives as a relationship without a column list. The literature calls this structural blindness. One hop of graph expansion is the fix, and it is on the list.</p>
+                                </div>
+                            </div>
+
+                            <div class="clause">
+                                <p class="clause-no">03</p>
+                                <div class="clause-body">
+                                    <h3>Checks for queries that run but do not mean what they look like</h3>
+                                    <p>Generated SQL is parsed with sqlglot and its scope tree walked rather than pattern-matched over the text, so quoted identifiers, <code>USING(…)</code> joins and CTE scoping all resolve correctly, so an alias reused inside a subquery cannot be mistaken for the same alias outside it.</p>
+                                    <p>A join between tables with no foreign-key relationship is rejected before execution. The rejection goes back to the generator as a message it can act on, and <strong>the loop is bounded at three attempts</strong>, after which the agent says so rather than trying forever.</p>
+                                </div>
+                            </div>
+
+                            <div class="clause">
+                                <p class="clause-no">04</p>
+                                <div class="clause-body">
+                                    <h3>The model never does arithmetic</h3>
+                                    <p>The synthesis prompt shows the model a <em>sample</em> of the rows. So any figure describing the whole result set is computed in code and handed over with instructions to quote it verbatim and derive nothing else.</p>
+                                    <p class="pull">Asking a model to total a 40-row sample of a 500-row result is how a confidently wrong naira figure reaches a manager.</p>
+                                    <p>Identifier columns are skipped, because the sum of a column of loan ids is a number but it is not a fact about anything.</p>
+                                </div>
+                            </div>
+
+                            <p class="movement">After the answer exists <span>· verification</span></p>
+
+                            <div class="clause">
+                                <p class="clause-no">05</p>
+                                <div class="clause-body">
+                                    <h3>The test suite cannot reach this</h3>
+                                    <p>Pytest tells you the code still does what it did yesterday. It cannot tell you whether the agent still answers correctly, because that depends on the prompt, the schema documents in the vector store, the strictness of the SQL validator and the model itself, <strong>none of which the test suite touches.</strong> Every one of those can change without a single test going red.</p>
+                                    <p class="pull">So the suite runs real questions through the real graph, and scores the answers.</p>
+                                </div>
+                            </div>
+
+                            <div class="clause">
+                                <p class="clause-no">06</p>
+                                <div class="clause-body">
+                                    <h3>The hard part is comparing results, not strings</h3>
+                                    <p>Two completely different queries can both be right. Comparing generated SQL to a reference string would fail almost everything correct, so the harness runs both and compares what came back: <strong>ordering enforced only where the gold query actually ordered</strong>, columns matched rather than assumed positional, and values normalised so a decimal and an integer of the same amount agree. Most of the scoring code is this, not the plumbing.</p>
+                                </div>
+                            </div>
+            <div class="case-diagram">
+                                    <svg viewBox="0 0 900 430" role="img" aria-label="Eval loop: the same question runs through the real agent and against a gold query, and the two results are compared.">
+                                    <defs>
+                                        <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                                        </marker>
+                                    </defs>
+                                    <g fill="none" stroke="currentColor" stroke-width="1" color="var(--line-strong)">
+                                        <path d="M150 76 H206" marker-end="url(#ar2)"/>
+                                        <path d="M150 76 V216 H206" marker-end="url(#ar2)"/>
+                                        <path d="M366 76 H416" marker-end="url(#ar2)"/>
+                                        <path d="M576 76 H626" marker-end="url(#ar2)"/>
+                                        <path d="M366 216 H626" marker-end="url(#ar2)"/>
+                                        <path d="M726 110 V166" marker-end="url(#ar2)"/>
+                                        <path d="M726 182 V166"/>
+                                        <path d="M726 250 V300" marker-end="url(#ar2)"/>
+                                        <path d="M726 356 V392 H120 V104" marker-end="url(#ar2)" stroke-dasharray="4 4"/>
+                                    </g>
+
+                                    <g font-family="JetBrains Mono, monospace" font-size="12">
+                                        <rect x="16" y="54" width="134" height="44" rx="3" fill="var(--accent-dim)" stroke="var(--accent)"/>
+                                        <text x="83" y="73" text-anchor="middle" fill="var(--accent)">a question</text>
+                                        <text x="83" y="88" text-anchor="middle" fill="var(--ink-faint)" font-size="10">27 of them, 11 kinds</text>
+
+                                        <rect x="206" y="54" width="160" height="44" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="286" y="73" text-anchor="middle" fill="var(--ink)">the real graph</text>
+                                        <text x="286" y="88" text-anchor="middle" fill="var(--ink-faint)" font-size="10">retrieve · generate · validate</text>
+
+                                        <rect x="416" y="54" width="160" height="44" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="496" y="81" text-anchor="middle" fill="var(--ink)">candidate rows</text>
+
+                                        <rect x="206" y="194" width="160" height="44" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="286" y="213" text-anchor="middle" fill="var(--ink)">gold SQL</text>
+                                        <text x="286" y="228" text-anchor="middle" fill="var(--ink-faint)" font-size="10">written by hand</text>
+
+                                        <rect x="626" y="54" width="200" height="56" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="726" y="78" text-anchor="middle" fill="var(--ink)">compare results</text>
+                                        <text x="726" y="95" text-anchor="middle" fill="var(--ink-faint)" font-size="10">not strings</text>
+
+                                        <rect x="596" y="166" width="260" height="84" rx="3" fill="var(--paper)" stroke="var(--line-strong)" stroke-dasharray="3 3"/>
+                                        <text x="726" y="190" text-anchor="middle" fill="var(--ink-faint)" font-size="10">order matters only if the gold says so</text>
+                                        <text x="726" y="208" text-anchor="middle" fill="var(--ink-faint)" font-size="10">columns matched, values normalised</text>
+                                        <text x="726" y="226" text-anchor="middle" fill="var(--ink-faint)" font-size="10">429 / 503 → broken, never failed</text>
+
+                                        <rect x="626" y="300" width="200" height="56" rx="3" fill="var(--paper)" stroke="var(--accent)"/>
+                                        <text x="726" y="324" text-anchor="middle" fill="var(--accent)">vs. baseline</text>
+                                        <text x="726" y="341" text-anchor="middle" fill="var(--ink-faint)" font-size="10">what regressed, not the score</text>
+                                    </g>
+                                </svg>
+                                    <p class="diagram-cap">The same question takes two paths. Everything interesting happens where
+                                        they meet.</p>
+                                </div>
+
+                            <div class="clause">
+                                <p class="clause-no">07</p>
+                                <div class="clause-body">
+                                    <h3>Some cases exist to be refused</h3>
+                                    <p>The 27 cases are not all lookups. There are aggregations, joins, multi-hop joins, negation, temporal questions and rankings, and then the categories that matter most: <strong>relationship traps, refusals and safety.</strong> A question the agent should decline is as much a test as one it should answer, and an agent that cheerfully answers everything has not passed, it has failed in a way the other cases cannot see.</p>
+                                </div>
+                            </div>
+
+                            <div class="clause">
+                                <p class="clause-no">08</p>
+                                <div class="clause-body">
+                                    <h3>A suite is only useful if people believe it</h3>
+                                    <p>A rate limit or a provider outage is reported as <strong>broken, never as failed</strong>. Scoring a quota blip as a regression is how a suite loses its credibility. Someone spends an afternoon hunting a prompt bug that was never there, and after that nobody trusts a red run.</p>
+                                    <p>For the same reason the headline number is not the pass rate. You save a run you were happy with as the baseline and compare against it, and what the comparison prints is the list of cases that went from passing to failing. <strong>The direction of travel is the thing worth acting on</strong>, not the score.</p>
+                                </div>
+                            </div>
+
+                            <div class="clause">
+                                <p class="clause-no">09</p>
+                                <div class="clause-body">
+                                    <h3>The corrections are not trusted either</h3>
+                                    <p>When someone flags a wrong answer, the correction does not go into retrieval. It waits. A corrected question/SQL pair is admitted as a worked example only once it has passed the same gauntlet generated SQL passes: read-only, the same relationship checks, and it must actually execute.</p>
+                                    <p class="pull">A pair that cannot run is a plausible-looking lie with a manager’s name on it.</p>
+                                    <p>And it earns its place only if it teaches something the schema cannot, like <em>“out on the streets”</em> meaning <code>status = 'ACTIVE'</code>. Anything a competent analyst could derive from the schema alone just costs a retrieval slot. <strong>The distrust is symmetric:</strong> the model is not trusted, and neither is the person correcting it.</p>
+                                </div>
+                            </div>
+                        </article>
+
+            <div class="case-next">
+                <span class="label">The other one</span>
+                <a href="case-payroll.html">How an assistant reads payroll without leaking it ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Tolulope Joel · Built by me, for obvious reasons.</p>
+        <div class="footer-links">
+            <a href="index.html">Portfolio</a>
+            <a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a>
+            <a href="mailto:toluisjoel@gmail.com">Email</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

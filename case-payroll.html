@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How an assistant reads payroll without leaking it</title>
+    <meta name="description" content="A case study on building an AI assistant inside an HR and payroll platform, where the model is never trusted to decide who may see what.">
+    <meta name="author" content="Tolulope Joel">
+    <meta property="og:title" content="How an assistant reads payroll without leaking it">
+    <meta property="og:description" content="A case study on building an AI assistant inside an HR and payroll platform, where the model is never trusted to decide who may see what.">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="portfolio-assets/favicon.svg">
+    <link rel="apple-touch-icon" href="portfolio-assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#0A736F">
+    <meta property="og:image" content="portfolio-assets/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- On deploy: make og:image an ABSOLUTE url (https://yourdomain/portfolio-assets/og.jpg).
+         LinkedIn and some scrapers will not resolve a relative one. Add a canonical here too. -->
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-assets/site.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">Tolulope Joel</a>
+        <ul class="nav-links">
+            <li><a href="index.html#production-ai">AI work</a></li>
+            <li><a href="index.html#case-studies">Case studies</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#contact" class="nav-status"><span class="status-dot"></span>Open to work</a></li>
+        </ul>
+    </nav>
+
+    <section class="case-page" id="case-studies">
+        <div class="container">
+            <a class="backlink" href="index.html">← Back to everything else</a>
+
+            <article class="case">
+            <div class="case-head">
+                            <p class="case-kicker">Case study · production</p>
+                            <h1 class="case-title">How an assistant reads payroll<br>without leaking it</h1>
+                            <p class="case-standfirst">ApproveHR runs HR and payroll for Nigerian companies. Putting an assistant
+                                inside it means every answer is a potential disclosure, and the model is the last thing you should
+                                trust to decide who may see what.</p>
+                        </div>
+
+                        <div class="case-facts">
+                            <span><b>Role</b> &nbsp;architecture &amp; implementation, frontend and backend</span>
+                            <span><b>Stack</b> &nbsp;TypeScript · Prisma · React · multi-provider LLM</span>
+                            <span><b>Status</b> &nbsp;in production at Schulltech</span>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">01</p>
+                            <div class="clause-body">
+                                <h3>The obvious design is the dangerous one</h3>
+                                <p>The straightforward build gives the model broad database access and asks it, in the prompt, not to
+                                    reveal things it shouldn't. That works until someone phrases a question the prompt didn't
+                                    anticipate. <strong>Prompt instructions are a request, not a boundary.</strong> In a payroll
+                                    system the failure is one employee reading another's salary.</p>
+                                <p class="pull">The assistant should not be trusted with the rule. It should be unable to break it.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">02</p>
+                            <div class="clause-body">
+                                <h3>The tool surface is generated from permissions</h3>
+                                <p>Rather than filtering results after the model asks, the catalogue declares every queryable entity
+                                    and field along with the permission it requires and the rows a caller may see. The tools handed to
+                                    the model are <strong>built per request from the asking user's own permissions</strong>, so a
+                                    question about salaries from someone without payroll access isn't refused. The capability was
+                                    never in the model's hands to begin with.</p>
+                                </div>
+                            <div class="case-diagram">
+                                <svg viewBox="0 0 900 400" role="img" aria-label="Request path: a question is answered only through tools the asking user's own permissions generated.">
+                                    <defs>
+                                        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                                        </marker>
+                                    </defs>
+                                    <g fill="none" stroke="currentColor" stroke-width="1" color="var(--line-strong)">
+                                        <path d="M148 58 H232" marker-end="url(#ar)"/>
+                                        <path d="M352 58 H436" marker-end="url(#ar)"/>
+                                        <path d="M494 92 V150" marker-end="url(#ar)"/>
+                                        <path d="M494 232 V286" marker-end="url(#ar)"/>
+                                        <path d="M406 314 H322" marker-end="url(#ar)"/>
+                                        <path d="M666 314 H736" marker-end="url(#ar)"/>
+                                        <path d="M578 300 H660 V120 H600" marker-end="url(#ar)"/>
+                                    </g>
+
+                                    <g font-family="JetBrains Mono, monospace" font-size="12">
+                                        <rect x="16" y="36" width="132" height="44" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="82" y="63" text-anchor="middle" fill="var(--ink)">question</text>
+
+                                        <rect x="232" y="36" width="120" height="44" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="292" y="57" text-anchor="middle" fill="var(--ink)">auth</text>
+                                        <text x="292" y="72" text-anchor="middle" fill="var(--ink-faint)" font-size="10">who is asking</text>
+
+                                        <rect x="436" y="36" width="116" height="44" rx="3" fill="var(--accent-dim)" stroke="var(--accent)"/>
+                                        <text x="494" y="63" text-anchor="middle" fill="var(--accent)">catalogue</text>
+
+                                        <rect x="366" y="150" width="256" height="82" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="494" y="174" text-anchor="middle" fill="var(--ink)">tool declarations</text>
+                                        <text x="494" y="194" text-anchor="middle" fill="var(--ink-faint)" font-size="10">fields gated by permission</text>
+                                        <text x="494" y="210" text-anchor="middle" fill="var(--ink-faint)" font-size="10">rows scoped to the caller</text>
+
+                                        <rect x="406" y="286" width="172" height="56" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="492" y="311" text-anchor="middle" fill="var(--ink)">model</text>
+                                        <text x="492" y="328" text-anchor="middle" fill="var(--ink-faint)" font-size="10">picks from what exists</text>
+
+                                        <rect x="176" y="286" width="146" height="56" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
+                                        <text x="249" y="311" text-anchor="middle" fill="var(--ink)">read</text>
+                                        <text x="249" y="328" text-anchor="middle" fill="var(--ink-faint)" font-size="10">answer + provenance</text>
+
+                                        <rect x="742" y="286" width="150" height="56" rx="3" fill="var(--paper)" stroke="var(--accent)"/>
+                                        <text x="817" y="311" text-anchor="middle" fill="var(--accent)">write</text>
+                                        <text x="817" y="328" text-anchor="middle" fill="var(--ink-faint)" font-size="10">gate · confirm · audit</text>
+
+                                        <rect x="600" y="98" width="252" height="44" rx="3" fill="var(--paper)" stroke="var(--line-strong)" stroke-dasharray="3 3"/>
+                                        <text x="726" y="118" text-anchor="middle" fill="var(--ink-faint)" font-size="10">every turn: tokens metered,</text>
+                                        <text x="726" y="132" text-anchor="middle" fill="var(--ink-faint)" font-size="10">trace written at chosen verbosity</text>
+                                    </g>
+                                </svg>
+                                <p class="diagram-cap">Permissions shape the tools before the model sees them. Filtering after the
+                                    fact leaves a window where the data has already been read.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">03</p>
+                            <div class="clause-body">
+                                <h3>Reads and writes are different problems</h3>
+                                <p>A read that shouldn't have happened is a disclosure. A write that shouldn't have happened is a
+                                    decision nobody made. So they run on separate paths: an action carries a mandatory gate, never
+                                    optional, and writes an audit entry identical to the one the hand-driven route writes, because an
+                                    action taken through the assistant should be indistinguishable afterwards from one taken by hand.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">04</p>
+                            <div class="clause-body">
+                                <h3>The model does not get to word its own confirmation</h3>
+                                <p>Before a write, a person presses a button. The label on that button is <strong>read from the
+                                    database</strong>, never generated. Otherwise a model that had been talked into something could
+                                    also describe it persuasively, and the human check becomes theatre. Suggestions carry the same
+                                    rule in the type system: one cannot be rendered without declaring what it was grounded in.</p>
+                            </div>
+                        </div>
+
+                        <div class="clause">
+                            <p class="clause-no">05</p>
+                            <div class="clause-body">
+                                <h3>What it costs, and what it did</h3>
+                                <p>Token spend is metered per organisation across a daily and a monthly window, so a runaway
+                                    conversation is visible before it's an invoice. Every turn writes a trace, and because those
+                                    traces carry real pay figures and leave reasons, verbosity is a setting rather than a constant:
+                                    full detail while debugging, timings only in normal running, off entirely when it should be.</p>
+                            </div>
+                        </div>
+                        </article>
+
+            <div class="case-next">
+                <span class="label">The other one</span>
+                <a href="case-evals.html">How do you know the agent is right? ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Tolulope Joel · Built by me, for obvious reasons.</p>
+        <div class="footer-links">
+            <a href="index.html">Portfolio</a>
+            <a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a>
+            <a href="mailto:toluisjoel@gmail.com">Email</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

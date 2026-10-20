@@ -1134,32 +1134,6 @@
 
 /* Watercolour washes lifted from the Kowane site, held back by a scrim so
    the type keeps its contrast. */
-.case-link.wash-sage {
-    background-image:
-        linear-gradient(150deg, rgba(242, 235, 221, 0.38) 0%, rgba(242, 235, 221, 0.56) 72%),
-        url("wash-sage.jpg");
-}
-
-.case-link.wash-pink {
-    background-image:
-        linear-gradient(150deg, rgba(242, 235, 221, 0.42) 0%, rgba(242, 235, 221, 0.60) 72%),
-        url("wash-pink.jpg");
-}
-
-.case-link:hover { border-color: rgba(20, 20, 15, 0.55); }
-
-.case-link.wash-sage:hover {
-    background-image:
-        linear-gradient(150deg, rgba(242, 235, 221, 0.24) 0%, rgba(242, 235, 221, 0.44) 72%),
-        url("wash-sage.jpg");
-}
-
-.case-link.wash-pink:hover {
-    background-image:
-        linear-gradient(150deg, rgba(242, 235, 221, 0.28) 0%, rgba(242, 235, 221, 0.48) 72%),
-        url("wash-pink.jpg");
-}
-
 .case-link-kicker {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;

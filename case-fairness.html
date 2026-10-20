@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your manager rated you a 2. Your work says 4.</title>
+    <meta name="description" content="How I built ApproveHR's fairness check: maths that flags ratings the evidence doesn't back, and an AI that only writes the note.">
+    <meta name="author" content="Tolulope Joel">
+    <meta property="og:title" content="Your manager rated you a 2. Your work says 4.">
+    <meta property="og:description" content="How I built ApproveHR's fairness check: maths that flags ratings the evidence doesn't back, and an AI that only writes the note.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://tolulopejoel.github.io/portfolio-assets/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="portfolio-assets/favicon.svg">
+    <link rel="apple-touch-icon" href="portfolio-assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#17263F">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-assets/site.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">Tolulope Joel</a>
+        <ul class="nav-links">
+            <li><a href="index.html#approvehr">Work</a></li>
+            <li><a href="index.html#writing">Writing</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#contact" class="nav-status"><span class="status-dot"></span>Open to work</a></li>
+        </ul>
+    </nav>
+
+    <section class="case-page" id="case-studies">
+        <div class="container">
+            <a class="backlink" href="index.html">← Back to everything else</a>
+
+            <article class="case">
+            <div class="case-head">
+                <p class="case-kicker">Case study · ApproveHR fairness</p>
+                <h1 class="case-title">Your manager rated you a 2.<br>Your work says 4.</h1>
+                <p class="case-standfirst">The company wanted ApproveHR to catch performance bias. So I sat with it and thought about where bias actually comes from. People get rated unfairly. Some people aren't paid enough for the work they do. And some people get paid more for doing, honestly, not much. This is what I built to catch that.</p>
+            </div>
+
+            <div class="case-facts">
+                <span><b>Role</b> &nbsp;the idea and the build, backend and frontend</span>
+                <span><b>Stack</b> &nbsp;TypeScript · Prisma · React · Gemini</span>
+                <span><b>Looks at</b> &nbsp;gender, age, tenure, location, contract type, department, managers</span>
+            </div>
+
+            <div class="clause">
+                <p class="clause-no">01</p>
+                <div class="clause-body">
+                    <h3>Bias lives in groups</h3>
+                    <p>When I thought about where bias comes from, it kept coming back to groups. Your gender. Your age. How long you've been there. Where you work, what kind of contract you're on, your department. And your manager.</p>
+                    <p>So the check compares ratings across all of those, and across managers, and flags the group that's furthest out. Then it sets that group aside and checks the rest again, so one low group shows up as one flag, not five.</p>
+                </div>
+            </div>
+
+            <div class="clause">
+                <p class="clause-no">02</p>
+                <div class="clause-body">
+                    <h3>The maths decides. The AI just writes the note</h3>
+                    <p>I didn't want the AI judging anybody. The maths does the filtering: it works out who actually needs a second look and who doesn't, so the AI has way less to do.</p>
+                    <p>It's also more private that way. The AI isn't going through everybody's data. The company chooses what gets passed, and the AI only sees what it needs to write one note.</p>
+                    <p>The evidence is the stuff the manager doesn't control: measured objectives count the most, then peer feedback and past cycles. The employee's own progress update counts for less, because it's their own figure.</p>
+                    <p class="pull">The AI doesn't judge. It suggests.</p>
+                </div>
+            </div>
+
+            <div class="clause">
+                <p class="clause-no">03</p>
+                <div class="clause-body">
+                    <h3>A human has to be in the loop</h3>
+                    <p>Say a manager writes that someone isn't a culture fit, but the person is excellent at what they do. The note can point out that the rating is about character, not about the work.</p>
+                    <p>But some companies hold culture fit really high, and maybe the manager knows the person isn't trainable. A human has more context than the app, because a lot of things happen outside the application. So nothing gets decided for you: every flagged rating needs a decision from a person before the review can be published.</p>
+                </div>
+            </div>
+
+            <div class="clause">
+                <p class="clause-no">04</p>
+                <div class="clause-body">
+                    <h3>Five people isn't enough</h3>
+                    <p>Small companies have small groups. If there are only three women in a department, an average of three people doesn't tell you anything, and it's small enough that you could work out who got what.</p>
+                    <p>So any group under five is hidden and left out of the comparison. And if hiding it would still let you work out the missing numbers by subtracting, the next smallest group gets hidden too.</p>
+                </div>
+            </div>
+
+            <div class="clause">
+                <p class="clause-no">05</p>
+                <div class="clause-body">
+                    <h3>The note shouldn't read like a court transcript</h3>
+                    <p>The first versions quoted exactly what the manager and the employee wrote. It didn't feel natural to read. So now it passes on what each person was saying, with enough context, in three or four sentences, with the exact figures in it. And it says what the evidence suggests, not what someone's “record” says.</p>
+                    <p>Names never go to the model. Everyone becomes a placeholder before the prompt, and the names only come back on screen. Notes are saved and reused until the inputs change, so it isn't paying for the same note twice.</p>
+                </div>
+            </div>
+
+            <div class="clause">
+                <p class="clause-no">06</p>
+                <div class="clause-body">
+                    <h3>The first time it got one right</h3>
+                    <p>The first time it flagged someone correctly in the demo data, I was so happy. Like, is there a human in this computer actually doing this? It felt unreal.</p>
+                    <p>Of course, I'm a badass engineer, so there's that too. Haha.</p>
+                </div>
+            </div>
+            </article>
+
+            <div class="case-next">
+                <span class="label">Next one</span>
+                <a href="case-evals.html">How do you know the agent is right? ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Tolulope Joel · Built by me, for obvious reasons.</p>
+        <div class="footer-links">
+            <a href="index.html">Portfolio</a>
+            <a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a>
+            <a href="mailto:toluisjoel@gmail.com">Email</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

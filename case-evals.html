@@ -5,20 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How do you know the agent is right?</title>
-    <meta name="description" content="A case study on evaluating a text-to-SQL agent, where a confidently wrong answer looks exactly like a right one.">
+    <meta name="description" content="How I test Kowane, a text-to-SQL agent for banks, when a wrong answer looks exactly like a right one.">
     <meta name="author" content="Tolulope Joel">
     <meta property="og:title" content="How do you know the agent is right?">
-    <meta property="og:description" content="A case study on evaluating a text-to-SQL agent, where a confidently wrong answer looks exactly like a right one.">
+    <meta property="og:description" content="How I test Kowane, a text-to-SQL agent for banks, when a wrong answer looks exactly like a right one.">
     <meta property="og:type" content="article">
+    <meta property="og:image" content="https://tolulopejoel.github.io/portfolio-assets/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/svg+xml" href="portfolio-assets/favicon.svg">
     <link rel="apple-touch-icon" href="portfolio-assets/apple-touch-icon.png">
-    <meta name="theme-color" content="#0A736F">
-    <meta property="og:image" content="portfolio-assets/og.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <!-- On deploy: make og:image an ABSOLUTE url (https://yourdomain/portfolio-assets/og.jpg).
-         LinkedIn and some scrapers will not resolve a relative one. Add a canonical here too. -->
+    <meta name="theme-color" content="#17263F">
     <link rel="preconnect" href="https://api.fontshare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,79 +40,70 @@
             <a class="backlink" href="index.html">← Back to everything else</a>
 
             <article class="case">
-                            <div class="case-head">
-                                <p class="case-kicker">Case study · evaluation</p>
-                                <h1 class="case-title">How do you know<br>the agent is right?</h1>
-                                <p class="case-standfirst">Kowane answers questions about a bank's own books in plain English. An
-                                    agent that errors is an inconvenience. An agent that is confidently wrong about loan exposure is
-                                    something else, because nothing about the answer looks wrong.</p>
-                            </div>
+            <div class="case-head">
+                <p class="case-kicker">Case study · Kowane evals</p>
+                <h1 class="case-title">How do you know<br>the agent is right?</h1>
+                <p class="case-standfirst">Kowane answers a bank's questions about its own books. The first time I asked it something and the figure was just off from what the data said, and it said it confidently, it hit me. If a bank manager makes a decision off that, they're cooked. And them being cooked makes me more cooked.</p>
+            </div>
 
-                            <div class="case-facts">
-                                <span><b>Role</b> &nbsp;architecture &amp; implementation</span>
-                                <span><b>Stack</b> &nbsp;Python · LangGraph · ChromaDB</span>
-                                <span><b>Suite</b> &nbsp;34 cases across 14 categories</span>
-                            </div>
+            <div class="case-facts">
+                <span><b>Role</b> &nbsp;everything: the agent, the checks and the evals</span>
+                <span><b>Stack</b> &nbsp;Python · LangGraph · ChromaDB · Gemini</span>
+                <span><b>Suite</b> &nbsp;34 cases across 14 categories</span>
+            </div>
 
-                            <p class="movement">Before the answer exists <span>· prevention</span></p>
+            <div class="clause">
+                <p class="clause-no">01</p>
+                <div class="clause-body">
+                    <h3>It doesn't look wrong</h3>
+                    <p>Sometimes the AI doesn't understand the question, or where you're coming from, and it just confidently answers what it assumes you meant.</p>
+                    <p>Ask what the exposure is on overdue loans and you get a number and a chart. If it joined the wrong table or quietly dropped a filter, you still get a number and a chart. No error, nothing to notice. That's what makes it dangerous.</p>
+                </div>
+            </div>
 
-                            <div class="clause">
-                                <p class="clause-no">01</p>
-                                <div class="clause-body">
-                                    <h3>A wrong answer arrives looking exactly like a right one</h3>
-                                    <p>Ask what the exposure is on overdue loans and you get a number and a chart. If the agent joined the wrong table or quietly dropped a filter, you still get a number and a chart. There is no stack trace, no error, nothing to notice. <strong>The failure mode is plausibility</strong>, and a bank acting on it would never know.</p>
-                                </div>
-                            </div>
+            <div class="clause">
+                <p class="clause-no">02</p>
+                <div class="clause-body">
+                    <h3>Search for the tables. Don't search for the joins</h3>
+                    <p>Which tables matter for “how many customers are overdue” is a judgement call, so that's what the vector search is for. Which tables can actually join isn't a judgement call. It's a fact, so it's never searched for. The foreign keys are given to the model as the only relationships that exist, and the prompt and the validator load them from the same place, so they can't disagree.</p>
+                    <p>The gap I know about: a table that sits between two others, named in neither the question nor the search results. One hop of following the foreign keys fixes it, and it's on my list.</p>
+                </div>
+            </div>
 
-                            <div class="clause">
-                                <p class="clause-no">02</p>
-                                <div class="clause-body">
-                                    <h3>Retrieval is fuzzy. Relationships are not.</h3>
-                                    <p>Which tables matter for <em>“how many customers are overdue”</em> is a judgment call, so that is retrieval's job: M-Schema documents in a vector store, searched semantically. Which tables can legally join is not a judgment call at all. It is a fact, it is cheap to compute, and it is complete.</p>
-                                    <p>So the foreign-key graph is never retrieved, it is <strong>stated</strong>, as <em>the only relationships that exist</em>, and the same graph is loaded through a single function so the prompt and the validator can never disagree about what the schema is.</p>
-                                    <p class="pull">Use retrieval where the answer is uncertain. Use the schema where it is knowable.</p>
-                                    <p>The known gap: a table that bridges two others is named in neither the question nor the retrieved set, so it arrives as a relationship without a column list. The literature calls this structural blindness. One hop of graph expansion is the fix, and it is on the list.</p>
-                                </div>
-                            </div>
+            <div class="clause">
+                <p class="clause-no">03</p>
+                <div class="clause-body">
+                    <h3>Queries that run but don't mean what they look like</h3>
+                    <p>Every generated query is parsed properly, not pattern-matched, so things like aliases inside subqueries don't confuse it. A join between tables with no real relationship gets rejected before it runs. The rejection goes back to the model as something it can fix, three tries max, and after that it just says it couldn't.</p>
+                </div>
+            </div>
 
-                            <div class="clause">
-                                <p class="clause-no">03</p>
-                                <div class="clause-body">
-                                    <h3>Checks for queries that run but do not mean what they look like</h3>
-                                    <p>Generated SQL is parsed with sqlglot and its scope tree walked rather than pattern-matched over the text, so quoted identifiers, <code>USING(…)</code> joins and CTE scoping all resolve correctly, so an alias reused inside a subquery cannot be mistaken for the same alias outside it.</p>
-                                    <p>A join between tables with no foreign-key relationship is rejected before execution. The rejection goes back to the generator as a message it can act on, and <strong>the loop is bounded at three attempts</strong>, after which the agent says so rather than trying forever.</p>
-                                </div>
-                            </div>
+            <div class="clause">
+                <p class="clause-no">04</p>
+                <div class="clause-body">
+                    <h3>The AI doesn't do the maths</h3>
+                    <p>All the calculations happen in the system, in code, not in the AI. The model sees a sample of the rows so it can describe them, but any total is worked out in code and handed to it, with instructions to quote it, not redo it.</p>
+                    <p>Think of it like this. You've got one guy calculating in his head, and another guy punching it into a scientific calculator. Which one are you trusting with a bank's numbers?</p>
+                    <p class="pull">AI is the guy calculating in his head. Kowane is the guy with the calculator.</p>
+                </div>
+            </div>
 
-                            <div class="clause">
-                                <p class="clause-no">04</p>
-                                <div class="clause-body">
-                                    <h3>The model never does arithmetic</h3>
-                                    <p>The synthesis prompt shows the model a <em>sample</em> of the rows. So any figure describing the whole result set is computed in code and handed over with instructions to quote it verbatim and derive nothing else.</p>
-                                    <p class="pull">Asking a model to total a 40-row sample of a 500-row result is how a confidently wrong naira figure reaches a manager.</p>
-                                    <p>Identifier columns are skipped, because the sum of a column of loan ids is a number but it is not a fact about anything.</p>
-                                </div>
-                            </div>
+            <div class="clause">
+                <p class="clause-no">05</p>
+                <div class="clause-body">
+                    <h3>Why not just unit tests?</h3>
+                    <p>Unit tests check that your app does what someone already decided it should do. They don't tell you what's missing. Evals show you the things you didn't see before, the edge cases unit tests won't catch, and they give you a score, so you know where you are and how to improve.</p>
+                    <p>And whether Kowane answers right depends on the prompt, the schema documents, the validator and the model itself. Any of those can change without a single unit test going red. So the suite runs real questions through the real agent and scores what comes back.</p>
+                </div>
+            </div>
 
-                            <p class="movement">After the answer exists <span>· verification</span></p>
-
-                            <div class="clause">
-                                <p class="clause-no">05</p>
-                                <div class="clause-body">
-                                    <h3>The test suite cannot reach this</h3>
-                                    <p>Pytest tells you the code still does what it did yesterday. It cannot tell you whether the agent still answers correctly, because that depends on the prompt, the schema documents in the vector store, the strictness of the SQL validator and the model itself, <strong>none of which the test suite touches.</strong> Every one of those can change without a single test going red.</p>
-                                    <p class="pull">So the suite runs real questions through the real graph, and scores the answers.</p>
-                                </div>
-                            </div>
-
-                            <div class="clause">
-                                <p class="clause-no">06</p>
-                                <div class="clause-body">
-                                    <h3>The hard part is comparing results, not strings</h3>
-                                    <p>Two completely different queries can both be right. Comparing generated SQL to a reference string would fail almost everything correct, so the harness runs both and compares what came back: <strong>ordering enforced only where the gold query actually ordered</strong>, columns matched rather than assumed positional, and values normalised so a decimal and an integer of the same amount agree. Most of the scoring code is this, not the plumbing.</p>
-                                </div>
-                            </div>
-            <div class="case-diagram">
+            <div class="clause">
+                <p class="clause-no">06</p>
+                <div class="clause-body">
+                    <h3>Compare the results, not the SQL</h3>
+                    <p>Two completely different queries can both be right. So instead of comparing SQL text, the harness runs both the generated query and the correct one, and compares what came back. Row order only counts when the question asked for an order, and numbers are normalised so a decimal and an integer of the same amount match.</p>
+                </div>
+<div class="case-diagram">
                                     <svg viewBox="0 0 900 430" role="img" aria-label="Eval loop: the same question runs through the real agent and against a gold query, and the two results are compared.">
                                     <defs>
                                         <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -168,38 +155,37 @@
                                     <p class="diagram-cap">The same question takes two paths. Everything interesting happens where
                                         they meet.</p>
                                 </div>
+            </div>
 
-                            <div class="clause">
-                                <p class="clause-no">07</p>
-                                <div class="clause-body">
-                                    <h3>Some cases exist to be refused</h3>
-                                    <p>The 34 cases are not all lookups. There are aggregations, joins, multi-hop joins, negation, temporal questions and rankings, and then the categories that matter most: <strong>relationship traps, refusals and safety.</strong> A question the agent should decline is as much a test as one it should answer, and an agent that cheerfully answers everything has not passed, it has failed in a way the other cases cannot see.</p>
-                                </div>
-                            </div>
+            <div class="clause">
+                <p class="clause-no">07</p>
+                <div class="clause-body">
+                    <h3>Some answers should be “I don't have that”</h3>
+                    <p>Not every case is a lookup. There are joins, negation, rankings, dates, and then the ones I care about most: traps, refusals, safety, and questions the data simply can't answer. Ask about collateral when there's no collateral in the data, and the tempting thing is to sum the loans and call it collateral. An agent that answers everything hasn't passed. It's failed in a way the other cases can't see.</p>
+                </div>
+            </div>
 
-                            <div class="clause">
-                                <p class="clause-no">08</p>
-                                <div class="clause-body">
-                                    <h3>A suite is only useful if people believe it</h3>
-                                    <p>A rate limit or a provider outage is reported as <strong>broken, never as failed</strong>. Scoring a quota blip as a regression is how a suite loses its credibility. Someone spends an afternoon hunting a prompt bug that was never there, and after that nobody trusts a red run.</p>
-                                    <p>For the same reason the headline number is not the pass rate. You save a run you were happy with as the baseline and compare against it, and what the comparison prints is the list of cases that went from passing to failing. <strong>The direction of travel is the thing worth acting on</strong>, not the score.</p>
-                                </div>
-                            </div>
+            <div class="clause">
+                <p class="clause-no">08</p>
+                <div class="clause-body">
+                    <h3>People have to believe the results</h3>
+                    <p>If the model provider is down or rate-limited, that case is marked broken, not failed. Otherwise someone spends an afternoon hunting a bug that was never there, and after that nobody trusts a red run.</p>
+                    <p>And the number that matters isn't the pass rate. You save a run you're happy with as the baseline, and every run after that tells you which cases went from passing to failing.</p>
+                </div>
+            </div>
 
-                            <div class="clause">
-                                <p class="clause-no">09</p>
-                                <div class="clause-body">
-                                    <h3>The corrections are not trusted either</h3>
-                                    <p>When someone flags a wrong answer, the correction does not go into retrieval. It waits. A corrected question/SQL pair is admitted as a worked example only once it has passed the same gauntlet generated SQL passes: read-only, the same relationship checks, and it must actually execute.</p>
-                                    <p class="pull">A pair that cannot run is a plausible-looking lie with a manager’s name on it.</p>
-                                    <p>And it earns its place only if it teaches something the schema cannot, like <em>“out on the streets”</em> meaning <code>status = 'ACTIVE'</code>. Anything a competent analyst could derive from the schema alone just costs a retrieval slot. <strong>The distrust is symmetric:</strong> the model is not trusted, and neither is the person correcting it.</p>
-                                </div>
-                            </div>
-                        </article>
+            <div class="clause">
+                <p class="clause-no">09</p>
+                <div class="clause-body">
+                    <h3>I don't trust the corrections either</h3>
+                    <p>When someone flags a wrong answer, the correction doesn't go straight in. It has to pass the same checks as anything the model writes: read-only, real relationships, and it has to actually run. And it only gets saved if it teaches something the schema can't, like a bank's own slang for an active loan.</p>
+                </div>
+            </div>
+            </article>
 
             <div class="case-next">
-                <span class="label">The other one</span>
-                <a href="case-payroll.html">How an assistant reads payroll without leaking it ↗</a>
+                <span class="label">Next one</span>
+                <a href="case-hiber.html">The phone that deleted my alarms ↗</a>
             </div>
         </div>
     </section>

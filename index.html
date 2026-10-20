@@ -45,14 +45,13 @@
     <header class="hero" id="top">
         <div class="wrap">
             <div>
-                <p class="where">LAGOS, NIGERIA · 6.52° N, 3.38° E</p>
-                <h1>AI and backend engineer. I build the system around the model.</h1>
-                <p class="sub">Four years of production systems for HR, fintech, edtech and government.</p>
-                <p class="wink">// I build things because I can't help it.</p>
+                <p class="where">6.52° N, 3.38° E</p>
+                <h1>I build AI and backends. Mostly because I can't help it.</h1>
+                <p class="sub">I hate saying “I'm a software engineer.” It's true, it just feels like a box. I'm a builder. If I get an idea, I can't sleep until there's a prototype.</p>
+                <p class="wink">// Four years of it. No regrets, not even the <span style="white-space:nowrap">all-nighters</span>.</p>
                 <div class="chips">
                     <a class="chip" href="#approvehr"><b>AI</b> in production at Schulltech</a>
                     <a class="chip" href="#range"><b>6</b> backends led or built alone</a>
-                    <a class="chip" href="#lms"><b>~83</b> endpoints, one backend, from scratch</a>
                 </div>
                 <div class="cta">
                     <a class="btn solid" href="#contact">Get in touch</a>
@@ -69,8 +68,8 @@
         <div class="wrap">
             <p class="kicker"><span class="tile t-stripe"></span>ApproveHR · the assistant's query engine</p>
             <h2>Ask it about someone's salary. It depends who's asking.</h2>
-            <p class="lede">The model never decides who may see what. On every request it's handed only the fields the
-                asking person is allowed to see, and protected ones arrive redacted.</p>
+            <p class="lede">The AI never gets to decide who sees what. It only gets the fields the person asking is allowed to
+                see. So even if it wanted to spill your salary, it can't. It never had it.</p>
             <div class="stage">
                 <div class="ask"><span>Ask as:</span>
                     <button type="button" data-who="staff" aria-pressed="true">Tobi, an engineer</button>
@@ -90,11 +89,40 @@
             </div>
             <p class="aside"><b>Also in production:</b> a public-holiday engine that works out Nigeria's holidays from their rules
                 and checks the news for the Federal Government's Eid declaration.</p>
-            <p class="aside"><b>In review:</b> a fairness check for performance ratings that hides groups under five, so no one
-                person's score can be worked out, and AI review notes written with names taken out before the prompt.</p>
             <div class="links">
                 <a class="more" href="case-payroll.html">Read how it works →</a>
-                <a class="jump" href="#kowane">How I check an agent is right ↓ Kowane</a>
+                <a class="jump" href="#fairness">My favourite thing on ApproveHR ↓</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="strip"></div>
+    <section class="feature" id="fairness" style="--c:var(--ochre)">
+        <div class="wrap">
+            <p class="kicker"><span class="tile t-dot"></span>ApproveHR · fairness check</p>
+            <h2>Your manager rated you a 2. Your work says 4. Now someone notices.</h2>
+            <p class="lede">This is my favourite thing on ApproveHR, and it's so beautiful. It looks at what people actually did,
+                not who their manager likes, and flags ratings that don't match. No favouritism, whether it's your gender,
+                your age, your department or just your manager.</p>
+            <div class="stage">
+                <div class="ask fairtabs"><span>Look at:</span>
+                    <button type="button" data-view="person" aria-pressed="true">One person</button>
+                    <button type="button" data-view="company" aria-pressed="false">The whole company</button>
+                </div>
+                <div id="fair"></div>
+                <p class="cap" id="faircap"></p>
+            </div>
+            <div class="facts">
+                <div class="fact"><b>6</b><span>ways to group people, from gender to department</span></div>
+                <div class="fact"><b>5</b><span>people minimum before a group is shown</span></div>
+                <div class="fact"><b>0</b><span>names sent to the model</span></div>
+            </div>
+            <p class="aside"><b>The maths flags it, not the AI.</b> The mismatch comes from evidence the manager doesn't control:
+                measured objectives, peer feedback and past cycles. The AI only writes the note, and every flagged rating
+                needs a decision before it's published.</p>
+            <div class="links">
+                <a class="more" href="case-fairness.html">How I built it →</a>
+                <a class="jump" href="#kowane">How I check an AI is right ↓ Kowane</a>
             </div>
         </div>
     </section>
@@ -104,9 +132,9 @@
         <div class="wrap">
             <p class="kicker"><span class="tile t-hatch"></span>Kowane · text-to-SQL evals</p>
             <h2>A query can run, return a number, and still be wrong.</h2>
-            <p class="lede">Kowane answers a microfinance bank's questions in SQL. The hard part is knowing when it's wrong, so
-                I built evals that send real questions through the real agent and score what comes back.</p>
-            <p class="wink">// The join was very confident. Confidence isn't a test.</p>
+            <p class="lede">Kowane answers a bank's questions about its own books. If it answers one wrong, confidently, I'm
+                cooked. That's literally the whole product. Most AI apps get to say “AI can make mistakes.” This one
+                doesn't, so I stopped relying on the AI alone and put tests and maths around it.</p>
             <div class="stage">
                 <div class="ask evaltabs"><span>A case from the suite:</span>
                     <button type="button" data-case="fanout" aria-pressed="true">Double counting</button>
@@ -129,7 +157,7 @@
                 on any regression, and a workflow to trigger before a prompt change or a model upgrade.</p>
             <div class="links">
                 <a class="more" href="case-evals.html">How I test it →</a>
-                <a class="jump" href="#edms">The same guardrails across a whole product ↓ EDMS</a>
+                <a class="jump" href="#edms">Scanned paper in, a summary out ↓ EDMS</a>
             </div>
         </div>
     </section>
@@ -137,25 +165,38 @@
     <div class="strip"></div>
     <section class="feature" id="edms" style="--c:var(--clay)">
         <div class="wrap">
-            <p class="kicker"><span class="tile t-dot"></span>EDMS · lead backend developer</p>
-            <h2>Every action leaves a link in a chain you can check.</h2>
-            <p class="lede">Document management for enterprise and government. Each audit entry carries the hash of the one
-                before, so a quiet edit breaks the chain.</p>
+            <p class="kicker"><span class="tile t-dot"></span>EDMS · document AI</p>
+            <h2>Scanned paper in. A summary out.</h2>
+            <p class="lede">EDMS is a document system for big organisations and government. The part I loved building: you
+                upload a scan, OCR pulls the text out of it, and Gemini writes the summary in the background while you get on
+                with your day.</p>
             <div class="stage">
-                <div class="chain" id="chain"></div>
-                <div class="verify"><button type="button" id="tamper">Edit entry 2 quietly</button><span id="status" class="ok">✓ chain verified</span></div>
-                <p class="cap">An illustration. The real trail is append-only, with a verify endpoint and export.</p>
+                <div class="verify"><button type="button" id="run-doc">Upload a scan</button><span id="doc-status" class="cap">Made-up memo.</span></div>
+                <div class="pipe">
+                    <div class="panel step" id="s1"><h4>1 · The scan</h4>
+                        <div class="paper"><b>INTERNAL CIRCULAR 14/2026</b><i></i><i></i><i class="short"></i><i></i><i></i><i class="short"></i><span class="stamp">RECEIVED</span></div></div>
+                    <div class="panel step" id="s2"><h4>2 · What OCR reads</h4>
+                        <pre class="sql">INTERNAL CIRCULAR 14/2026
+Resumption of Office Hours
+All staff are to resume at 8:00am
+from Monday, 2 November 2026.
+Arrivals after 8:3O am will be
+logged by the HR unit. Heads of
+department to confirm rosters by
+Friday, 30 0ctober.</pre></div>
+                    <div class="panel step" id="s3"><h4>3 · What Gemini writes</h4>
+                        <p class="answer">Office hours start at 8:00 from Monday 2 November. Late arrivals after 8:30 get logged by HR. Heads of department confirm rosters by Friday 30 October.</p></div>
+                </div>
             </div>
             <div class="facts">
+                <div class="fact"><b>OCR → AI</b><span>Textract, then a BullMQ worker, then Gemini</span></div>
+                <div class="fact"><b>swappable</b><span>model provider, behind one interface</span></div>
                 <div class="fact"><b>75</b><span>endpoints under role-based access</span></div>
-                <div class="fact"><b>6</b><span>roles, with confidentiality tiers</span></div>
-                <div class="fact"><b>~4k</b><span>lines in the circulars module, on BullMQ</span></div>
             </div>
-            <p class="aside"><b>And the AI part:</b> scanned documents go through OCR, then Gemini writes a summary, behind a
-                provider interface that can be swapped.</p>
+            <p class="aside"><b>Also on EDMS:</b> I set up the codebase and its CI, built the access control across 6 roles, and
+                an audit trail where every entry carries the hash of the one before, so a quiet edit breaks the chain.</p>
             <div class="links">
-                <a class="jump" href="#kowane">↑ Back to Kowane's evals</a>
-                <a class="jump" href="#range">Everything else I've shipped ↓</a>
+                <a class="jump" href="#hiber">The one I'm proudest of ↓</a>
             </div>
         </div>
     </section>
@@ -163,18 +204,23 @@
     <div class="strip"></div>
     <section class="feature" id="hiber" style="--c:var(--rose)">
         <div class="wrap">
-            <p class="kicker"><span class="tile t-stripe"></span>Android · debugging</p>
-            <h2>My app's alarms kept vanishing. The phone was deleting them.</h2>
-            <p class="lede">No crash, no error. The answer was one line, under a log tag I didn't write.</p>
+            <p class="kicker"><span class="tile t-stripe"></span>Android · my proudest one</p>
+            <h2>I stopped relying on willpower. So I built an app that runs my phone.</h2>
+            <p class="lede">I wanted a system that gives me freedom but still keeps me disciplined. Not a cage. It's a
+                device-owner app, so it really runs the phone: it keeps my sleep, my reading and my mornings on track,
+                logs my hours without me checking the time, and nudges me about the people I'm meant to check on.</p>
+            <p class="aside">I've ranted about it to my whole family and all my friends. I even made a tiny version for my
+                grandpa's phone, so he could sleep.</p>
             <div class="stage">
+                <h3 class="stage-title">The hardest part: the phone kept deleting my alarms.</h3>
 <div class="log"><span class="dim">20:00:00.112  ScheduleReceiver  run: next alarm 21:00</span>
 <span class="dim">20:00:00.231  ScheduleReceiver  alarm set</span>
 <span class="hit">20:00:05.004  Hiber/hiber       proxy alarm (uid=…, pkgName=com.tolu.dpc)</span>
 <span class="dim">21:00:00.000  ……………………………………  (nothing)</span></div>
-                <p class="cap">Reconstructed log. The Hiber line is the real one.</p>
+                <p class="cap">Reconstructed log. The Hiber line is the real one: TECNO's battery saver, quietly removing my alarms.</p>
             </div>
             <div class="links">
-                <a class="more" href="case-hiber.html">Read the case study →</a>
+                <a class="more" href="case-hiber.html">How I found it →</a>
             </div>
         </div>
     </section>
@@ -185,10 +231,9 @@
             <p class="kicker"><span class="tile t-hatch"></span>Range</p>
             <h2>Where I've shipped.</h2>
             <p class="lede">AI and backend are the spine. Tap a name to see the work.</p>
-            <p class="wink">// Ask me about any tile.</p>
             <div class="grid">
                 <table>
-                    <thead><tr><th>Product</th><th id="layer-heads" colspan="6"></th><th class="rolecol">Role</th></tr></thead>
+                    <thead><tr><th>Product</th><th id="layer-heads" colspan="5"></th></tr></thead>
                     <tbody id="range-rows"></tbody>
                 </table>
             </div>
@@ -216,9 +261,10 @@
     <section class="plain" id="writing">
         <div class="wrap">
             <p class="kicker"><span class="tile t-stripe"></span>Writing</p>
-            <h2>Three I wrote up properly.</h2>
+            <h2>Four I wrote up properly.</h2>
             <div class="cases">
                 <a class="case" href="case-payroll.html" style="--c:var(--indigo)"><small>ApproveHR · permissions</small><strong>How an assistant reads payroll without leaking it</strong><em>Read it →</em></a>
+                <a class="case" href="case-fairness.html" style="--c:var(--ochre)"><small>ApproveHR · fairness</small><strong>Your manager rated you a 2. Your work says 4.</strong><em>Read it →</em></a>
                 <a class="case" href="case-evals.html" style="--c:var(--sage)"><small>Kowane · evaluation</small><strong>How do you know the agent is right?</strong><em>Read it →</em></a>
                 <a class="case" href="case-hiber.html" style="--c:var(--rose)"><small>Android · debugging</small><strong>The phone that deleted my alarms</strong><em>Read it →</em></a>
             </div>
@@ -231,10 +277,10 @@
             <p class="kicker"><span class="tile t-hatch"></span>Experience</p>
             <h2>Where I've been.</h2>
             <div class="timeline">
-                <div class="job now"><span class="when">Sep 2025 – now</span><div><b>Schulltech · Software Engineer</b><p>AI and backend across <a href="#approvehr">ApproveHR</a>, <a href="#edms">EDMS</a> and <a href="#lms">Schull LMS</a>.</p></div></div>
-                <div class="job"><span class="when">2025 – 2026</span><div><b>Freelance · Sole developer</b><p><a href="#spotlight">Spotlight Creative Hub</a> and <a href="#tradeheight">Trade Height Sweden</a>, both live.</p></div></div>
-                <div class="job"><span class="when">Apr 2024 – Aug 2025</span><div><b>Safeboxx · Software Engineer</b><p>Automated savings billing on Celery and Redis, 500+ transactions a month. <a href="#quotes">What the founder said ↓</a></p></div></div>
-                <div class="job"><span class="when">Jan – May 2024</span><div><b>JIA Outdoor Services · Contract</b><p>A Django marketplace API for billboard advertisers, load-tested with Locust.</p></div></div>
+                <div class="job now"><span class="when">Sep 2025 – now<small>1 yr 2 mos</small></span><div><b>Schulltech · Software Engineer</b><p>AI and backend across <a href="#approvehr">ApproveHR</a>, <a href="#edms">EDMS</a> and <a href="#lms">Schull LMS</a>.</p></div></div>
+                <div class="job"><span class="when">Jan 2025 – Jun 2026<small>1 yr 6 mos</small></span><div><b>Freelance · Sole developer</b><p><a href="#spotlight">Spotlight Creative Hub</a> and <a href="#tradeheight">Trade Height Sweden</a>, both live.</p></div></div>
+                <div class="job"><span class="when">Apr 2024 – Aug 2025<small>1 yr 5 mos</small></span><div><b>Safeboxx · Software Engineer</b><p>Automated savings billing on Celery and Redis, 500+ transactions a month. <a href="#quotes">What the founder said ↓</a></p></div></div>
+                <div class="job"><span class="when">Jan – May 2024<small>5 mos</small></span><div><b>JIA Outdoor Services · Contract</b><p>A Django marketplace API for billboard advertisers, load-tested with Locust.</p></div></div>
                 <div class="job"><span class="when">2023</span><div><b>HNG IX · Backend finalist</b><p>Top 1% of 22,000+.</p></div></div>
             </div>
             <div class="links">
@@ -250,17 +296,21 @@
             <h2>I'm Tolu.</h2>
             <div class="about">
                 <div>
-                    <p>I genuinely enjoy the craft. I think in systems, and I ask uncomfortable questions about why something is
-                        built the way it is.</p>
-                    <p>I want to build where being wrong costs something: finance, health, anything regulated. That's where
-                        you can't ship and see.</p>
+                    <p>I like to think of myself as a product engineer. When I started working with bigger teams, I was
+                        honestly baffled that a lot of engineers wait for a product manager to tell them what a good experience
+                        is. I think about the person using the thing while I'm building it. Complex engineering should feel
+                        simple to them.</p>
+                    <p>I also have a knack for studying. I love getting deep into something until I actually understand it,
+                        and then I love it.</p>
                 </div>
                 <div class="now-list">
                     <h3>This year, outside the IDE</h3>
                     <ul>
-                        <li>Revamping Àṣàrò, a reading app my friends and I use to quietly judge each other's progress. They didn't ask, but they'll thank me.</li>
-                        <li>Pushing AI agents to see what breaks first when a new model drops.</li>
-                        <li>Trying to gain weight. It's going. Slowly.</li>
+                        <li>Study-maxxing. I want to go really deep on a few things this year.</li>
+                        <li>Reading books again. I want to be intellectual again.</li>
+                        <li>Gaining weight. I'm skinny and I'm working on it. Slowly.</li>
+                        <li>My friends, my friends. They mean the world to me.</li>
+                        <li>Revamping Àṣàrò for my friends. They didn't ask, but they'll thank me.</li>
                         <li class="done">Going outside more.</li>
                     </ul>
                 </div>
@@ -277,6 +327,7 @@
                 <div class="quote"><p>We worked well together, so I will definitely refer you when someone next asks me for a backend guy.</p><footer><b>Stanley Onwuka</b>CTO, The Noti Company</footer></div>
                 <div class="quote"><p>This blew my mind. You've done an excellent job. I don't know what I was expecting, but I wasn't expecting this at all.</p><footer><b>Chukwuemeka Awere</b>Founder, Safeboxx</footer></div>
                 <div class="quote"><p>You did this?! This is incredible work.</p><footer><b>Jane M.</b>Operations Manager</footer></div>
+                <a class="quote empty" href="#contact"><p>Your quote goes here.</p><footer><b>You, maybe</b>You'd have to work with me first ↓</footer></a>
             </div>
         </div>
     </section>
@@ -288,10 +339,10 @@
             <div class="contact">
                 <div>
                     <h2>Let's build something. Or just talk.</h2>
-                    <p class="lede">Full-time roles, contracts, or an interesting problem.</p>
+                    <p class="lede">Got an AI problem you're not sure can be done? Those are my favourite. Backend work too, I've built plenty of those.</p>
                     <div class="contact-links">
                         <a href="mailto:toluisjoel@gmail.com">✉ toluisjoel@gmail.com</a>
-                        <a href="https://wa.me/2349013407505" target="_blank" rel="noopener">☏ WhatsApp or call</a>
+                        <a href="https://wa.me/2349157310614" target="_blank" rel="noopener">☏ WhatsApp or call</a>
                         <a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">↗ github.com/tolulopejoel</a>
                         <a href="https://linkedin.com/in/tolu-joel" target="_blank" rel="noopener">↗ linkedin.com/in/tolu-joel</a>
                     </div>
@@ -302,7 +353,7 @@
                         <div><label for="email">Email</label><input id="email" type="email" required></div>
                     </div>
                     <div><label for="type">What it's about</label>
-                        <select id="type"><option value="">Select one…</option><option>Full-time role</option><option>AI / LLM work</option><option>Backend or API</option><option>Full-stack web app</option><option>Something else</option></select>
+                        <select id="type"><option value="">Select one…</option><option>Full-time role</option><option>AI / LLM work</option><option>Backend or API</option><option>Full-stack web app</option><option value="Something else">Something else. You said you're a builder. Prove it.</option></select>
                     </div>
                     <div><label for="message">Message</label><textarea id="message" required></textarea></div>
                     <button type="submit">Send message</button>
@@ -334,20 +385,6 @@
         document.querySelectorAll('.ask button').forEach(b => b.addEventListener('click', () => ask(b.dataset.who)));
         ask('staff');
 
-        const ENTRIES = [["1", "Uploaded contract.pdf", "Ngozi", "a91f"], ["2", "Gave Finance access", "Tobi", "3c07"], ["3", "Approved contract.pdf", "Ada", "e5b2"]];
-        let tampered = false;
-        function chain() {
-            document.getElementById('chain').innerHTML = ENTRIES.map(([n, act, who, h], i) => {
-                const prev = i === 0 ? "0000" : ENTRIES[i - 1][3];
-                const edited = tampered && i === 1, broken = tampered && i === 2;
-                return (i ? '<span class="arrow">→</span>' : '') +
-                    `<div class="block"><b>#${n} ${edited ? 'Gave Everyone access' : act}</b>${who}<br>prev <span class="h">${prev}</span><br>hash <span class="h">${edited ? '77d0' : h}</span>${broken ? '<br><span class="no">✗ prev doesn\'t match</span>' : ''}</div>`;
-            }).join('');
-            const s = document.getElementById('status');
-            s.textContent = tampered ? '✗ chain broken at entry 3' : '✓ chain verified';
-            s.className = tampered ? 'no' : 'ok';
-            document.getElementById('tamper').textContent = tampered ? 'Undo' : 'Edit entry 2 quietly';
-        }
         const CASES = {
             fanout: { q: "“What is the total principal across loans that have received at least one repayment?”",
                 bad: ["SELECT SUM(l.principal) FROM loans l JOIN repayments r ON r.loan_id = l.loan_id", "319,066,908.40", "✗ counts each loan once per repayment"],
@@ -375,38 +412,86 @@
         document.querySelectorAll('.evaltabs button').forEach(b => b.addEventListener('click', () => evalCase(b.dataset.case)));
         evalCase('fanout');
 
-        document.getElementById('tamper').addEventListener('click', () => { tampered = !tampered; chain(); });
-        chain();
+        const FAIR = {
+            person: {
+                html: `<div class="cols">
+                    <div class="panel"><h4>Ngozi · rated by her manager</h4><p class="out">2 / 5</p>
+                        <div class="ev"><span>Objectives, measured</span><b>9 of 10 met</b></div>
+                        <div class="ev"><span>Objectives, her own update</span><b>85%</b></div>
+                        <div class="ev"><span>Peer feedback</span><b>4.3 / 5</b></div>
+                        <div class="ev"><span>Last two cycles</span><b>4, 4</b></div>
+                        <p class="verdict no">✗ below the evidence, which suggests 4 / 5</p></div>
+                    <div class="panel"><h4>The note the AI writes</h4><p class="answer">The manager's review mentions missed deadlines, but 9 of 10 measured objectives were met on time, and peers rated the work 4.3. Worth a second look before this is published.</p>
+                        <p class="verdict">Needs a decision before publishing.</p></div></div>`,
+                cap: "Made-up person. The note is written from facts with every name taken out. Names only appear on screen."
+            },
+            company: {
+                html: `<div class="cols">
+                    <div class="panel"><h4>Gender</h4>
+                        <div class="ev"><span>Women · 14 people</span><b>3.4</b></div>
+                        <div class="ev"><span>Men · 17 people</span><b>3.9</b></div>
+                        <p class="verdict no">✗ a gap worth looking at</p></div>
+                    <div class="panel"><h4>Department</h4>
+                        <div class="ev"><span>Finance · 9 people</span><b>3.8</b></div>
+                        <div class="ev"><span>Sales · 12 people</span><b>3.7</b></div>
+                        <div class="ev"><span>Legal · 3 people</span><b>hidden</b></div>
+                        <div class="ev"><span>Next smallest group</span><b>hidden</b></div>
+                        <p class="verdict ok">✓ nobody's score can be worked out</p></div></div>`,
+                cap: "Made-up company. Groups under five are hidden, and so is the next smallest, so no one's rating can be recovered by subtraction."
+            }
+        };
+        function fair(view) {
+            document.querySelectorAll('.fairtabs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === view));
+            document.getElementById('fair').innerHTML = FAIR[view].html;
+            document.getElementById('faircap').textContent = FAIR[view].cap;
+        }
+        document.querySelectorAll('.fairtabs button').forEach(b => b.addEventListener('click', () => fair(b.dataset.view)));
+        fair('person');
 
-        // product, link, layers [ai, api, web, android, pay, infra], role
+        const steps = ['s1', 's2', 's3'].map(id => document.getElementById(id));
+        document.getElementById('run-doc').addEventListener('click', () => {
+            const status = document.getElementById('doc-status');
+            steps.forEach(el => el.classList.remove('on'));
+            ['Scanning…', 'Reading the text…', 'Summarising…'].forEach((label, i) => setTimeout(() => {
+                status.textContent = label;
+                steps[i].classList.add('on');
+            }, i * 900));
+            setTimeout(() => { status.textContent = 'Done. Made-up memo.'; }, 2700);
+        });
+
+        // product, link, layers [ai, api, web, pay, infra]
         const RANGE = [
-            ["ApproveHR", "#approvehr", "HR and payroll", [1, 1, 1, 0, 0, 0], "team"],
-            ["EDMS", "#edms", "documents, government", [1, 1, 0, 0, 0, 1], "lead"],
-            ["Schull LMS", "#lms", "edtech", [0, 1, 0, 0, 1, 0], "sole"],
-            ["Kowane", "#kowane", "banking", [1, 1, 0, 0, 0, 0], "sole"],
-            ["Spotlight", "#spotlight", "hospitality", [0, 1, 0, 0, 1, 1], "sole"],
-            ["Trade Height", "#tradeheight", "trading", [0, 1, 1, 0, 0, 0], "sole"],
-            ["Safescrow", "#safescrow", "fintech", [0, 1, 1, 0, 1, 0], "sole"],
-            ["Device-owner app", "#hiber", "Android", [0, 0, 0, 1, 0, 0], "sole"],
+            ["ApproveHR", "#approvehr", "HR and payroll", [1, 1, 1, 0, 0]],
+            ["Kowane", "#kowane", "banking", [1, 1, 1, 1, 1]],
+            ["EDMS", "#edms", "documents, government", [1, 1, 0, 0, 1]],
+            ["Schull LMS", "#lms", "edtech", [0, 1, 0, 1, 0]],
+            ["Safescrow", "#safescrow", "fintech", [0, 1, 1, 1, 0]],
+            ["Spotlight", "#spotlight", "hospitality", [0, 1, 0, 1, 1]],
+            ["Trade Height", "#tradeheight", "trading", [0, 1, 1, 0, 0]],
         ];
         const LAYERS = [["AI", "t-hatch", "var(--ochre)"], ["API", "t-stripe", "var(--indigo)"], ["Web", "t-dot", "var(--sage)"],
-            ["Android", "t-hatch", "var(--rose)"], ["Pay", "t-stripe", "var(--clay)"], ["Infra", "t-dot", "var(--soft)"]];
+            ["Pay", "t-stripe", "var(--clay)"], ["Infra", "t-dot", "var(--soft)"]];
         const heads = document.getElementById('layer-heads');
         heads.outerHTML = LAYERS.map(([n, t, c]) => `<th><span class="tile ${t}" style="color:${c}"></span>${n}</th>`).join('');
-        document.getElementById('range-rows').innerHTML = RANGE.map(([name, href, what, layers, role]) =>
+        document.getElementById('range-rows').innerHTML = RANGE.map(([name, href, what, layers]) =>
             `<tr><td><a href="${href}">${name}</a><small>${what}</small></td>` +
-            layers.map((on, i) => `<td>${on ? `<span class="tile ${LAYERS[i][1]}" style="color:${LAYERS[i][2]}" aria-label="${LAYERS[i][0]}"></span>` : ''}</td>`).join('') +
-            `<td class="rolecol"><span class="role${role === 'lead' || role === 'sole' ? ' lead' : ''}">${role}</span></td></tr>`).join('');
+            layers.map((on, i) => `<td>${on ? `<span class="tile ${LAYERS[i][1]}" style="color:${LAYERS[i][2]}" aria-label="${LAYERS[i][0]}"></span>` : ''}</td>`).join('') + '</tr>').join('');
 
-        // the hero cloth: woven tiles like the wallpaper, laid out the same way every time
-        const INKS = ["var(--indigo)", "var(--indigo)", "var(--ochre)", "var(--sage)", "var(--clay)", "var(--rose)", "var(--indigo)"];
+        // the hero cloth: my portrait, woven in one dye from the wallpaper's tiles. Only this grid of tones is on the site, never the photo.
+        // 0 is the cloth around me; 1 to 5 run from darkest to lightest.
+        const PORTRAIT = ["000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000", "000000000000000000000000000000000000000000000000", "000000000000000004433345000000000000000000000000", "000000000000000432222233450000000000000000000000", "000000000000004211112223345000000000000000000000", "000000000000031111112222333400000000000000000000", "000000000000311112333454333440000000000000000000", "000000000000111233445555554445000000000000000000", "000000000002233333445555555544500000000000000000", "000000000031333333345555555554500000000000000000", "000000000022333333334555555554400000000000000000", "000000000012332222334445555555450000000000000000", "000000000023322112223334445555450000000000000000", "000000000323322211223333455555550000000000000000", "000000000333322222222334455555550000000000000000", "000000000033222222222344555555540000000000000000", "000000000044323333333344445555500000000000000000", "000000000443211111123332111124500000000000000000", "000000000343333333333333333334540000000000000000", "000000000443342222224342222233555000000000000000", "000000000333355111553445111543554000000000000000", "000000000042355111553445111544553000000000000000", "000000000043443333335554333345554000000000000000", "000000000043444444435555444445554000000000000000", "000000000043322222325555455555555000000000000000", "000000000043222222325555455544550000000000000000", "000000000042222223324555345554450000000000000000", "000000000043222213223444224444450000000000000000", "000000000033212222211331125444440000000000000000", "000000000003222111111111111444400000000000000000", "000000000003222111111111111444400000000000000000", "000000000003222113333333311444400000000000000000", "000000000003223333333334443444400000000000000000", "000000000004223222222223322444400000000000000000", "000000003443223334444334433444552233333334444000", "000000004334422222233344433444555223333333334450", "000000004444522111122223223445555533322223333445"];
         const WEAVE = ["t-stripe", "t-hatch", "t-dot"];
-        let seed = 7;
+        const TONE = { 1: ["t-solid", "var(--indigo)", 1], 2: ["t-stripe", "var(--indigo)", 0.95], 3: ["t-hatch", "var(--indigo)", 0.7],
+            4: ["t-dot", "var(--indigo)", 0.5], 5: ["t-dot", "var(--indigo)", 0.25] };
+        let seed = 11;
         const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-        document.getElementById('mosaic').innerHTML = Array.from({ length: 49 }, () => {
-            const r = rand(), size = r < 0.12 ? ' x' : r < 0.42 ? ' s' : '';
-            return `<i class="${WEAVE[Math.floor(rand() * 3)]}${size}" style="color:${INKS[Math.floor(rand() * INKS.length)]}"></i>`;
-        }).join('');
+        const mosaic = document.getElementById('mosaic');
+        mosaic.style.gridTemplateColumns = `repeat(${PORTRAIT[0].length}, 1fr)`;
+        mosaic.innerHTML = PORTRAIT.map(row => [...row].map(v => {
+            if (v === '0') return `<i class="${WEAVE[Math.floor(rand() * 3)]} bg"></i>`;
+            const [weave, ink, alpha] = TONE[v];
+            return `<i class="${weave}" style="color:${ink};opacity:${alpha}"></i>`;
+        }).join('')).join('');
 
         const links = [...document.querySelectorAll('.index a')];
         const targets = links.map(a => document.querySelector(a.getAttribute('href')));

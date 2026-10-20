@@ -5,20 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How an assistant reads payroll without leaking it</title>
-    <meta name="description" content="A case study on building an AI assistant inside an HR and payroll platform, where the model is never trusted to decide who may see what.">
+    <meta name="description" content="How I built the engine behind ApproveHR's assistant, where the AI only ever gets what the person asking is allowed to see.">
     <meta name="author" content="Tolulope Joel">
     <meta property="og:title" content="How an assistant reads payroll without leaking it">
-    <meta property="og:description" content="A case study on building an AI assistant inside an HR and payroll platform, where the model is never trusted to decide who may see what.">
+    <meta property="og:description" content="How I built the engine behind ApproveHR's assistant, where the AI only ever gets what the person asking is allowed to see.">
     <meta property="og:type" content="article">
+    <meta property="og:image" content="https://tolulopejoel.github.io/portfolio-assets/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/svg+xml" href="portfolio-assets/favicon.svg">
     <link rel="apple-touch-icon" href="portfolio-assets/apple-touch-icon.png">
-    <meta name="theme-color" content="#0A736F">
-    <meta property="og:image" content="portfolio-assets/og.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <!-- On deploy: make og:image an ABSOLUTE url (https://yourdomain/portfolio-assets/og.jpg).
-         LinkedIn and some scrapers will not resolve a relative one. Add a canonical here too. -->
+    <meta name="theme-color" content="#17263F">
     <link rel="preconnect" href="https://api.fontshare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,44 +41,35 @@
 
             <article class="case">
             <div class="case-head">
-                            <p class="case-kicker">Case study · production</p>
-                            <h1 class="case-title">How an assistant reads payroll<br>without leaking it</h1>
-                            <p class="case-standfirst">ApproveHR runs HR and payroll for Nigerian companies. Putting an assistant
-                                inside it means every answer is a potential disclosure, and the model is the last thing you should
-                                trust to decide who may see what.</p>
-                        </div>
+                <p class="case-kicker">Case study · ApproveHR assistant</p>
+                <h1 class="case-title">How an assistant reads payroll<br>without leaking it</h1>
+                <p class="case-standfirst">ApproveHR runs HR and payroll for Nigerian companies, so every answer the assistant gives could leak something. Honestly, the hardest part wasn't the code. It was picking the approach.</p>
+            </div>
 
-                        <div class="case-facts">
-                            <span><b>Role</b> &nbsp;built the assistant's query engine, backend and frontend</span>
-                            <span><b>Stack</b> &nbsp;TypeScript · Prisma · React · Gemini · SSE</span>
-                            <span><b>Status</b> &nbsp;in production at Schulltech</span>
-                        </div>
+            <div class="case-facts">
+                <span><b>Role</b> &nbsp;built the assistant's current engine, backend and frontend</span>
+                <span><b>Stack</b> &nbsp;TypeScript · Prisma · React · Gemini · SSE</span>
+                <span><b>Status</b> &nbsp;in production at Schulltech</span>
+            </div>
 
-                        <div class="clause">
-                            <p class="clause-no">01</p>
-                            <div class="clause-body">
-                                <h3>The obvious design is the dangerous one</h3>
-                                <p>The straightforward build gives the model broad database access and asks it, in the prompt, not to
-                                    reveal things it shouldn't. That works until someone phrases a question the prompt didn't
-                                    anticipate. <strong>Prompt instructions are a request, not a boundary.</strong> In a payroll
-                                    system the failure is one employee reading another's salary.</p>
-                                <p class="pull">The assistant should not be trusted with the rule. It should be unable to break it.</p>
-                            </div>
-                        </div>
+            <div class="clause">
+                <p class="clause-no">01</p>
+                <div class="clause-body">
+                    <h3>RAG? Let the AI write SQL? Neither</h3>
+                    <p>I tried RAG. I tried letting the AI write SQL and fetch the data itself. I experimented with all of them.</p>
+                    <p>But ApproveHR isn't a messy database. The tables are fixed, the rules are fixed, and the permissions are already set. So the best thing was a catalogue: every module in the app, what can be asked about it, and who's allowed to ask. The AI just picks what it needs from there, and that worked just fine.</p>
+                </div>
+            </div>
 
-                        <div class="clause">
-                            <p class="clause-no">02</p>
-                            <div class="clause-body">
-                                <h3>The catalogue is built from permissions</h3>
-                                <p>Rather than filtering results after the model asks, the catalogue declares every queryable entity
-                                    and field along with the permission it requires and the rows a caller may see. The model gets one
-                                    read-only query tool, and the schema behind it is <strong>built per request from the asking user's
-                                    own permissions</strong>. A field the caller can't see arrives redacted: the model learns only
-                                    whether a value exists, never what it is.</p>
-                                <p>The server enforces the same catalogue when the query runs. A model that guessed the name of a
-                                    hidden field still gets nothing back.</p>
-                                </div>
-                            <div class="case-diagram">
+            <div class="clause">
+                <p class="clause-no">02</p>
+                <div class="clause-body">
+                    <h3>The catalogue is built from your permissions</h3>
+                    <p>Every field in the catalogue says what permission you need to see it, and which rows you're allowed to see. On every request, the AI gets one read-only query tool and a version of the catalogue built from the asking person's own permissions.</p>
+                    <p>A field you can't see arrives redacted: the AI only learns that a value exists, never what it is. And the server checks the same rules again when the query runs, so even if the AI guessed the name of a hidden field, it gets nothing back.</p>
+                    <p class="pull">So even if it wanted to spill your salary, it can't. It never had it.</p>
+                </div>
+<div class="case-diagram">
                                 <svg viewBox="0 0 900 400" role="img" aria-label="Request path: a question is answered only through tools the asking user's own permissions generated.">
                                     <defs>
                                         <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -131,34 +118,36 @@
                                 <p class="diagram-cap">Permissions shape the tools before the model sees them. Filtering after the
                                     fact leaves a window where the data has already been read.</p>
                             </div>
+            </div>
 
-                        </div>
+            <div class="clause">
+                <p class="clause-no">03</p>
+                <div class="clause-body">
+                    <h3>Read-only, on purpose</h3>
+                    <p>We don't want an AI making changes to people's data, especially payroll. So this engine only reads. If you want something changed, you change it yourself.</p>
+                </div>
+            </div>
 
-                        <div class="clause">
-                            <p class="clause-no">03</p>
-                            <div class="clause-body">
-                                <h3>Streamed, with a ceiling</h3>
-                                <p>Answers stream over server-sent events as they're written, so nobody stares at a spinner. A turn
-                                    can make at most four calls, and if the person closes the tab, the turn stops instead of spending
-                                    tokens on nobody.</p>
-                            </div>
-                        </div>
+            <div class="clause">
+                <p class="clause-no">04</p>
+                <div class="clause-body">
+                    <h3>Streamed, with a ceiling</h3>
+                    <p>Answers stream in as they're written, so nobody's staring at a spinner. A turn can make at most four calls. And if you close the tab, the turn stops, instead of spending tokens on nobody.</p>
+                </div>
+            </div>
 
-                        <div class="clause">
-                            <p class="clause-no">04</p>
-                            <div class="clause-body">
-                                <h3>What it costs, and what it saw</h3>
-                                <p>Token spend is metered per organisation across a daily and a monthly window, so a runaway
-                                    conversation is visible before it's an invoice. Every turn writes a trace, and because those
-                                    traces carry real pay figures and leave reasons, verbosity is a setting rather than a constant:
-                                    full detail while debugging, timings only in normal running, off entirely when it should be.</p>
-                            </div>
-                        </div>
-                        </article>
+            <div class="clause">
+                <p class="clause-no">05</p>
+                <div class="clause-body">
+                    <h3>What it costs, and what it saw</h3>
+                    <p>Token spend is counted per company, per day and per month, so a runaway conversation shows up before it becomes an invoice. Every turn writes a trace. But traces carry real pay figures, so how much they record is a setting: everything while I'm debugging, just timings normally, and off when it should be off.</p>
+                </div>
+            </div>
+            </article>
 
             <div class="case-next">
-                <span class="label">The other one</span>
-                <a href="case-evals.html">How do you know the agent is right? ↗</a>
+                <span class="label">Next one</span>
+                <a href="case-fairness.html">Your manager rated you a 2. Your work says 4. ↗</a>
             </div>
         </div>
     </section>

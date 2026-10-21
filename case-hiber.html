@@ -18,30 +18,36 @@
     <link rel="preconnect" href="https://api.fontshare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio-assets/site.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-assets/home.css">
+    <link rel="stylesheet" href="portfolio-assets/case.css">
 </head>
 
-<body>
+<body style="--c:var(--rose)">
 
     <nav>
-        <a href="index.html" class="nav-logo">Tolulope Joel</a>
-        <ul class="nav-links">
-            <li><a href="index.html#approvehr">Work</a></li>
-            <li><a href="index.html#writing">Writing</a></li>
-            <li><a href="index.html#experience">Experience</a></li>
-            <li><a href="index.html#contact" class="nav-status"><span class="status-dot"></span>Open to work</a></li>
-        </ul>
+        <div class="wrap">
+            <a href="index.html" class="logo"><span class="tile t-hatch"></span>Tolulope Joel</a>
+            <ul class="index">
+                <li><a href="index.html#approvehr">Work</a></li>
+                <li><a href="index.html#range">Range</a></li>
+                                <li><a href="index.html#writing" class="on">Writing</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <a href="index.html#contact" class="open">Open to work</a>
+        </div>
     </nav>
 
     <section class="case-page" id="case-studies">
-        <div class="container">
+        <div class="wrap">
             <a class="backlink" href="index.html">← Back to everything else</a>
 
             <article class="case">
             <div class="case-head">
-                <p class="case-kicker">Case study · Android</p>
+                <p class="case-kicker"><span class="tile t-solid"></span>Case study · Android device-owner app</p>
                 <h1 class="case-title">The phone that deleted<br>my alarms</h1>
                 <p class="case-standfirst">My life was honestly miserable. My sleep was bad, and bad sleep was messing up every other part of my life. I needed something that would force me out of the habit, without being a cage.</p>
             </div>
@@ -50,6 +56,14 @@
                 <span><b>Role</b> &nbsp;the whole thing</span>
                 <span><b>Stack</b> &nbsp;Kotlin · Android device-owner APIs · AlarmManager · adb</span>
                 <span><b>Device</b> &nbsp;TECNO KM6, HiOS on Android 15</span>
+            </div>
+            <div class="built">
+                <p class="built-label">What I built</p>
+                <ul>
+                    <li>A Kotlin device-owner app that runs the phone on a schedule: app locks, hotspot and network rules, and a home-screen widget</li>
+                    <li>Traced TECNO HiOS's freezer silently removing AlarmManager alarms, proved four standard fixes fail, and found the widget exemption</li>
+                    <li>Redesigned for alarms that don't fire: re-check the schedule on the first sign of life, and trust PowerManager over screen-on broadcasts</li>
+                </ul>
             </div>
 
             <div class="clause">
@@ -84,7 +98,7 @@
                                             <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
                                         </marker>
                                     </defs>
-                                    <g font-family="JetBrains Mono, monospace" font-size="12">
+                                    <g font-family="Courier Prime, Courier New, monospace" font-size="12">
                                         <text x="16" y="28" fill="var(--ink-faint)" font-size="11">WITHOUT A WIDGET</text>
                                         <rect x="16" y="44" width="150" height="48" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
                                         <text x="91" y="66" text-anchor="middle" fill="var(--ink)">run</text>
@@ -121,7 +135,7 @@
                                         <path d="M646 216 H712" marker-end="url(#ar)"/>
                                         <path d="M800 240 V290 H91 V244" marker-end="url(#ar)"/>
                                     </g>
-                                    <text x="445" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-faint)">the chain keeps going</text>
+                                    <text x="445" y="310" text-anchor="middle" font-family="Courier Prime, Courier New, monospace" font-size="10" fill="var(--ink-faint)">the chain keeps going</text>
                                 </svg>
                                 <p class="diagram-cap">The schedule is a chain of alarms. Hiber cuts it a few seconds after each run,
                                     unless the app has a widget on the home screen.</p>
@@ -167,18 +181,16 @@
             </article>
 
             <div class="case-next">
-                <span class="label">Next one</span>
+                <span class="label">Next case study</span>
                 <a href="case-payroll.html">How an assistant reads payroll without leaking it ↗</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Tolulope Joel · Built by me, for obvious reasons.</p>
-        <div class="footer-links">
-            <a href="index.html">Portfolio</a>
-            <a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a>
-            <a href="mailto:toluisjoel@gmail.com">Email</a>
+    <footer class="site-foot">
+        <div class="wrap">
+            <p>© 2026 Tolulope Joel · Built by me, for obvious reasons. <span class="yo">Ẹ ṣé</span> for scrolling this far.</p>
+            <p><a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/tolu-joel" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:toluisjoel@gmail.com">Email</a></p>
         </div>
     </footer>
 

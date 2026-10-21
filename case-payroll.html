@@ -18,38 +18,52 @@
     <link rel="preconnect" href="https://api.fontshare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio-assets/site.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-assets/home.css">
+    <link rel="stylesheet" href="portfolio-assets/case.css">
 </head>
 
-<body>
+<body style="--c:var(--indigo)">
 
     <nav>
-        <a href="index.html" class="nav-logo">Tolulope Joel</a>
-        <ul class="nav-links">
-            <li><a href="index.html#approvehr">Work</a></li>
-            <li><a href="index.html#writing">Writing</a></li>
-            <li><a href="index.html#experience">Experience</a></li>
-            <li><a href="index.html#contact" class="nav-status"><span class="status-dot"></span>Open to work</a></li>
-        </ul>
+        <div class="wrap">
+            <a href="index.html" class="logo"><span class="tile t-hatch"></span>Tolulope Joel</a>
+            <ul class="index">
+                <li><a href="index.html#approvehr">Work</a></li>
+                <li><a href="index.html#range">Range</a></li>
+                                <li><a href="index.html#writing" class="on">Writing</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <a href="index.html#contact" class="open">Open to work</a>
+        </div>
     </nav>
 
     <section class="case-page" id="case-studies">
-        <div class="container">
+        <div class="wrap">
             <a class="backlink" href="index.html">← Back to everything else</a>
 
             <article class="case">
             <div class="case-head">
-                <p class="case-kicker">Case study · ApproveHR assistant</p>
+                <p class="case-kicker"><span class="tile t-solid"></span>Case study · ApproveHR assistant</p>
                 <h1 class="case-title">How an assistant reads payroll<br>without leaking it</h1>
                 <p class="case-standfirst">ApproveHR runs HR and payroll for Nigerian companies, so every answer the assistant gives could leak something. Honestly, the hardest part wasn't the code. It was picking the approach.</p>
             </div>
 
             <div class="case-facts">
                 <span><b>Role</b> &nbsp;built the assistant's current engine, backend and frontend</span>
-                <span><b>Stack</b> &nbsp;TypeScript · Prisma · React · Gemini · SSE</span>
+                <span><b>Stack</b> &nbsp;TypeScript · Prisma · React · SSE</span>
                 <span><b>Status</b> &nbsp;in production at Schulltech</span>
+            </div>
+            <div class="built">
+                <p class="built-label">What I built</p>
+                <ul>
+                    <li>A query catalogue built per request from the caller's permissions: fields gated, rows scoped, protected fields redacted, and the same rules enforced again on the server</li>
+                    <li>An LLM adapter with server-sent-event streaming, a four-call cap per turn and cancel-on-disconnect</li>
+                    <li>Per-organisation daily and monthly token budgets with an in-app gauge, and per-turn traces with four verbosity levels, backed by 47 tests</li>
+                </ul>
             </div>
 
             <div class="clause">
@@ -85,7 +99,7 @@
                                         <path d="M578 300 H660 V120 H600" marker-end="url(#ar)"/>
                                     </g>
 
-                                    <g font-family="JetBrains Mono, monospace" font-size="12">
+                                    <g font-family="Courier Prime, Courier New, monospace" font-size="12">
                                         <rect x="16" y="36" width="132" height="44" rx="3" fill="var(--paper)" stroke="var(--line-strong)"/>
                                         <text x="82" y="63" text-anchor="middle" fill="var(--ink)">question</text>
 
@@ -146,18 +160,16 @@
             </article>
 
             <div class="case-next">
-                <span class="label">Next one</span>
+                <span class="label">Next case study</span>
                 <a href="case-fairness.html">Your manager rated you a 2. Your work says 4. ↗</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Tolulope Joel · Built by me, for obvious reasons.</p>
-        <div class="footer-links">
-            <a href="index.html">Portfolio</a>
-            <a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a>
-            <a href="mailto:toluisjoel@gmail.com">Email</a>
+    <footer class="site-foot">
+        <div class="wrap">
+            <p>© 2026 Tolulope Joel · Built by me, for obvious reasons. <span class="yo">Ẹ ṣé</span> for scrolling this far.</p>
+            <p><a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/tolu-joel" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:toluisjoel@gmail.com">Email</a></p>
         </div>
     </footer>
 

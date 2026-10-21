@@ -18,38 +18,52 @@
     <link rel="preconnect" href="https://api.fontshare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio-assets/site.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-assets/home.css">
+    <link rel="stylesheet" href="portfolio-assets/case.css">
 </head>
 
-<body>
+<body style="--c:var(--ochre)">
 
     <nav>
-        <a href="index.html" class="nav-logo">Tolulope Joel</a>
-        <ul class="nav-links">
-            <li><a href="index.html#approvehr">Work</a></li>
-            <li><a href="index.html#writing">Writing</a></li>
-            <li><a href="index.html#experience">Experience</a></li>
-            <li><a href="index.html#contact" class="nav-status"><span class="status-dot"></span>Open to work</a></li>
-        </ul>
+        <div class="wrap">
+            <a href="index.html" class="logo"><span class="tile t-hatch"></span>Tolulope Joel</a>
+            <ul class="index">
+                <li><a href="index.html#approvehr">Work</a></li>
+                <li><a href="index.html#range">Range</a></li>
+                                <li><a href="index.html#writing" class="on">Writing</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <a href="index.html#contact" class="open">Open to work</a>
+        </div>
     </nav>
 
     <section class="case-page" id="case-studies">
-        <div class="container">
+        <div class="wrap">
             <a class="backlink" href="index.html">← Back to everything else</a>
 
             <article class="case">
             <div class="case-head">
-                <p class="case-kicker">Case study · ApproveHR fairness</p>
+                <p class="case-kicker"><span class="tile t-solid"></span>Case study · ApproveHR fairness check</p>
                 <h1 class="case-title">Your manager rated you a 2.<br>Your work says 4.</h1>
                 <p class="case-standfirst">The company wanted ApproveHR to catch performance bias. So I sat with it and thought about where bias actually comes from. People get rated unfairly. Some people aren't paid enough for the work they do. And some people get paid more for doing, honestly, not much. This is what I built to catch that.</p>
             </div>
 
             <div class="case-facts">
                 <span><b>Role</b> &nbsp;the idea and the build, backend and frontend</span>
-                <span><b>Stack</b> &nbsp;TypeScript · Prisma · React · Gemini</span>
+                <span><b>Stack</b> &nbsp;TypeScript · Prisma · React</span>
                 <span><b>Looks at</b> &nbsp;gender, age, tenure, location, contract type, department, managers</span>
+            </div>
+            <div class="built">
+                <p class="built-label">What I built</p>
+                <ul>
+                    <li>Group comparisons across six dimensions and across managers, flagging the furthest group and re-checking the rest</li>
+                    <li>Privacy rules for small groups: anything under five people is hidden, and so is the next smallest, so nothing can be worked out by subtraction</li>
+                    <li>Evidence-weighted review flags, AI review notes written from anonymised facts and cached until their inputs change, and a required human decision before publishing</li>
+                </ul>
             </div>
 
             <div class="clause">
@@ -110,18 +124,16 @@
             </article>
 
             <div class="case-next">
-                <span class="label">Next one</span>
+                <span class="label">Next case study</span>
                 <a href="case-evals.html">How do you know the agent is right? ↗</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Tolulope Joel · Built by me, for obvious reasons.</p>
-        <div class="footer-links">
-            <a href="index.html">Portfolio</a>
-            <a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a>
-            <a href="mailto:toluisjoel@gmail.com">Email</a>
+    <footer class="site-foot">
+        <div class="wrap">
+            <p>© 2026 Tolulope Joel · Built by me, for obvious reasons. <span class="yo">Ẹ ṣé</span> for scrolling this far.</p>
+            <p><a href="https://github.com/tolulopejoel" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/tolu-joel" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:toluisjoel@gmail.com">Email</a></p>
         </div>
     </footer>
 

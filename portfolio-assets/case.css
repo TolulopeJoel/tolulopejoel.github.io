@@ -1,0 +1,60 @@
+/* Case studies, on top of home.css so both pages share one look. Each page sets --c to its project's colour. */
+:root {
+    --paper: var(--card);
+    --surface: var(--card);
+    --ink: var(--indigo);
+    --ink-soft: var(--soft);
+    --ink-faint: var(--faint);
+    --line-strong: var(--line-2);
+}
+body { --accent: var(--c); --accent-dim: color-mix(in srgb, var(--c) 12%, transparent); }
+
+.case-page { padding: 64px 0 40px; }
+.case-page .wrap { max-width: 1060px; }
+
+.backlink { display: inline-block; font: 400 14.5px 'Courier Prime', monospace; color: var(--soft); text-decoration: none;
+    border-bottom: 1px solid var(--line-2); padding-bottom: 2px; margin-bottom: 40px; }
+.backlink:hover { color: var(--c); border-color: var(--c); }
+
+.case-head { max-width: 780px; }
+.case-kicker { display: flex; align-items: center; gap: 10px; font: 700 13px/1 'Courier Prime', monospace; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--c); }
+.case-title { font: 700 clamp(1.9rem, 4.4vw, 3rem)/1.1 'Courier Prime', monospace; margin-top: 16px; letter-spacing: -0.005em; }
+.case-standfirst { font-size: 1.15rem; line-height: 1.6; color: var(--soft); max-width: 60ch; margin-top: 18px; }
+
+.case-facts { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 28px; padding: 14px 0; border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line); font: 400 14px 'Courier Prime', monospace; color: var(--faint); overflow-wrap: anywhere; }
+.case-facts b { color: var(--indigo); font-weight: 700; }
+
+.built { margin-top: 24px; padding: 16px 20px 18px; background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--c);
+    border-radius: var(--r); }
+.built-label { font: 700 12px 'Courier Prime', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c); }
+.built ul { margin: 10px 0 0 18px; display: flex; flex-direction: column; gap: 7px; }
+.built li { font-size: 15.5px; line-height: 1.5; color: var(--indigo); }
+
+.clause { display: grid; grid-template-columns: 64px 1fr; gap: 0 36px; padding: 48px 0; border-bottom: 1px dashed var(--line-2); }
+.clause-no { font: 700 14px 'Courier Prime', monospace; color: var(--c); padding-top: 6px; }
+.clause-body { min-width: 0; max-width: 66ch; display: flex; flex-direction: column; gap: 20px; }
+.clause h3 { font: 700 1.3rem/1.3 'Courier Prime', monospace; }
+.clause p { font-size: 1.08rem; line-height: 1.7; color: var(--soft); }
+.clause p strong { color: var(--indigo); font-weight: 600; }
+.clause code { font: 400 0.9em 'Courier Prime', monospace; background: var(--accent-dim); padding: 0.1em 0.35em; border-radius: 2px; color: var(--indigo); }
+
+.pull { border-left: 2px solid var(--c); padding: 2px 0 2px 18px; font: 700 1.12rem/1.45 'Courier Prime', monospace; color: var(--indigo); }
+
+.case-diagram { grid-column: 1 / -1; min-width: 0; margin-top: 28px; padding: 28px 22px 20px; background: var(--cotton-2);
+    border: 1px solid var(--line); border-radius: var(--r); overflow-x: auto; }
+.case-diagram svg { display: block; width: 100%; min-width: 720px; height: auto; }
+.diagram-cap { font-size: 13.5px; color: var(--faint); margin-top: 14px; line-height: 1.55; }
+
+.case-next { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line-2); display: flex; flex-wrap: wrap; gap: 12px 28px;
+    align-items: baseline; justify-content: space-between; }
+.case-next .label { font: 700 12px 'Courier Prime', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+.case-next a { font: 700 1.15rem 'Courier Prime', monospace; color: var(--indigo); text-decoration: none; border-bottom: 2px solid var(--c); padding-bottom: 2px; }
+.case-next a:hover { color: var(--c); }
+
+@media (max-width: 760px) {
+    .case-page { padding-top: 40px; }
+    .clause { grid-template-columns: 1fr; gap: 8px; padding: 36px 0; }
+    .clause-no { padding-top: 0; }
+}
